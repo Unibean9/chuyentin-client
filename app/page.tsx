@@ -356,14 +356,6 @@ function HexBadge({
   );
 }
 
-function MiniHex({ label }: { label: string }) {
-  return (
-    <span className="mini-hex grid size-10 place-items-center text-[0.64rem] font-black text-brand-deep">
-      {label}
-    </span>
-  );
-}
-
 function ExerciseMeta({ chips }: { chips: string[] }) {
   const [primary, secondary, count] = chips;
 
@@ -487,7 +479,7 @@ function DashboardMock() {
         alt="Dashboard Chuyên Tin hiển thị track học, bài luyện, mentor note và báo cáo phụ huynh"
         width={1536}
         height={1024}
-        sizes="(min-width: 1280px) 47vw, (min-width: 1024px) 50vw, 100vw"
+        sizes="(min-width: 1280px) 49vw, (min-width: 1024px) 52vw, 100vw"
         className="block h-auto w-full"
       />
     </div>
@@ -496,70 +488,14 @@ function DashboardMock() {
 
 function MentorMock() {
   return (
-    <div className="mentor-mock overflow-hidden rounded-2xl bg-white">
-      <div className="grid border-b border-border bg-[oklch(0.98_0.006_285)] px-5 py-4 md:grid-cols-[1fr_auto] md:items-center">
-        <div className="flex items-center gap-3">
-          <MiniHex label="DP" />
-          <div>
-            <p className="text-sm font-black text-muted-foreground">Bạn đang được mentor chữa bài</p>
-            <h3 className="text-lg font-black text-brand-deep">Dãy con tăng dài nhất</h3>
-          </div>
-        </div>
-        <button className="mt-3 h-10 rounded-lg bg-brand-deep px-4 text-sm font-black text-white md:mt-0">
-          Kết thúc buổi
-        </button>
-      </div>
-      <div className="grid lg:grid-cols-[1.05fr_0.75fr]">
-        <div className="border-r border-border bg-[oklch(0.98_0.004_285)] p-5 font-mono text-sm leading-7 text-[oklch(0.34_0.04_285)]">
-          <p>
-            <span className="text-brand-primary">for</span> i in range(n):
-          </p>
-          <p className="pl-5">dp[i] = 1</p>
-          <p className="pl-5">
-            <span className="text-brand-primary">for</span> j in range(i):
-          </p>
-          <p className="bg-[oklch(0.94_0.025_250)] pl-10">if a[j] &lt; a[i]:</p>
-          <p className="pl-14">dp[i] = max(dp[i], dp[j] + 1)</p>
-          <p className="mt-4 rounded-lg bg-[oklch(0.94_0.035_86)] p-3 font-sans text-sm font-bold text-[oklch(0.34_0.08_78)]">
-            Mentor: đoạn này đúng O(n²), nhưng đề chuyên có thể cần tối ưu hơn.
-          </p>
-        </div>
-        <div className="p-5">
-          <div className="flex gap-2">
-            {["Thảo luận", "Scratchpad", "Gợi ý"].map((tab, index) => (
-              <span
-                key={tab}
-                className={`rounded-full px-4 py-2 text-xs font-black ${
-                  index === 0 ? "bg-[oklch(0.91_0.04_280)] text-brand-primary" : "text-muted-foreground"
-                }`}
-              >
-                {tab}
-              </span>
-            ))}
-          </div>
-          <div className="mt-6 rounded-xl bg-[oklch(0.98_0.004_285)] p-4">
-            <p className="text-xs font-black text-muted-foreground">Mentor phụ trách</p>
-            <div className="mt-3 flex items-center gap-3">
-              <span className="grid size-12 place-items-center rounded-full bg-[oklch(0.9_0.08_86)] text-lg font-black text-brand-deep">
-                CT
-              </span>
-              <div>
-                <p className="font-black text-brand-deep">Mentor Chuyên Tin</p>
-                <p className="text-sm font-bold text-muted-foreground">C++ / HSG / Đề chuyên</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-5 space-y-4">
-            {["Con đã sửa test biên k = 0.", "Cần thử thêm mảng toàn phần tử bằng nhau.", "Tuần sau chuyển sang two pointers nâng cao."].map(
-              (message) => (
-                <p key={message} className="rounded-xl border border-border p-3 text-sm font-bold leading-6 text-muted-foreground">
-                  {message}
-                </p>
-              ),
-            )}
-          </div>
-        </div>
-      </div>
+    <div className="mentor-mock relative aspect-[3/2] overflow-hidden rounded-2xl bg-white">
+      <Image
+        src="/monhoc.png"
+        alt="Giao diện môn học Chuyên Tin với bài luyện, lộ trình và ghi chú mentor"
+        sizes="(min-width: 1440px) 88rem, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2.5rem)"
+        fill
+        className="object-cover object-center"
+      />
     </div>
   );
 }
@@ -673,9 +609,9 @@ export default function HomePage() {
 
       <div className="track-exercise-band border-y border-[oklch(0.9_0.026_292)]">
         <section id="tracks" className="relative px-5 pb-8 pt-16 md:px-8 md:pb-10 md:pt-20">
-          <div className="ornament ornament-bars left-[10%] top-[20%]" />
-          <div className="ornament ornament-square right-[18%] top-[18%]" />
-          <div className="ornament ornament-triangle right-[9%] top-[34%]" />
+          <div className="ornament ornament-bars left-[10%] top-[20%] hidden md:block" />
+          <div className="ornament ornament-square right-[18%] top-[18%] hidden md:block" />
+          <div className="ornament ornament-triangle right-[9%] top-[34%] hidden md:block" />
           <div className="mx-auto max-w-[88rem]">
             <Reveal>
               <SectionIntro
@@ -708,7 +644,7 @@ export default function HomePage() {
         </section>
 
         <section id="exercises" className="px-5 pb-14 pt-4 md:px-8 md:pb-[4.5rem] md:pt-6">
-          <div className="mx-auto grid max-w-[88rem] items-start gap-10 lg:grid-cols-[0.94fr_1.06fr] xl:gap-16">
+          <div className="mx-auto grid max-w-[88rem] items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] xl:gap-14">
             <div>
               <Reveal>
                 <SectionIntro
@@ -755,11 +691,11 @@ export default function HomePage() {
       </div>
 
       <section id="mentor" className="relative px-5 py-16 md:px-8 md:py-20">
-        <div className="ornament ornament-diamond left-[10%] top-[11%]" />
-        <div className="ornament ornament-bars left-[9%] top-[39%]" />
-        <div className="ornament ornament-square right-[20%] top-[14%]" />
-        <div className="ornament ornament-dots right-[18%] top-[34%]" />
-        <div className="ornament ornament-triangle right-[7%] top-[27%]" />
+        <div className="ornament ornament-diamond left-[10%] top-[11%] hidden md:block" />
+        <div className="ornament ornament-bars left-[9%] top-[39%] hidden md:block" />
+        <div className="ornament ornament-square right-[20%] top-[14%] hidden md:block" />
+        <div className="ornament ornament-dots right-[18%] top-[34%] hidden md:block" />
+        <div className="ornament ornament-triangle right-[7%] top-[27%] hidden md:block" />
         <div className="mx-auto grid max-w-[88rem] items-center gap-12 lg:grid-cols-[0.82fr_1fr]">
           <Reveal>
             <div className="flex min-h-[20rem] items-center justify-center lg:justify-center">
