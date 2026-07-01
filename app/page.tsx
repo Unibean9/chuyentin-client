@@ -7,9 +7,7 @@ import {
   ArrowRight,
   BookOpenCheck,
   BrainCircuit,
-  CalendarCheck,
   ChevronRight,
-  Code2,
   FileText,
   LineChart,
   MessageCircle,
@@ -18,13 +16,11 @@ import {
   SquareTerminal,
   Users,
 } from "lucide-react";
-
-const navItems = [
-  { label: "Tracks", href: "#tracks" },
-  { label: "Bài luyện", href: "#exercises" },
-  { label: "Mentor", href: "#mentor" },
-  { label: "Phụ huynh", href: "#parents" },
-];
+import { LearningPathFlow } from "@/components/landing/learning-path-flow";
+import { TracksMountainBackdrop } from "@/components/landing/tracks-mountain-backdrop";
+import { TracksSectionDecor } from "@/components/landing/tracks-section-decor";
+import { Footer } from "@/components/layout/footer";
+import { Header, LogoMark } from "@/components/layout/header";
 
 const tracks = [
   {
@@ -184,56 +180,6 @@ const mentorReasons = [
   },
 ];
 
-const footerGroups = [
-  {
-    title: "Khóa học",
-    links: ["Ôn chuyên Tin 9 lên 10", "HSG Tin THCS", "C++ nền tảng", "Thi thử theo trường"],
-  },
-  {
-    title: "Phụ huynh",
-    links: ["Theo dõi tiến độ", "Báo cáo tuần", "Đánh giá đầu vào", "Cam kết học thật"],
-  },
-  {
-    title: "Tài nguyên",
-    links: ["Bài luyện mẫu", "Lộ trình C++", "Đề đọc thử", "Câu hỏi thường gặp"],
-  },
-  {
-    title: "Hỗ trợ",
-    links: ["Liên hệ tư vấn", "Lịch học", "Chính sách học bù", "Quy định lớp mentor"],
-  },
-  {
-    title: "Liên hệ",
-    links: ["tuvan@chuyentin.vn", "Facebook Chuyên Tin", "Zalo tư vấn", "Cộng đồng học sinh"],
-  },
-];
-
-const footerTracks = [
-  "C++",
-  "Python",
-  "Mảng",
-  "Xâu",
-  "Sắp xếp",
-  "Tìm kiếm",
-  "Đệ quy",
-  "Backtracking",
-  "Quy hoạch động",
-  "Đồ thị",
-  "BFS / DFS",
-  "Dijkstra",
-  "Toán rời rạc",
-  "Số học modulo",
-  "Tổ hợp",
-  "HSG Tin",
-  "Đề Ams",
-  "Đề KHTN",
-  "Đề CSP",
-  "Thi thử",
-  "Review code",
-  "Mentor 1-1",
-  "Báo cáo tuần",
-  "Lộ trình cá nhân",
-];
-
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
 function Reveal({
@@ -257,19 +203,6 @@ function Reveal({
     >
       {children}
     </motion.div>
-  );
-}
-
-function LogoMark({ inverted = false }: { inverted?: boolean }) {
-  return (
-    <span
-      className={`grid size-10 place-items-center rounded-lg ${
-        inverted ? "bg-white text-brand-deep" : "bg-brand-deep text-white"
-      }`}
-      aria-hidden="true"
-    >
-      <Code2 className="size-5" />
-    </span>
   );
 }
 
@@ -503,40 +436,7 @@ function MentorMock() {
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <header className="sticky top-0 z-40 border-b border-border bg-white/96 backdrop-blur">
-        <div className="mx-auto flex max-w-[88rem] items-center justify-between gap-4 px-5 py-4 md:px-8">
-          <a href="#" className="flex items-center gap-3" aria-label="Chuyên Tin">
-            <LogoMark />
-            <span className="font-display text-lg font-black tracking-[-0.025em] text-brand-deep">
-              Chuyên Tin
-            </span>
-          </a>
-
-          <nav className="hidden items-center gap-7 text-sm font-black text-muted-foreground md:flex">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="transition-colors hover:text-brand-primary">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <a
-              href="#parents"
-              className="hidden text-sm font-black text-muted-foreground transition-colors hover:text-brand-primary sm:block"
-            >
-              Phụ huynh
-            </a>
-            <a
-              href="#tu-van"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-black text-primary-foreground shadow-[0_4px_0_oklch(0.28_0.12_303)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40"
-            >
-              Đánh giá đầu vào
-              <ArrowRight className="size-4" />
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <section className="relative border-b border-[oklch(0.9_0.018_285)] px-5 pb-12 pt-12 md:px-8 md:pb-16 md:pt-16">
         <div className="hero-field absolute inset-0 -z-10" />
@@ -608,43 +508,40 @@ export default function HomePage() {
       </section>
 
       <div className="track-exercise-band border-y border-[oklch(0.9_0.026_292)]">
-        <section id="tracks" className="relative px-5 pb-8 pt-16 md:px-8 md:pb-10 md:pt-20">
-          <div className="ornament ornament-bars left-[10%] top-[20%] hidden md:block" />
-          <div className="ornament ornament-square right-[18%] top-[18%] hidden md:block" />
-          <div className="ornament ornament-triangle right-[9%] top-[34%] hidden md:block" />
-          <div className="mx-auto max-w-[88rem]">
+        <section id="tracks" className="tracks-section relative px-5 pb-8 pt-16 md:px-8 md:pb-10 md:pt-20">
+          <TracksMountainBackdrop />
+          <div className="tracks-section-inner mx-auto max-w-352">
             <Reveal>
-              <SectionIntro
-                centered
-                icon={<Route className="size-8" />}
-                title="Khám phá và thành thạo 12 track ôn thi chuyên Tin"
-                copy="Mỗi track là một đường luyện rõ ràng: học phần nền, làm bài nhỏ, gặp biến thể, rồi chốt bằng đề chuyên hoặc HSG."
-              />
+              <div className="tracks-intro-wrap">
+                <TracksSectionDecor />
+                <SectionIntro
+                  centered
+                  icon={<Route className="size-8" />}
+                  title="Lộ trình học, một đường đi rõ"
+                  copy="Đo nền → vá lỗi → luyện track → mentor báo cáo. Mỗi tuần biết việc tiếp theo."
+                />
+              </div>
             </Reveal>
 
-            <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
-              {tracks.map((track, index) => (
-                <Reveal key={track.name} delay={index * 0.025}>
-                  <HexBadge track={track} />
-                </Reveal>
-              ))}
-            </div>
+            <Reveal delay={0.06}>
+              <LearningPathFlow />
+            </Reveal>
 
-            <div className="relative mt-12 text-center">
+            <div className="relative mt-8 text-center">
               <div className="absolute left-0 right-0 top-1/2 h-px bg-[oklch(0.86_0.03_270)]" />
               <a
                 href="#exercises"
                 className="relative inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[oklch(0.91_0.04_270)] px-7 text-sm font-black text-brand-primary transition-transform hover:-translate-y-0.5"
               >
-                Xem bài luyện theo track
+                Xem bài luyện thật
                 <ArrowRight className="size-4" />
               </a>
             </div>
           </div>
         </section>
 
-        <section id="exercises" className="px-5 pb-14 pt-4 md:px-8 md:pb-[4.5rem] md:pt-6">
-          <div className="mx-auto grid max-w-[88rem] items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] xl:gap-14">
+        <section id="exercises" className="px-5 pb-14 pt-4 md:px-8 md:pb-18 md:pt-6">
+          <div className="mx-auto grid max-w-352 items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] xl:gap-14">
             <div>
               <Reveal>
                 <SectionIntro
@@ -766,97 +663,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer id="tu-van" className="footer-panel text-white">
-        <section className="border-t-8 border-[oklch(0.58_0.22_292)] px-5 py-12 md:px-8 md:py-16">
-          <div className="mx-auto grid max-w-[88rem] gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <a href="#" className="flex items-center gap-3" aria-label="Chuyên Tin">
-                <LogoMark inverted />
-                <span className="font-display text-xl font-black">Chuyên Tin</span>
-              </a>
-              <h2 className="mt-8 max-w-3xl text-balance text-[clamp(2.1rem,4.6vw,3.7rem)] font-black leading-[1.08] tracking-[-0.035em]">
-                Code practice và mentorship cho học sinh thi chuyên Tin.
-              </h2>
-              <p className="mt-4 max-w-3xl text-pretty text-lg font-semibold leading-8 text-white/76">
-                Học theo track, luyện bằng bài thật, sửa lỗi theo tuần và để phụ huynh nhìn thấy
-                tiến độ bằng dữ liệu dễ hiểu.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
-              <a
-                href="mailto:tuvan@chuyentin.vn?subject=Tu%20van%20lo%20trinh%20Chuyen%20Tin"
-                className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-primary px-7 text-base font-black text-white shadow-[0_5px_0_oklch(0.1_0.05_286)] transition-transform hover:-translate-y-0.5"
-              >
-                Đặt lịch đánh giá
-                <CalendarCheck className="size-5" />
-              </a>
-              <a
-                href="#tracks"
-                className="inline-flex h-14 items-center justify-center gap-2 rounded-lg border border-white/22 px-7 text-base font-black text-white transition-colors hover:bg-white/8"
-              >
-                Khám phá tracks
-                <ArrowRight className="size-5" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-white/14 px-5 py-12 md:px-8">
-          <div className="mx-auto max-w-[88rem]">
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-              {footerGroups.map((group) => (
-                <div key={group.title}>
-                  <h3 className="font-display text-lg font-black">{group.title}</h3>
-                  <ZigZag className="mt-4 text-[oklch(0.74_0.16_166)]" />
-                  <ul className="mt-5 space-y-3 text-sm font-bold text-white/68">
-                    {group.links.map((link) => (
-                      <li key={link}>
-                        <a href="#tu-van" className="transition-colors hover:text-white">
-                          {link}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 flex justify-center gap-4">
-              {["fb", "zl", "yt"].map((item) => (
-                <a
-                  key={item}
-                  href="#tu-van"
-                  className="grid size-12 place-items-center rounded-full bg-white/14 text-sm font-black uppercase text-white transition-colors hover:bg-white/22"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-
-            <div className="mt-12 border-y border-white/14 py-12">
-              <div className="text-center">
-                <h3 className="font-display text-3xl font-black">Các track ôn luyện</h3>
-                <ZigZag className="mx-auto mt-5 text-[oklch(0.74_0.16_166)]" />
-              </div>
-              <div className="mt-10 grid gap-x-8 gap-y-3 text-sm font-bold text-white/68 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-                {footerTracks.map((track) => (
-                  <a key={track} href="#tracks" className="transition-colors hover:text-white">
-                    {track}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-8 grid gap-5 text-sm font-semibold text-white/66 md:grid-cols-[1fr_auto] md:items-center">
-              <p>
-                Chuyên Tin là nền tảng ôn luyện và mentor cho học sinh THCS định hướng chuyên Tin.
-                Tư vấn lộ trình dựa trên bài làm thật, không cam kết kết quả tuyệt đối.
-              </p>
-              <p className="font-black text-white">© 2026 Chuyên Tin</p>
-            </div>
-          </div>
-        </section>
-      </footer>
+      <Footer />
     </main>
   );
 }

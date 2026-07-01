@@ -294,6 +294,519 @@
     position: relative;
   }
 
+  .trail-flow {
+    margin-inline: auto;
+    max-width: 76rem;
+    width: 100%;
+  }
+
+  .tracks-section {
+    isolation: isolate;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .tracks-section-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .tracks-mountain-bg {
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .tracks-mountain-bg-svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .tracks-mountain-far {
+    fill: oklch(0.91 0.035 292 / 0.55);
+  }
+
+  .tracks-mountain-mid {
+    fill: oklch(0.88 0.048 292 / 0.72);
+  }
+
+  .tracks-mountain-near {
+    fill: oklch(0.85 0.058 292 / 0.88);
+  }
+
+  .trail-frame {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+  }
+
+  .tracks-intro-wrap {
+    isolation: isolate;
+    margin-inline: auto;
+    max-width: 48rem;
+    overflow: visible;
+    position: relative;
+  }
+
+  .tracks-intro-wrap > :not(.tracks-intro-decor) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .tracks-intro-decor {
+    inset: -0.5rem -2.5rem -0.25rem;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .tracks-decor-piece {
+    opacity: 0.88;
+    position: absolute;
+  }
+
+  .tracks-decor-square {
+    height: 2.85rem;
+    left: 0;
+    top: 0.75rem;
+    width: 2.85rem;
+  }
+
+  .tracks-decor-dots {
+    height: 2.2rem;
+    left: 6%;
+    top: 58%;
+    width: 2.2rem;
+  }
+
+  .tracks-decor-lines {
+    bottom: 0.25rem;
+    height: 1.45rem;
+    left: 2%;
+    width: 2.1rem;
+  }
+
+  .tracks-decor-diamond {
+    height: 2.5rem;
+    right: 0;
+    top: 0.35rem;
+    width: 2.5rem;
+  }
+
+  .tracks-decor-triangle {
+    bottom: 0.35rem;
+    height: 2.1rem;
+    right: 5%;
+    width: 2.3rem;
+  }
+
+  @media (min-width: 768px) {
+    .tracks-intro-decor {
+      inset: -0.75rem -5.5rem -0.5rem;
+    }
+
+    .tracks-decor-square {
+      left: -1.5rem;
+    }
+
+    .tracks-decor-diamond {
+      right: -1.25rem;
+    }
+
+    .tracks-decor-triangle {
+      right: 0;
+    }
+  }
+
+  .trail-scene {
+    aspect-ratio: 1000 / 460;
+    min-height: clamp(15rem, 40vw, 21rem);
+    overflow: visible;
+    padding-bottom: clamp(2.5rem, 6vw, 4rem);
+    padding-inline: clamp(0.25rem, 1.5vw, 0.75rem);
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .trail-scene:not(.is-ready) .trail-stops,
+  .trail-scene:not(.is-ready) .trail-flag-copy {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .trail-scene-svg {
+    display: block;
+    width: 100%;
+  }
+
+  .trail-mountain-far,
+  .trail-mountain-mid,
+  .trail-mountain-near {
+    display: none;
+  }
+
+  .trail-path-rail {
+    fill: none;
+    animation: trail-march 1.1s linear infinite;
+    stroke: oklch(0.68 0.1 292);
+    stroke-dasharray: 14 16;
+    stroke-linecap: round;
+    stroke-width: 6;
+  }
+
+  .trail-path-glow {
+    fill: none;
+    stroke: oklch(1 0 0 / 0.72);
+    stroke-linecap: round;
+    stroke-width: 36;
+  }
+
+  .trail-path-road {
+    fill: none;
+    filter: drop-shadow(0 4px 14px oklch(0.45 0.12 292 / 0.18));
+    stroke: white;
+    stroke-linecap: round;
+    stroke-width: 26;
+  }
+
+  .trail-path-fill {
+    fill: none;
+    stroke: oklch(0.55 0.2 310);
+    stroke-dasharray: 1;
+    stroke-dashoffset: calc(1 - var(--trail-progress, 0));
+    stroke-linecap: round;
+    stroke-width: 5;
+  }
+
+  .trail-sparkle {
+    animation: trail-sparkle 2.6s ease-in-out infinite;
+    fill: oklch(0.55 0.2 310 / 0.65);
+  }
+
+  .trail-runner {
+    fill: oklch(0.55 0.2 310);
+    filter: drop-shadow(0 0 10px oklch(0.55 0.2 310 / 0.55));
+  }
+
+  .trail-flag-pole {
+    stroke: oklch(0.35 0.06 292);
+    stroke-linecap: round;
+    stroke-width: 3;
+  }
+
+  .trail-flag-cloth {
+    fill: oklch(0.58 0.22 25);
+  }
+
+  .trail-flag-copy {
+    left: var(--stop-x);
+    pointer-events: none;
+    position: absolute;
+    text-align: right;
+    top: var(--stop-y);
+    transform: translate(-88%, calc(-50% + 2.35rem));
+    width: 7rem;
+    z-index: 2;
+  }
+
+  .trail-stops {
+    inset: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .trail-stop {
+    left: var(--stop-x);
+    pointer-events: auto;
+    position: absolute;
+    top: var(--stop-y);
+    transform: none;
+    transition:
+      filter 0.5s ease,
+      opacity 0.5s ease;
+  }
+
+  .trail-stop.is-done {
+    z-index: 1;
+  }
+
+  .trail-stop-marker {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .trail-node {
+    align-items: center;
+    background: white;
+    border-radius: 999px;
+    box-shadow:
+      0 10px 24px oklch(0.55 0.2 310 / 0.14),
+      0 0 0 1px oklch(0.9 0.02 292);
+    display: inline-flex;
+    height: 3.65rem;
+    justify-content: center;
+    padding: 5px;
+    width: 3.65rem;
+  }
+
+  .trail-node-core {
+    align-items: center;
+    border-radius: 999px;
+    color: white;
+    display: inline-flex;
+    height: 100%;
+    justify-content: center;
+    transition:
+      background 0.45s ease,
+      box-shadow 0.45s ease;
+    width: 100%;
+  }
+
+  .trail-node-sm {
+    height: 2.75rem;
+    width: 2.75rem;
+  }
+
+  .trail-node-num {
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 1000;
+    letter-spacing: -0.02em;
+  }
+
+  .trail-node-num-sm {
+    font-size: 0.72rem;
+  }
+
+  .trail-copy {
+    left: 0;
+    margin-top: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translate(-50%, 1.95rem);
+    width: max(7.5rem, 10vw);
+  }
+
+  .trail-hint.is-placeholder {
+    visibility: hidden;
+  }
+
+  .trail-title {
+    color: oklch(0.24 0.1 292);
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    font-size: clamp(0.88rem, 1.35vw, 1.02rem);
+    font-weight: 1000;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .trail-status {
+    font-size: 0.7rem;
+    font-weight: 900;
+    margin-top: 0.18rem;
+    white-space: nowrap;
+  }
+
+  .trail-hint {
+    color: oklch(0.5 0.05 292);
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 0.12rem;
+  }
+
+  .trail-stop.is-pending {
+    filter: saturate(0.2);
+    opacity: 0.55;
+  }
+
+  .trail-stop.is-pending .trail-node-core {
+    background: oklch(0.5 0.04 292);
+  }
+
+  .trail-stop.is-pending .trail-title {
+    color: oklch(0.58 0.03 292);
+  }
+
+  .trail-stop.is-pending .trail-status {
+    color: oklch(0.64 0.03 292);
+  }
+
+  .trail-stop.is-done .trail-node-core {
+    background: oklch(0.62 0.16 152);
+  }
+
+  .trail-stop.is-done .trail-status {
+    color: oklch(0.48 0.14 152);
+  }
+
+  .trail-stop.is-done .trail-node-core {
+    transition:
+      background 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  @keyframes trail-march {
+    to {
+      stroke-dashoffset: -30;
+    }
+  }
+
+  @keyframes trail-sparkle {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .tracks-intro-decor {
+      inset: -0.25rem -1rem -0.15rem;
+    }
+
+    .tracks-decor-piece {
+      opacity: 0.62;
+      transform: scale(0.78);
+    }
+
+    .tracks-decor-dots {
+      left: 2%;
+      top: 54%;
+    }
+
+    .trail-frame {
+      padding: 0;
+    }
+
+    .trail-scene {
+      aspect-ratio: 1000 / 520;
+      min-height: clamp(18rem, 76vw, 24rem);
+      padding-bottom: 3.5rem;
+      padding-top: 2.75rem;
+    }
+
+    .trail-sparkle {
+      display: none;
+    }
+
+    .trail-node {
+      height: 2.55rem;
+      padding: 3px;
+      width: 2.55rem;
+    }
+
+    .trail-node .size-5 {
+      height: 0.9rem;
+      width: 0.9rem;
+    }
+
+    .trail-node-num {
+      font-size: 0.72rem;
+    }
+
+    .trail-copy {
+      width: 5.25rem;
+    }
+
+    .trail-title {
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+
+    .trail-status {
+      font-size: 0.62rem;
+    }
+
+    .trail-hint {
+      display: none;
+    }
+
+    /* Xen kẽ: phase lẻ (01, 03) chữ dưới — phase chẵn (02, 04) chữ trên */
+    .trail-stop:nth-child(odd) .trail-copy {
+      text-align: center;
+      transform: translate(-50%, 1.6rem);
+    }
+
+    .trail-stop:nth-child(even) .trail-copy {
+      text-align: center;
+      transform: translate(-50%, calc(-100% - 1.6rem));
+    }
+
+    .trail-flag-copy {
+      text-align: center;
+      transform: translate(-50%, 1.65rem);
+      width: 5rem;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .trail-scene {
+      min-height: clamp(17rem, 80vw, 22rem);
+      padding-bottom: 3.75rem;
+      padding-top: 2.5rem;
+    }
+
+    .trail-copy {
+      width: 4.75rem;
+    }
+
+    .trail-stop:nth-child(odd) .trail-copy {
+      transform: translate(-50%, 1.5rem);
+    }
+
+    .trail-stop:nth-child(even) .trail-copy {
+      transform: translate(-50%, calc(-100% - 1.5rem));
+    }
+
+    .trail-flag-copy {
+      transform: translate(-50%, 1.55rem);
+      width: 4.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trail-path-rail {
+      animation: none;
+    }
+
+    .trail-path-fill {
+      stroke-dashoffset: calc(1 - var(--trail-progress, 0.84));
+    }
+
+    .trail-stop,
+    .trail-stop-marker,
+    .trail-node,
+    .trail-node-core {
+      transition: none;
+    }
+
+    .trail-sparkle {
+      animation: none;
+      opacity: 0.55;
+    }
+  }
+
   .mini-hex,
   .mini-section-hex {
     clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
