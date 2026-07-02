@@ -141,14 +141,14 @@ export function HeroContent({
     return (
       <div className="relative z-10 flex max-w-[54%] flex-col items-start gap-1.5">
         <a
-          href="#tu-van"
+          href="#danh-gia"
           className="inline-flex h-8 items-center justify-center gap-1 rounded-md bg-primary px-2.5 text-[0.6875rem] font-black leading-tight text-primary-foreground shadow-[0_3px_0_oklch(0.28_0.12_303)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40"
         >
           Bắt đầu đánh giá
           <ArrowRight className="size-3 shrink-0" />
         </a>
         <a
-          href="#tracks"
+          href="#exercises"
           className="inline-flex h-8 items-center justify-center gap-1 rounded-md bg-white px-2.5 text-[0.6875rem] font-black leading-tight text-brand-primary ring-2 ring-brand-primary/65 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/30"
         >
           Xem lộ trình
@@ -180,14 +180,14 @@ export function HeroContent({
 
         <div className="absolute bottom-0 left-0 z-10 flex max-w-[54%] flex-col items-start gap-1.5">
           <a
-            href="#tu-van"
+            href="#danh-gia"
             className="inline-flex h-8 items-center justify-center gap-1 rounded-md bg-primary px-2.5 text-[0.6875rem] font-black leading-tight text-primary-foreground shadow-[0_3px_0_oklch(0.28_0.12_303)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40"
           >
             Bắt đầu đánh giá
             <ArrowRight className="size-3 shrink-0" />
           </a>
           <a
-            href="#tracks"
+            href="#exercises"
             className="inline-flex h-8 items-center justify-center gap-1 rounded-md bg-white px-2.5 text-[0.6875rem] font-black leading-tight text-brand-primary ring-2 ring-brand-primary/65 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/30"
           >
             Xem lộ trình
@@ -225,7 +225,7 @@ export function HeroContent({
           className="mt-8 flex flex-col gap-4 sm:flex-row"
         >
           <motion.a
-            href="#tu-van"
+            href="#danh-gia"
             whileHover={motionReduced ? undefined : { y: -3, scale: 1.02 }}
             whileTap={motionReduced ? undefined : { y: 0, scale: 0.98 }}
             transition={{ type: "spring", stiffness: 520, damping: 28 }}
@@ -235,7 +235,7 @@ export function HeroContent({
             <ArrowRight className="size-5" />
           </motion.a>
           <motion.a
-            href="#tracks"
+            href="#exercises"
             whileHover={motionReduced ? undefined : { y: -3, scale: 1.02 }}
             whileTap={motionReduced ? undefined : { y: 0, scale: 0.98 }}
             transition={{ type: "spring", stiffness: 520, damping: 28 }}

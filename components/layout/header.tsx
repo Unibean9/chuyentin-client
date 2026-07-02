@@ -1,12 +1,8 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { HeaderMobileMenu } from "./header-mobile-menu";
 
-const navItems = [
-  { label: "Lộ trình", href: "#tracks" },
-  { label: "Bài luyện", href: "#exercises" },
-  { label: "Mentor", href: "#mentor" },
-  { label: "Phụ huynh", href: "#parents" },
-];
+const navItems = ["Giới thiệu", "Chương trình học", "Về chúng tôi"] as const;
 
 export function LogoMark() {
   return (
@@ -40,23 +36,23 @@ export function Header() {
         </a>
 
         <nav className="hidden items-center gap-7 text-sm font-black text-muted-foreground md:flex">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="transition-colors hover:text-brand-primary">
-              {item.label}
-            </a>
+          {navItems.map((label) => (
+            <button
+              key={label}
+              type="button"
+              className="cursor-pointer transition-colors hover:text-brand-primary"
+            >
+              {label}
+            </button>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
+          <HeaderMobileMenu />
+
           <a
-            href="#parents"
-            className="hidden text-sm font-black text-muted-foreground transition-colors hover:text-brand-primary sm:block"
-          >
-            Phụ huynh
-          </a>
-          <a
-            href="#tu-van"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-black text-primary-foreground shadow-[0_4px_0_oklch(0.28_0.12_303)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40"
+            href="#danh-gia"
+            className="hidden h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-black text-primary-foreground shadow-[0_4px_0_oklch(0.28_0.12_303)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40 md:inline-flex"
           >
             Đánh giá đầu vào
             <ArrowRight className="size-4" />

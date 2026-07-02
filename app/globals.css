@@ -359,6 +359,73 @@
     background-size: auto, auto, 32px 32px, 32px 32px, auto;
   }
 
+  .why-us-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 63.99rem) {
+    .why-us-area-photoC {
+      order: 1;
+    }
+
+    .why-us-area-photoB {
+      order: 2;
+    }
+
+    .why-us-area-photoA {
+      order: 3;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .why-us-grid {
+      grid-template-columns: 0.95fr 1.05fr 1.05fr 0.95fr;
+      grid-template-rows: repeat(3, minmax(12rem, auto));
+      grid-template-areas:
+        "photoA card1 card2 photoB"
+        "photoA card3 card4 photoB"
+        "card5 photoC photoC card6";
+    }
+
+    .why-us-area-photoA {
+      grid-area: photoA;
+    }
+
+    .why-us-area-photoB {
+      grid-area: photoB;
+    }
+
+    .why-us-area-photoC {
+      grid-area: photoC;
+    }
+
+    .why-us-area-card1 {
+      grid-area: card1;
+    }
+
+    .why-us-area-card2 {
+      grid-area: card2;
+    }
+
+    .why-us-area-card3 {
+      grid-area: card3;
+    }
+
+    .why-us-area-card4 {
+      grid-area: card4;
+    }
+
+    .why-us-area-card5 {
+      grid-area: card5;
+    }
+
+    .why-us-area-card6 {
+      grid-area: card6;
+    }
+  }
+
   .hex-shell {
     filter: drop-shadow(0 6px 0 oklch(0.2 0.05 285 / 0.13));
   }

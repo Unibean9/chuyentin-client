@@ -1,10 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import type { ReactNode } from "react";
 import {
-  ArrowRight,
   BookOpenCheck,
   BrainCircuit,
   LineChart,
@@ -14,11 +11,13 @@ import {
   SquareTerminal,
   Users,
 } from "lucide-react";
+import FAQSection from "@/app/(landing)/components/FAQ/page";
+import FirstTest from "@/app/(landing)/components/first-test/page";
 import Hero from "@/app/(landing)/components/hero/page";
-import { LearningPathFlow } from "@/components/landing/learning-path-flow";
-import { TracksMountainBackdrop } from "@/components/landing/tracks-mountain-backdrop";
-import { TracksSectionDecor } from "@/components/landing/tracks-section-decor";
+import WhyUs from "@/app/(landing)/components/why-us/page";
+import { Reveal, SectionIcon, SectionIntro, ZigZag } from "@/components/landing/section-kit";
 import { Footer } from "@/components/layout/footer";
+import { ContactDock } from "@/components/layout/contact-dock";
 import { Header } from "@/components/layout/header";
 
 const exerciseCards = [
@@ -77,83 +76,6 @@ const mentorReasons = [
     copy: "Báo cáo nói rõ con làm bài nào, sửa lỗi gì, phần nào còn yếu và tuần tới cần tập trung vào đâu.",
   },
 ];
-
-const easeOut = [0.16, 1, 0.3, 1] as const;
-
-function Reveal({
-  children,
-  className,
-  delay = 0,
-}: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      initial={reduceMotion ? false : { y: 18 }}
-      whileInView={reduceMotion ? {} : { y: 0 }}
-      viewport={{ once: true, margin: "-90px" }}
-      transition={{ duration: 0.72, delay, ease: easeOut }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function SectionIcon({ children }: { children: ReactNode }) {
-  return (
-    <div className="mx-auto grid size-20 place-items-center">
-      <div className="mini-section-hex grid size-16 place-items-center text-brand-deep">{children}</div>
-    </div>
-  );
-}
-
-function ZigZag({ className = "" }: { className?: string }) {
-  return <span className={`zigzag-mark block text-brand-deep ${className}`} aria-hidden="true" />;
-}
-
-function SectionIntro({
-  icon,
-  title,
-  copy,
-  centered = false,
-  compact = false,
-}: {
-  icon?: ReactNode;
-  title: string;
-  copy?: string;
-  centered?: boolean;
-  compact?: boolean;
-}) {
-  return (
-    <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      {icon ? <SectionIcon>{icon}</SectionIcon> : null}
-      <h2
-        className={`text-balance font-black tracking-[-0.035em] text-brand-deep ${
-          compact
-            ? "mt-3 text-[clamp(2.45rem,4.35vw,3.95rem)] leading-[1.02]"
-            : "mt-4 text-[clamp(2.25rem,5vw,4.35rem)] leading-[1.03]"
-        }`}
-      >
-        {title}
-      </h2>
-      <ZigZag className={centered ? `mx-auto ${compact ? "mt-4" : "mt-5"}` : compact ? "mt-4" : "mt-5"} />
-      {copy ? (
-        <p
-          className={`text-pretty text-base text-muted-foreground md:text-lg ${
-            compact ? "mt-4 leading-7 md:leading-8" : "mt-5 leading-8"
-          }`}
-        >
-          {copy}
-        </p>
-      ) : null}
-    </div>
-  );
-}
 
 function ExerciseMeta({ chips }: { chips: string[] }) {
   const [primary, secondary, count] = chips;
@@ -230,40 +152,12 @@ export default function HomePage() {
 
       <Hero />
 
+      <FirstTest />
+
+      <WhyUs />
+
       <div className="track-exercise-band border-y border-[oklch(0.9_0.026_292)]">
-        <section id="tracks" className="tracks-section relative px-5 pb-8 pt-16 md:px-8 md:pb-10 md:pt-20">
-          <TracksMountainBackdrop />
-          <div className="tracks-section-inner mx-auto max-w-352">
-            <Reveal>
-              <div className="tracks-intro-wrap">
-                <TracksSectionDecor />
-                <SectionIntro
-                  centered
-                  icon={<Route className="size-8" />}
-                  title="Lộ trình học, một đường đi rõ"
-                  copy="Đo nền → vá lỗi → luyện track → mentor báo cáo. Mỗi tuần biết việc tiếp theo."
-                />
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.06}>
-              <LearningPathFlow />
-            </Reveal>
-
-            <div className="relative mt-8 text-center">
-              <div className="absolute left-0 right-0 top-1/2 h-px bg-[oklch(0.86_0.03_270)]" />
-              <a
-                href="#exercises"
-                className="relative inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[oklch(0.91_0.04_270)] px-7 text-sm font-black text-brand-primary transition-transform hover:-translate-y-0.5"
-              >
-                Xem bài luyện thật
-                <ArrowRight className="size-4" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section id="exercises" className="px-5 pb-14 pt-4 md:px-8 md:pb-18 md:pt-6">
+        <section id="exercises" className="px-5 pb-14 pt-16 md:px-8 md:pb-18 md:pt-20">
           <div className="mx-auto grid max-w-352 items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] xl:gap-14">
             <div>
               <Reveal>
@@ -386,7 +280,10 @@ export default function HomePage() {
         </div>
       </section>
 
+      <FAQSection />
+
       <Footer />
+      <ContactDock />
     </main>
   );
 }

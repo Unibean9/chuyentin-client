@@ -19,6 +19,7 @@ export function buildPageMetadata({
   const canonical = `${siteUrl}${normalizedPath === "/" ? "" : normalizedPath}`;
 
   const socialTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+  const ogImageUrl = `${siteUrl}${SITE.ogImage.path}`;
 
   return {
     title,
@@ -32,11 +33,20 @@ export function buildPageMetadata({
       title: socialTitle,
       description,
       siteName: SITE.name,
+      images: [
+        {
+          url: ogImageUrl,
+          width: SITE.ogImage.width,
+          height: SITE.ogImage.height,
+          alt: SITE.ogImage.alt,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
       description,
+      images: [ogImageUrl],
     },
   };
 }

@@ -12,6 +12,8 @@ export function RootJsonLd() {
         name: SITE.name,
         url: siteUrl,
         description: SITE.defaultDescription,
+        logo: `${siteUrl}${SITE.ogImage.path}`,
+        image: `${siteUrl}${SITE.ogImage.path}`,
       },
       {
         "@type": "WebSite",
