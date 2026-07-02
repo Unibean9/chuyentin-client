@@ -248,6 +248,102 @@
     transform: translateZ(0);
   }
 
+  .hero-slide-placeholder {
+    background:
+      radial-gradient(circle at 82% 12%, oklch(0.42 0.09 var(--slide-hue, 305) / 0.55), transparent 34rem),
+      linear-gradient(160deg, oklch(0.34 0.08 var(--slide-hue, 305)), oklch(0.15 0.06 var(--slide-hue, 305)) 72%);
+  }
+
+  .hero-scrim {
+    background: linear-gradient(
+      100deg,
+      oklch(0.12 0.04 300 / 0.82) 0%,
+      oklch(0.12 0.04 300 / 0.6) 38%,
+      oklch(0.12 0.04 300 / 0.28) 62%,
+      transparent 85%
+    );
+  }
+
+  @media (max-width: 767px) {
+    .hero-scrim {
+      background: linear-gradient(
+        180deg,
+        oklch(0.12 0.04 300 / 0.72) 0%,
+        oklch(0.12 0.04 300 / 0.28) 38%,
+        oklch(0.12 0.04 300 / 0.22) 62%,
+        oklch(0.12 0.04 300 / 0.68) 100%
+      );
+    }
+
+    .hero-mobile-image-bg {
+      background: oklch(0.14 0.05 var(--slide-hue, 305));
+    }
+
+    .hero-mobile-scrim {
+      background: linear-gradient(
+        90deg,
+        oklch(0.1 0.05 300 / 0.5) 0%,
+        oklch(0.1 0.04 300 / 0.22) 38%,
+        oklch(0.1 0.04 300 / 0.06) 52%,
+        transparent 62%
+      );
+    }
+  }
+
+  .hero-ambient-sweep {
+    background: linear-gradient(
+      115deg,
+      transparent 38%,
+      oklch(0.83 0.16 86 / 0.07) 48%,
+      oklch(0.47 0.21 305 / 0.1) 52%,
+      transparent 62%
+    );
+    animation: hero-ambient-sweep 9s ease-in-out infinite;
+  }
+
+  .hero-ambient-dots {
+    background-image: radial-gradient(oklch(1 0 0 / 0.55) 1px, transparent 1px);
+    background-size: 14px 14px;
+    mask-image: radial-gradient(circle at center, black 35%, transparent 72%);
+  }
+
+  .hero-ambient-glyph {
+    animation: hero-ambient-drift 16s ease-in-out infinite;
+  }
+
+  @keyframes hero-ambient-sweep {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: translateX(-8%);
+    }
+
+    50% {
+      opacity: 0.85;
+      transform: translateX(8%);
+    }
+  }
+
+  @keyframes hero-ambient-drift {
+    0%,
+    100% {
+      opacity: 0.28;
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    50% {
+      opacity: 0.55;
+      transform: translate3d(10px, -12px, 0) rotate(4deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-ambient-sweep,
+    .hero-ambient-glyph {
+      animation: none;
+    }
+  }
+
   .image-slot {
     border: 1px solid oklch(0.88 0.025 286);
     box-shadow: 0 8px 0 oklch(0.47 0.21 305 / 0.1);

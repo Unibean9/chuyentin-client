@@ -2,13 +2,11 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
   ArrowRight,
   BookOpenCheck,
   BrainCircuit,
-  ChevronRight,
-  FileText,
   LineChart,
   MessageCircle,
   MonitorPlay,
@@ -16,129 +14,29 @@ import {
   SquareTerminal,
   Users,
 } from "lucide-react";
+import Hero from "@/app/(landing)/components/hero/page";
 import { LearningPathFlow } from "@/components/landing/learning-path-flow";
 import { TracksMountainBackdrop } from "@/components/landing/tracks-mountain-backdrop";
 import { TracksSectionDecor } from "@/components/landing/tracks-section-decor";
 import { Footer } from "@/components/layout/footer";
-import { Header, LogoMark } from "@/components/layout/header";
-
-const tracks = [
-  {
-    name: "C++",
-    short: "C++",
-    sub: "Track nền thi chuyên",
-    fill: "oklch(0.95 0.035 292)",
-    border: "oklch(0.47 0.21 305)",
-    ink: "oklch(0.25 0.1 292)",
-  },
-  {
-    name: "Python",
-    short: "Py",
-    sub: "Tư duy thuật toán",
-    fill: "oklch(0.95 0.045 85)",
-    border: "oklch(0.78 0.15 85)",
-    ink: "oklch(0.34 0.08 80)",
-  },
-  {
-    name: "Mảng",
-    short: "A[]",
-    sub: "42 bài nền",
-    fill: "oklch(0.95 0.04 168)",
-    border: "oklch(0.66 0.14 166)",
-    ink: "oklch(0.32 0.11 166)",
-  },
-  {
-    name: "Xâu",
-    short: "STR",
-    sub: "36 bài luyện",
-    fill: "oklch(0.96 0.032 225)",
-    border: "oklch(0.6 0.13 232)",
-    ink: "oklch(0.32 0.1 232)",
-  },
-  {
-    name: "Sắp xếp",
-    short: "O(n)",
-    sub: "Độ phức tạp",
-    fill: "oklch(0.96 0.036 24)",
-    border: "oklch(0.64 0.19 24)",
-    ink: "oklch(0.4 0.12 24)",
-  },
-  {
-    name: "Đệ quy",
-    short: "f(x)",
-    sub: "18 bài dựng cây",
-    fill: "oklch(0.95 0.03 265)",
-    border: "oklch(0.52 0.18 265)",
-    ink: "oklch(0.3 0.1 265)",
-  },
-  {
-    name: "Quy hoạch động",
-    short: "DP",
-    sub: "24 bài nâng cao",
-    fill: "oklch(0.96 0.035 310)",
-    border: "oklch(0.55 0.2 310)",
-    ink: "oklch(0.35 0.12 310)",
-  },
-  {
-    name: "Đồ thị",
-    short: "BFS",
-    sub: "Graph căn bản",
-    fill: "oklch(0.95 0.03 145)",
-    border: "oklch(0.58 0.15 145)",
-    ink: "oklch(0.32 0.11 145)",
-  },
-  {
-    name: "Backtracking",
-    short: "BT",
-    sub: "Duyệt trạng thái",
-    fill: "oklch(0.96 0.03 40)",
-    border: "oklch(0.72 0.16 55)",
-    ink: "oklch(0.38 0.11 55)",
-  },
-  {
-    name: "Toán rời rạc",
-    short: "MOD",
-    sub: "Số học & tổ hợp",
-    fill: "oklch(0.95 0.035 200)",
-    border: "oklch(0.58 0.13 205)",
-    ink: "oklch(0.3 0.1 205)",
-  },
-  {
-    name: "Đề HSG",
-    short: "HSG",
-    sub: "Bài dài hơi",
-    fill: "oklch(0.96 0.038 12)",
-    border: "oklch(0.62 0.18 12)",
-    ink: "oklch(0.37 0.12 12)",
-  },
-  {
-    name: "Đề chuyên",
-    short: "10",
-    sub: "Ams, KHTN, CSP",
-    fill: "oklch(0.95 0.04 282)",
-    border: "oklch(0.43 0.19 285)",
-    ink: "oklch(0.24 0.1 285)",
-  },
-];
-
-const heroBadges = tracks.slice(0, 5);
+import { Header } from "@/components/layout/header";
 
 const exerciseCards = [
   {
     title: "Tổng đoạn con",
-    copy: "Rèn cửa sổ trượt, test biên và cách tự chứng minh độ phức tạp.",
+    copy: "Luyện tính tổng nhanh trên dãy số lớn mà không cần tính lại từ đầu — kỹ năng nền gặp lại ở hầu hết đề thi chuyên.",
     chips: ["C++", "Python", "+28 bài"],
     icon: "Σ",
   },
   {
     title: "Queen Attack",
-    copy: "Chuyển điều kiện hình học thành kiểm tra logic không sót trường hợp.",
+    copy: "Từ một đề bài tưởng chừng hình học, luyện cách quy về các phép kiểm tra logic đơn giản, không bỏ sót trường hợp nào.",
     chips: ["Mảng", "Logic", "+35 bài"],
     icon: "Q",
   },
   {
     title: "Zebra Puzzle",
-    copy: "Bài suy luận ràng buộc để luyện cách đọc đề dài và thu hẹp trạng thái.",
+    copy: "Bài suy luận từ nhiều manh mối cùng lúc — luyện cách đọc đề dài, sắp xếp thông tin và loại dần các khả năng sai.",
     chips: ["Backtrack", "HSG", "+40 bài"],
     icon: "Z",
   },
@@ -257,38 +155,6 @@ function SectionIntro({
   );
 }
 
-function HexBadge({
-  track,
-  compact = false,
-}: {
-  track: (typeof tracks)[number];
-  compact?: boolean;
-}) {
-  const style = {
-    "--hex-fill": track.fill,
-    "--hex-border": track.border,
-    "--hex-ink": track.ink,
-  } as CSSProperties;
-
-  return (
-    <div className="text-center" style={style}>
-      <div className={`hex-shell mx-auto ${compact ? "size-14 sm:size-16" : "size-24 md:size-28"}`}>
-        <div className="hex-badge">
-          <span className={compact ? "text-sm" : "text-xl md:text-2xl"}>{track.short}</span>
-        </div>
-      </div>
-      {!compact ? (
-        <>
-          <h3 className="mt-4 text-xl font-black tracking-[-0.025em] text-brand-deep">
-            {track.name}
-          </h3>
-          <p className="mt-1 text-sm font-bold text-muted-foreground">{track.sub}</p>
-        </>
-      ) : null}
-    </div>
-  );
-}
-
 function ExerciseMeta({ chips }: { chips: string[] }) {
   const [primary, secondary, count] = chips;
 
@@ -305,82 +171,6 @@ function ExerciseMeta({ chips }: { chips: string[] }) {
       <span className="whitespace-nowrap bg-brand-deep px-3.5 py-2 text-white">
         {count}
       </span>
-    </div>
-  );
-}
-
-function ImageSlot({
-  label,
-  className = "",
-  children,
-}: {
-  label: string;
-  className?: string;
-  children?: ReactNode;
-}) {
-  return (
-    <div className={`image-slot relative overflow-hidden rounded-2xl ${className}`}>
-      <div className="image-slot-grid absolute inset-0" />
-      <div className="relative h-full min-h-56 p-5">
-        {children ? (
-          children
-        ) : (
-          <div className="grid h-full min-h-56 place-items-center text-center">
-            <div>
-              <FileText className="mx-auto size-8 text-brand-primary" />
-              <p className="mt-3 text-sm font-black text-brand-deep">{label}</p>
-              <p className="mt-1 text-xs font-bold text-muted-foreground">Khung dựng, thay ảnh sau</p>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function HeroVisual() {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <div className="relative mx-auto max-w-[32rem]">
-      <motion.div
-        className="hero-visual-float"
-        animate={reduceMotion ? {} : { y: [0, -8, 0] }}
-        transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <ImageSlot label="Ảnh minh họa học sinh / thay sau" className="min-h-[20rem] bg-white/78">
-          <div className="relative grid h-full min-h-[18rem] place-items-center">
-            <div className="absolute left-5 top-5 rounded-full bg-white/86 px-3 py-1.5 text-xs font-black text-brand-deep ring-1 ring-border">
-              Khung ảnh hero
-            </div>
-            <div className="absolute top-7 h-44 w-44 rounded-full bg-[oklch(0.88_0.08_215)]" />
-            <div className="relative flex items-end justify-center gap-3">
-              {["bg-[oklch(0.9_0.13_86)]", "bg-[oklch(0.74_0.12_35)]", "bg-[oklch(0.86_0.05_308)]"].map(
-                (tone, index) => (
-                  <div key={tone} className="text-center">
-                    <div className={`mx-auto size-14 rounded-full ${tone} ring-4 ring-brand-deep/70`} />
-                    <div className="mt-2 h-20 w-14 rounded-t-2xl bg-white ring-4 ring-brand-deep/70" />
-                    <p className="sr-only">Nhân vật minh họa {index + 1}</p>
-                  </div>
-                ),
-              )}
-            </div>
-            <div className="relative -mt-12 w-[68%] rounded-xl bg-[oklch(0.91_0.04_220)] p-4 ring-4 ring-brand-deep/75">
-              <div className="mx-auto size-6 rounded-md bg-white" />
-              <div className="mt-3 space-y-2">
-                <span className="block h-2 rounded-full bg-brand-deep/22" />
-                <span className="block h-2 w-2/3 rounded-full bg-brand-deep/18" />
-              </div>
-            </div>
-          </div>
-        </ImageSlot>
-      </motion.div>
-
-      <div className="-mt-7 flex justify-center gap-2.5 sm:gap-3">
-        {heroBadges.map((track) => (
-          <HexBadge key={track.name} track={track} compact />
-        ))}
-      </div>
     </div>
   );
 }
@@ -409,7 +199,7 @@ function DashboardMock() {
     <div className="dashboard-mock overflow-hidden rounded-2xl bg-white">
       <Image
         src="/dashboard.png"
-        alt="Dashboard Chuyên Tin hiển thị track học, bài luyện, mentor note và báo cáo phụ huynh"
+        alt="Giao diện luyện tập Chuyên Tin: đề bài, trình soạn code C++, kết quả chấm bài và bảng xếp hạng tuần"
         width={1536}
         height={1024}
         sizes="(min-width: 1280px) 49vw, (min-width: 1024px) 52vw, 100vw"
@@ -438,74 +228,7 @@ export default function HomePage() {
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <Header />
 
-      <section className="relative border-b border-[oklch(0.9_0.018_285)] px-5 pb-12 pt-12 md:px-8 md:pb-16 md:pt-16">
-        <div className="hero-field absolute inset-0 -z-10" />
-        <div className="ornament ornament-diamond left-[12%] top-[68%]" />
-        <div className="ornament ornament-dots right-[16%] top-[26%]" />
-        <div className="mx-auto grid max-w-[88rem] items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <motion.h1
-              className="max-w-5xl text-balance text-[clamp(3.15rem,6.6vw,5.35rem)] font-black leading-[0.98] tracking-[-0.035em] text-brand-deep"
-              initial={{ y: 18 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.75, ease: easeOut }}
-            >
-              Giỏi <span className="hero-highlight">Tin học</span> thật sự.
-            </motion.h1>
-            <motion.p
-              className="mt-6 max-w-2xl text-pretty text-lg font-semibold leading-8 text-muted-foreground md:text-xl md:leading-9"
-              initial={{ y: 16 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.75, delay: 0.08, ease: easeOut }}
-            >
-              Track học, bài luyện và mentor chữa lỗi cho học sinh lớp 9 ôn HSG,
-              thi vào lớp 10 chuyên Tin.
-            </motion.p>
-            <motion.div
-              className="mt-8 flex flex-col gap-4 sm:flex-row"
-              initial={{ y: 16 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.75, delay: 0.14, ease: easeOut }}
-            >
-              <a
-                href="#tu-van"
-                className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-primary px-7 text-base font-black text-primary-foreground shadow-[0_5px_0_oklch(0.28_0.12_303)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40"
-              >
-                Bắt đầu đánh giá
-                <ArrowRight className="size-5" />
-              </a>
-              <a
-                href="#tracks"
-                className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-white px-7 text-base font-black text-brand-primary ring-2 ring-brand-primary/65 transition-colors hover:bg-[oklch(0.97_0.015_292)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/30"
-              >
-                Xem lộ trình
-                <ChevronRight className="size-5" />
-              </a>
-            </motion.div>
-
-            <motion.div
-              className="mt-10 grid max-w-3xl gap-4 rounded-xl border-2 border-brand-primary bg-white p-4 shadow-[0_6px_0_oklch(0.83_0.16_86)] md:grid-cols-[auto_1fr_auto] md:items-center"
-              initial={{ y: 16 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.75, delay: 0.2, ease: easeOut }}
-            >
-              <div className="flex items-center gap-3">
-                <LogoMark />
-                <span className="font-display text-xl font-black text-brand-deep">Chuyên Tin</span>
-              </div>
-              <p className="text-pretty text-sm font-bold leading-6 text-muted-foreground md:text-base">
-                Lộ trình rõ, bài luyện thật, phản hồi theo từng tuần.
-              </p>
-              <a href="#parents" className="inline-flex items-center gap-2 text-sm font-black text-brand-primary">
-                Phụ huynh xem
-                <ArrowRight className="size-4" />
-              </a>
-            </motion.div>
-          </div>
-
-          <HeroVisual />
-        </div>
-      </section>
+      <Hero />
 
       <div className="track-exercise-band border-y border-[oklch(0.9_0.026_292)]">
         <section id="tracks" className="tracks-section relative px-5 pb-8 pt-16 md:px-8 md:pb-10 md:pt-20">

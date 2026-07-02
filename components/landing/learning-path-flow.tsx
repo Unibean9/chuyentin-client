@@ -193,11 +193,13 @@ function useTrailProgress(reducedMotion: boolean): TrailMotion {
 
   useEffect(() => {
     if (reducedMotion) {
-      setMotion({
-        progress: STOP_FRACTIONS[milestones.length - 1],
-        segmentIndex: milestones.length - 1,
-        phase: "hold",
-      });
+      setTimeout(() => {
+        setMotion({
+          progress: STOP_FRACTIONS[milestones.length - 1],
+          segmentIndex: milestones.length - 1,
+          phase: "hold",
+        });
+      }, 0);
       return;
     }
 
