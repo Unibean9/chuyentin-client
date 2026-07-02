@@ -39,6 +39,7 @@ export function buildPageMetadata({
           width: SITE.ogImage.width,
           height: SITE.ogImage.height,
           alt: SITE.ogImage.alt,
+          type: SITE.ogImage.type,
         },
       ],
     },
