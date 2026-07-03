@@ -26,7 +26,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-white/96 backdrop-blur">
       <div className="mx-auto flex max-w-[88rem] items-center justify-between gap-4 px-5 py-4 md:px-8">
-        <a href="#" className="flex items-center gap-3" aria-label="Chuyên Tin">
+        <Link href="/" className="flex items-center gap-3" aria-label="Chuyên Tin — về trang chủ">
           <Image
             src="/logo.png"
             alt=""
@@ -38,7 +38,7 @@ export function Header() {
           <span className="font-display text-lg font-black tracking-[-0.025em] text-brand-deep">
             Chuyên Tin
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-black text-muted-foreground md:flex">
           {navItems.map((item) =>
