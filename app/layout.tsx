@@ -56,7 +56,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${beVietnam.variable} ${quicksand.variable}`}>
+    <html
+      lang="vi"
+      data-scroll-behavior="smooth"
+      className={`${beVietnam.variable} ${quicksand.variable}`}
+    >
       <body className="min-h-screen">
         <AppProviders>
           <RootJsonLd />

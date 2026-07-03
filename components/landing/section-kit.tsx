@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { useSsrSafeReducedMotion } from "./use-ssr-safe-reduced-motion";
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
@@ -14,15 +15,15 @@ export function Reveal({
   className?: string;
   delay?: number;
 }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSsrSafeReducedMotion();
 
   return (
     <motion.div
       className={className}
       initial={reduceMotion ? false : { y: 18 }}
-      whileInView={reduceMotion ? {} : { y: 0 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, margin: "-90px" }}
-      transition={{ duration: 0.72, delay, ease: easeOut }}
+      transition={{ duration: reduceMotion ? 0.2 : 0.72, delay: reduceMotion ? 0 : delay, ease: easeOut }}
     >
       {children}
     </motion.div>

@@ -11,7 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const navItems = ["Giới thiệu", "Chương trình học", "Về chúng tôi"] as const;
+const navItems = [
+  { label: "Giới thiệu", href: "/gioi-thieu" },
+  { label: "Chương trình học", href: "#exercises" },
+  { label: "Về chúng tôi", href: "#mentor" },
+] as const;
 
 export function HeaderMobileMenu() {
   return (
@@ -31,13 +35,17 @@ export function HeaderMobileMenu() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" sideOffset={8} className="w-56 p-2 md:hidden">
-        {navItems.map((label) => (
+        {navItems.map((item) => (
           <DropdownMenuItem
-            key={label}
-            className="cursor-pointer rounded-md px-3 py-2.5 text-sm font-black text-brand-deep"
-            onClick={(event) => event.preventDefault()}
+            key={item.label}
+            render={
+              <Link
+                href={item.href}
+                className="flex w-full rounded-md px-3 py-2.5 text-sm font-black text-brand-deep"
+              />
+            }
           >
-            {label}
+            {item.label}
           </DropdownMenuItem>
         ))}
 

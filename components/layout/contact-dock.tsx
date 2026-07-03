@@ -1,7 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useSsrSafeReducedMotion } from "@/components/landing/use-ssr-safe-reduced-motion";
 import { contactDockLinks } from "./contact-dock-data";
 
 function MessengerIcon() {
@@ -89,7 +90,7 @@ function DockLink({
 }
 
 function PhoneLink({ href, label }: { href: string; label: string }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSsrSafeReducedMotion();
 
   return (
     <a
@@ -124,14 +125,18 @@ function PhoneLink({ href, label }: { href: string; label: string }) {
 }
 
 export function ContactDock() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSsrSafeReducedMotion();
 
   return (
     <motion.aside
       className="contact-dock fixed right-0 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-50"
       initial={reduceMotion ? false : { x: 24, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.65, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      transition={{
+        duration: reduceMotion ? 0.2 : 0.65,
+        delay: reduceMotion ? 0 : 0.3,
+        ease: [0.16, 1, 0.3, 1],
+      }}
       aria-label="Liên hệ nhanh"
     >
       <div className="contact-dock-panel relative w-[3.5rem]">

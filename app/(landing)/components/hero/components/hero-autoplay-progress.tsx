@@ -18,7 +18,7 @@ export function HeroAutoplayProgress({
   return (
     <motion.div
       key={activeIndex}
-      className="pointer-events-none absolute bottom-0 left-0 z-20 hidden h-0.5 origin-left bg-brand-accent/75 md:block"
+      className="pointer-events-none absolute bottom-0 left-0 z-20 h-0.5 origin-left bg-brand-accent/75"
       initial={{ scaleX: 0 }}
       animate={{ scaleX: 1 }}
       transition={{

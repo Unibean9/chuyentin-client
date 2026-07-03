@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { heroHeadlineText, type HeroSlide } from "./hero-data";
+import type { HeroSlide } from "./hero-data";
 
 export function HeroDots({
   slides,
@@ -26,7 +26,7 @@ export function HeroDots({
             role="tab"
             aria-selected={isActive}
             aria-current={isActive ? "true" : undefined}
-            aria-label={`Slide ${index + 1}: ${heroHeadlineText(slide)}`}
+            aria-label={`Slide ${index + 1}: ${slide.imageAlt}`}
             onClick={() => onSelect(index)}
             layout={reduceMotion ? false : true}
             whileHover={reduceMotion ? undefined : { scale: 1.12 }}

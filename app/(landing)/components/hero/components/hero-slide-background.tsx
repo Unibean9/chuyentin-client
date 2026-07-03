@@ -18,7 +18,6 @@ export function HeroSlideBackground({
   priority?: boolean;
 }) {
   const style = { "--slide-hue": slide.hue } as CSSProperties;
-  const canKenBurns = isActive && !reduceMotion;
 
   return (
     <motion.div
@@ -36,28 +35,16 @@ export function HeroSlideBackground({
       aria-hidden={!isActive}
     >
       <div className="hero-slide-placeholder absolute inset-0" />
-      <motion.div
-        className="absolute inset-0"
-        initial={false}
-        animate={
-          canKenBurns ? { scale: 1.08, x: "-1.75%" } : { scale: 1, x: "0%" }
-        }
-        transition={
-          canKenBurns
-            ? { duration: 6, ease: "linear" }
-            : { duration: 0.9, ease: heroEase }
-        }
-      >
+      <div className="absolute inset-0">
         <Image
           src={slide.image}
           alt={slide.imageAlt}
           fill
           priority={priority}
-          sizes="(min-width: 768px) 100vw, 0px"
+          sizes="100vw"
           className="object-cover object-[75%_center]"
         />
-      </motion.div>
-      <div className="hero-scrim absolute inset-0" />
+      </div>
     </motion.div>
   );
 }

@@ -1151,6 +1151,210 @@
       radial-gradient(circle at 18% 0%, oklch(0.34 0.15 292 / 0.5), transparent 24rem),
       linear-gradient(180deg, oklch(0.2 0.12 286), oklch(0.16 0.09 286));
   }
+
+  .intro-story-wrapper {
+    isolation: isolate;
+  }
+
+  .intro-story-rail {
+    bottom: 0;
+    left: 1.25rem;
+    position: absolute;
+    top: 0;
+    width: 2.75rem;
+  }
+
+  .intro-story-rail-track {
+    background: oklch(0.88 0.02 292);
+    border-radius: 999px;
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 3px;
+  }
+
+  .intro-story-rail-fill {
+    background: oklch(0.55 0.2 310);
+    border-radius: 999px;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform-origin: top center;
+    transform: translateX(-50%) scaleY(0);
+    width: 3px;
+    height: 100%;
+  }
+
+  .intro-story-node-slot {
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .intro-story-runner {
+    background: oklch(0.55 0.2 310);
+    border-radius: 999px;
+    box-shadow: 0 0 0 6px oklch(0.55 0.2 310 / 0.16);
+    height: 0.6rem;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 0.6rem;
+  }
+
+  .intro-story-stop {
+    scroll-margin-top: 6rem;
+  }
+
+  .mentor-card {
+    perspective: 900px;
+  }
+
+  .mentor-card > div {
+    border: 1px solid oklch(0.88 0.025 286);
+    box-shadow: 0 10px 0 oklch(0.27 0.1 292 / 0.07);
+    transition: box-shadow 0.3s ease;
+    will-change: transform;
+  }
+
+  .mentor-card:hover > div {
+    box-shadow: 0 14px 0 oklch(0.27 0.1 292 / 0.1);
+  }
+
+  .mentor-card-quote {
+    border-top: 1px solid oklch(0.9 0.02 292);
+    padding-top: 0.85rem;
+  }
+
+  .stats-section {
+    position: relative;
+  }
+
+  .stats-band {
+    background: oklch(0.47 0.21 305);
+  }
+
+  .stats-band-stage {
+    align-items: center;
+    display: flex;
+    margin-inline: auto;
+    max-width: 82rem;
+    min-height: clamp(17rem, 42vw, 21.5rem);
+    padding-block: clamp(2rem, 4.5vw, 3rem);
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+    position: relative;
+    width: 100%;
+  }
+
+  .stats-band-copy {
+    margin-inline: auto;
+    max-width: 22rem;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .stats-band-tagline {
+    font-size: clamp(0.98rem, 2.1vw, 1.12rem);
+    margin-top: 2.25rem;
+  }
+
+  .stats-band-visual {
+    align-items: flex-end;
+    bottom: 0;
+    display: flex;
+    height: clamp(20rem, 58vw, 26rem);
+    justify-content: center;
+    left: 50%;
+    margin-top: 0;
+    max-width: 30rem;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%);
+    width: min(96vw, 30rem);
+    z-index: 2;
+  }
+
+  .stats-band-photo {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .stats-band-image {
+    display: block;
+    height: auto;
+    margin-bottom: -0.28rem;
+    max-height: 118%;
+    object-fit: contain;
+    object-position: bottom center;
+    transform: scale(1.2) translateY(-0.12rem);
+    transform-origin: bottom center;
+    width: 122%;
+  }
+
+  @media (min-width: 64rem) {
+    .stats-band-stage {
+      min-height: clamp(18rem, 24vw, 22rem);
+      padding-block: clamp(2.5rem, 3.5vw, 3.5rem);
+    }
+
+    .stats-band-copy {
+      margin-inline: 0;
+      max-width: 34rem;
+      width: 46%;
+    }
+
+    .stats-band-tagline {
+      font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+      line-height: 1.65;
+      margin-top: 2.5rem;
+    }
+
+    .stats-band-visual {
+      bottom: 0;
+      height: clamp(38rem, 50vw, 50rem);
+      justify-content: flex-end;
+      left: auto;
+      max-width: none;
+      right: 0;
+      transform: none;
+      width: 56%;
+    }
+
+    .stats-band-image {
+      margin-bottom: -0.18rem;
+      max-height: 122%;
+      transform: scale(1.28) translateY(-0.15rem);
+      width: 128%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .intro-story-rail-fill {
+      transform: translateX(-50%) scaleY(1) !important;
+    }
+
+    .intro-story-runner {
+      display: none !important;
+    }
+
+    .mentor-card > div {
+      transform: none !important;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .intro-story-rail {
+      display: none;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,8 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { HeaderMobileMenu } from "./header-mobile-menu";
 
-const navItems = ["Giới thiệu", "Chương trình học", "Về chúng tôi"] as const;
+const navItems = [
+  { label: "Giới thiệu", href: "/gioi-thieu" },
+  { label: "Chương trình học", href: "#exercises" },
+  { label: "Về chúng tôi", href: "#mentor" },
+] as const;
 
 export function LogoMark() {
   return (
@@ -36,15 +41,25 @@ export function Header() {
         </a>
 
         <nav className="hidden items-center gap-7 text-sm font-black text-muted-foreground md:flex">
-          {navItems.map((label) => (
-            <button
-              key={label}
-              type="button"
-              className="cursor-pointer transition-colors hover:text-brand-primary"
-            >
-              {label}
-            </button>
-          ))}
+          {navItems.map((item) =>
+            item.href.startsWith("/") ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="transition-colors hover:text-brand-primary"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="transition-colors hover:text-brand-primary"
+              >
+                {item.label}
+              </a>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-3">

@@ -2,13 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroAmbient } from "./components/hero-ambient";
 import { HeroArrowButton } from "./components/hero-arrows";
 import { HeroAutoplayProgress } from "./components/hero-autoplay-progress";
-import { HeroContent } from "./components/hero-content";
 import { HeroDots } from "./components/hero-dots";
 import { heroSlides } from "./components/hero-data";
-import { HeroMobile } from "./components/hero-mobile";
 import { HeroSlideBackground } from "./components/hero-slide-background";
 import { heroControlsIntroVariants } from "./components/hero-motion";
 
@@ -16,7 +13,6 @@ const AUTOPLAY_INTERVAL_MS = 6000;
 
 function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const reduceMotion = useReducedMotion();
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -25,7 +21,6 @@ function Hero() {
     if (reduceMotion || isPaused) return;
 
     timerRef.current = setInterval(() => {
-      setSlideDirection(1);
       setActiveIndex((current) => (current + 1) % heroSlides.length);
     }, AUTOPLAY_INTERVAL_MS);
 
@@ -34,35 +29,28 @@ function Hero() {
     };
   }, [reduceMotion, isPaused]);
 
-  const activeSlide = heroSlides[activeIndex];
-
   const goPrev = useCallback(() => {
-    setSlideDirection(-1);
     setActiveIndex((current) => (current - 1 + heroSlides.length) % heroSlides.length);
   }, []);
 
   const goNext = useCallback(() => {
-    setSlideDirection(1);
     setActiveIndex((current) => (current + 1) % heroSlides.length);
   }, []);
 
-  const goToSlide = useCallback(
-    (index: number) => {
-      setSlideDirection(index > activeIndex ? 1 : -1);
-      setActiveIndex(index);
-    },
-    [activeIndex],
-  );
+  const goToSlide = useCallback((index: number) => {
+    setActiveIndex(index);
+  }, []);
 
   return (
     <section
-      className="relative isolate w-full overflow-hidden border-b border-[oklch(0.9_0.018_285)] md:h-[calc(100dvh-4.85rem)] md:min-h-144 md:pl-6 md:pr-8"
+      className="relative isolate w-full overflow-hidden border-b border-[oklch(0.9_0.018_285)]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
+      aria-label="Hero slideshow"
     >
-      <div className="max-md:hidden">
+      <div className="relative aspect-video w-full md:aspect-auto md:h-[calc(100dvh-4.85rem)] md:min-h-144">
         {heroSlides.map((slide, index) => (
           <HeroSlideBackground
             key={slide.id}
@@ -73,34 +61,40 @@ function Hero() {
           />
         ))}
 
-        <HeroAmbient />
-
         <HeroAutoplayProgress
           activeIndex={activeIndex}
           isPaused={isPaused}
           durationMs={AUTOPLAY_INTERVAL_MS}
         />
-      </div>
-
-      <HeroMobile
-        slide={activeSlide}
-        direction={slideDirection}
-        onPrev={goPrev}
-        onNext={goNext}
-      />
-
-      <div className="relative z-10 hidden w-full max-w-[88rem] flex-col md:flex md:h-full md:justify-center">
-        <HeroContent slide={activeSlide} direction={slideDirection} />
 
         <motion.div
-          className="mt-10 flex items-center gap-4"
+          className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 hidden items-center justify-between px-5 md:flex md:px-8"
           variants={heroControlsIntroVariants(Boolean(reduceMotion))}
           initial="hidden"
           animate="visible"
         >
-          <HeroArrowButton direction="prev" onClick={goPrev} />
-          <HeroDots slides={heroSlides} activeIndex={activeIndex} onSelect={goToSlide} />
-          <HeroArrowButton direction="next" onClick={goNext} />
+          <div className="pointer-events-auto">
+            <HeroArrowButton direction="prev" onClick={goPrev} />
+          </div>
+          <div className="pointer-events-auto">
+            <HeroArrowButton direction="next" onClick={goNext} />
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="absolute inset-x-0 bottom-4 z-10 flex items-center justify-center px-4 md:bottom-6"
+          variants={heroControlsIntroVariants(Boolean(reduceMotion))}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="flex items-center gap-3 md:hidden">
+            <HeroArrowButton direction="prev" onClick={goPrev} size="sm" />
+            <HeroDots slides={heroSlides} activeIndex={activeIndex} onSelect={goToSlide} />
+            <HeroArrowButton direction="next" onClick={goNext} size="sm" />
+          </div>
+          <div className="hidden md:block">
+            <HeroDots slides={heroSlides} activeIndex={activeIndex} onSelect={goToSlide} />
+          </div>
         </motion.div>
       </div>
     </section>

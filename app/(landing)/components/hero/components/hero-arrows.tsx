@@ -22,10 +22,10 @@ export function HeroArrowButton({
       type="button"
       aria-label={direction === "prev" ? "Slide trước" : "Slide sau"}
       onClick={onClick}
-      whileHover={reduceMotion ? undefined : { scale: 1.08, backgroundColor: "rgba(255,255,255,0.22)" }}
+      whileHover={reduceMotion ? undefined : { scale: 1.08 }}
       whileTap={reduceMotion ? undefined : { scale: 0.94 }}
       transition={{ type: "spring", stiffness: 520, damping: 26 }}
-      className={`inline-flex ${buttonSize} shrink-0 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/25 backdrop-blur-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70`}
+      className={`inline-flex ${buttonSize} shrink-0 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/25 backdrop-blur-[2px] transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70`}
     >
       <motion.span
         animate={reduceMotion ? undefined : { x: direction === "prev" ? [0, -2, 0] : [0, 2, 0] }}

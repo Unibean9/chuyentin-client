@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import { getSiteUrl, SITE } from "./site";
 
+type OgImageConfig = {
+  path: string;
+  width: number;
+  height: number;
+  type: string;
+  alt: string;
+};
+
 interface BuildPageMetadataOptions {
   title: string;
   description?: string;
   path: string;
   noindex?: boolean;
+  ogImage?: OgImageConfig;
 }
 
 export function buildPageMetadata({
@@ -13,13 +22,14 @@ export function buildPageMetadata({
   description = SITE.defaultDescription,
   path,
   noindex = false,
+  ogImage = SITE.ogImage,
 }: BuildPageMetadataOptions): Metadata {
   const siteUrl = getSiteUrl();
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   const canonical = `${siteUrl}${normalizedPath === "/" ? "" : normalizedPath}`;
 
   const socialTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
-  const ogImageUrl = `${siteUrl}${SITE.ogImage.path}`;
+  const ogImageUrl = `${siteUrl}${ogImage.path}`;
 
   return {
     title,
@@ -36,10 +46,10 @@ export function buildPageMetadata({
       images: [
         {
           url: ogImageUrl,
-          width: SITE.ogImage.width,
-          height: SITE.ogImage.height,
-          alt: SITE.ogImage.alt,
-          type: SITE.ogImage.type,
+          width: ogImage.width,
+          height: ogImage.height,
+          alt: ogImage.alt,
+          type: ogImage.type,
         },
       ],
     },
