@@ -9,7 +9,7 @@ export const assessmentSteps: AssessmentStep[] = [
     copy: "Học sinh làm bài test đánh giá năng lực Tin học ngay trên hệ thống — đo đúng nền tảng thuật toán và tư duy hiện tại, kể cả khi chưa học lập trình bao giờ.",
   },
   {
-    title: "Nhận báo cáo cắt lớp",
+    title: "Nhận báo cáo xếp lớp",
     copy: "Phụ huynh nhận báo cáo chi tiết: con vững phần nào, hổng ở đâu, và mức độ sẵn sàng so với đề thi chuyên thực tế.",
   },
   {
