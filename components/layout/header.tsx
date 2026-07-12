@@ -5,8 +5,8 @@ import { HeaderMobileMenu } from "./header-mobile-menu";
 
 const navItems = [
   { label: "Về chúng tôi", href: "/ve-chung-toi" },
-  { label: "Chương trình học", href: "#exercises" },
-  { label: "Lộ trình học", href: "#mentor" },
+  { label: "Chương trình học", href: "/#exercises" },
+  { label: "Lộ trình học", href: "/lo-trinh" },
 ] as const;
 
 export function LogoMark() {
@@ -66,7 +66,7 @@ export function Header() {
           <HeaderMobileMenu />
 
           <a
-            href="#danh-gia"
+            href="/#danh-gia"
             className="hidden h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-black text-primary-foreground shadow-[0_4px_0_oklch(0.28_0.12_303)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40 md:inline-flex"
           >
             Đánh giá đầu vào

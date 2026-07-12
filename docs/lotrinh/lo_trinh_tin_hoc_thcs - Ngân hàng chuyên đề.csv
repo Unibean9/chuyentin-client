@@ -1,0 +1,28 @@
+NGÂN HÀNG CHUYÊN ĐỀ THUẬT TOÁN & KỸ THUẬT LẬP TRÌNH,,,,
+"Sắp xếp theo mức độ tăng dần, gắn với Lớp/Mục tương ứng — tham chiếu độ khó theo thang sao VNOI Roadmap (⭐1-⭐2 phù hợp THCS)",,,,
+Chuyên đề / Kỹ thuật,Mức độ,Lớp - Mục tương ứng,Dùng cho kỳ thi nào,Nguồn bài tập gợi ý
+Môi trường & chương trình C++ đầu tiên,Cơ bản,Lớp 1 - Mục 1,"Tin học trẻ, Chuyên Tin/HSG",VietJack; Wikibooks
+"Biến, kiểu dữ liệu, chống tràn số (long long)",Cơ bản,Lớp 1 - Mục 2,"Tin học trẻ, Chuyên Tin/HSG",VietJack; VNOI Wiki
+Toán tử số học/gán/so sánh/logic,Cơ bản,Lớp 1 - Mục 3,"Tin học trẻ, Chuyên Tin/HSG",VietJack; Wikibooks
+Rẽ nhánh if/else/switch-case,Cơ bản,Lớp 1 - Mục 4,"Tin học trẻ, Chuyên Tin/HSG",VietJack
+Vòng lặp for/while/do-while,Cơ bản,Lớp 1 - Mục 5,"Tin học trẻ, Chuyên Tin/HSG",VietJack; Wikibooks
+Hàm & truyền tham số,Cơ bản,Lớp 2 - Mục 1,"Tin học trẻ, Chuyên Tin/HSG",VietJack; 28Tech blog
+"File I/O (fstream, freopen, định dạng .INP/.OUT)",Cơ bản - Trung bình,Lớp 2 - Mục 2,"Tin học trẻ, Chuyên Tin/HSG",VNOI Wiki; đề thi Tin học trẻ (VnDoc)
+Mảng một chiều,Cơ bản,Lớp 2 - Mục 3,"Tin học trẻ, Chuyên Tin/HSG",VietJack; VnDoc
+Xâu ký tự & chuẩn hoá xâu,Cơ bản - Trung bình,Lớp 2 - Mục 4,"Tin học trẻ, Chuyên Tin/HSG",VietJack; VnDoc
+"Số học cơ bản: nguyên tố, ƯCLN/BCNN, Fibonacci, số chính phương",Trung bình,Lớp 2 - Mục 5,"Tin học trẻ, Chuyên Tin/HSG",VNOI Wiki; Tài liệu BDHSG Tin THCS
+Sắp xếp bằng sort() (STL),Trung bình,Lớp 2 - Mục 6,"Tin học trẻ, Chuyên Tin/HSG",VNOI Wiki; VietJack
+Prefix Sum / mảng hiệu,Trung bình,Lớp 3 - Mục 1,"Chuyên Tin/HSG, Tin học trẻ (nâng cao)",VNOI Wiki (Roadmap ⭐1)
+Two Pointers,Trung bình,Lớp 3 - Mục 1,"Chuyên Tin/HSG, Tin học trẻ (nâng cao)",VNOI Wiki (Roadmap ⭐1)
+Phép toán Bit (Bitwise) cơ bản,Trung bình,Lớp 3 - Mục 1,Chuyên Tin/HSG,VNOI Wiki
+Binary Search & Binary Search on Answer,Trung bình - Khá,Lớp 3 - Mục 2,"Chuyên Tin/HSG, Tin học trẻ (nâng cao)",VNOI Wiki (Roadmap ⭐1-⭐2)
+Đệ quy nâng cao & khử đệ quy,Trung bình - Khá,Lớp 3 - Mục 3,Chuyên Tin/HSG,Tài liệu BDHSG Tin THCS; VNOI Wiki
+"Quay lui (Backtracking): tập con/hoán vị/tổ hợp, N quân hậu",Khá,Lớp 3 - Mục 3,Chuyên Tin/HSG,Tài liệu BDHSG Tin THCS; VNOI Wiki
+Luỹ thừa nhị phân & sàng nguyên tố,Trung bình - Khá,Lớp 3 - Mục 4,"Chuyên Tin/HSG, Tin học trẻ (nâng cao)",VNOI Wiki
+Modulo & Tổ hợp cơ bản,Khá,Lớp 3 - Mục 4,Chuyên Tin/HSG,VNOI Wiki; Tài liệu BDHSG Tin THCS
+Tham lam (Greedy),Khá,Lớp 3 - Mục 5,Chuyên Tin/HSG,VNOI Wiki; Tài liệu BDHSG Tin THCS
+"Quy hoạch động: Knapsack, LIS, Palindrome",Khá,Lớp 3 - Mục 5,"Chuyên Tin/HSG, Tin học trẻ (bảng nâng cao)",Tài liệu BDHSG Tin THCS; VNOI Wiki
+"Đồ thị: biểu diễn, BFS/DFS, liên thông, đường đi ngắn nhất không trọng số",Khá,Lớp 3 - Mục 6,Chuyên Tin/HSG,VNOI Wiki (chuyên mục đồ thị)
+"Stress test (sinh test tự động, so sánh code trâu)",Khá,Lớp 3 - Mục 7,Chuyên Tin/HSG,VNOI Wiki; kinh nghiệm luyện Online Judge
+Fast I/O & tối ưu tốc độ thực thi,Khá,Lớp 3 - Mục 7,"Chuyên Tin/HSG, Tin học trẻ",VNOI Wiki
+Độ phức tạp thuật toán (Big-O) & lựa chọn thuật toán theo giới hạn đề,Xuyên suốt,Lớp 3 - Mục 1 trở đi,"Tin học trẻ, Chuyên Tin/HSG",VNOI Wiki; kinh nghiệm chấm bài thực tế
