@@ -12,9 +12,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const navItems = [
-  { label: "Giới thiệu", href: "/gioi-thieu" },
+  { label: "Về chúng tôi", href: "/ve-chung-toi" },
   { label: "Chương trình học", href: "#exercises" },
-  { label: "Về chúng tôi", href: "#mentor" },
+  { label: "Lộ trình học", href: "#mentor" },
 ] as const;
 
 export function HeaderMobileMenu() {

@@ -7,16 +7,34 @@ import { useSsrSafeReducedMotion } from "@/components/landing/use-ssr-safe-reduc
 
 const easeOutExpo = [0.19, 1, 0.22, 1] as const;
 
+type MediaFrameProps = {
+  label: string;
+  hint?: string;
+  photo?: string;
+  alt?: string;
+  /** Tailwind aspect class, e.g. aspect-video, aspect-4/5 */
+  aspectClassName?: string;
+  className?: string;
+};
+
 /**
- * Real mentor photos aren't uploaded yet — this frame ships the exact slot
- * (size, ratio, border) a real photo will drop into, so nobody mistakes it
- * for a finished section. Swap `photo` once the real portrait exists.
+ * Photo slot for the about page. Ships the exact frame a real image will
+ * drop into — never a finished-looking empty panel.
  */
-export function MentorPhotoFrame({ photo, name }: { photo?: string; name: string }) {
+export function MediaFrame({
+  label,
+  hint = "Khung dựng — thêm ảnh sau",
+  photo,
+  alt,
+  aspectClassName = "aspect-video",
+  className = "",
+}: MediaFrameProps) {
   const reduceMotion = useSsrSafeReducedMotion();
 
   return (
-    <div className="image-slot relative aspect-4/5 w-full overflow-hidden rounded-2xl">
+    <div
+      className={`about-media-frame image-slot relative w-full overflow-hidden rounded-2xl ${aspectClassName} ${className}`}
+    >
       {photo ? (
         <motion.div
           className="absolute inset-0"
@@ -25,7 +43,7 @@ export function MentorPhotoFrame({ photo, name }: { photo?: string; name: string
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.9, ease: easeOutExpo }}
         >
-          <Image src={photo} alt={`Ảnh mentor ${name}`} fill className="object-cover" />
+          <Image src={photo} alt={alt ?? label} fill className="object-cover" />
         </motion.div>
       ) : (
         <>
@@ -33,8 +51,8 @@ export function MentorPhotoFrame({ photo, name }: { photo?: string; name: string
           <div className="relative grid h-full place-items-center p-5 text-center">
             <div>
               <ImageIcon className="mx-auto size-8 text-brand-primary" aria-hidden />
-              <p className="mt-3 text-sm font-black text-brand-deep">Ảnh mentor: {name}</p>
-              <p className="mt-1 text-xs font-bold text-muted-foreground">Khung dựng, chờ ảnh thật</p>
+              <p className="mt-3 text-sm font-black text-brand-deep">{label}</p>
+              <p className="mt-1 text-xs font-bold text-muted-foreground">{hint}</p>
             </div>
           </div>
         </>

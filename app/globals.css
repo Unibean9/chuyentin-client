@@ -1152,81 +1152,177 @@
       linear-gradient(180deg, oklch(0.2 0.12 286), oklch(0.16 0.09 286));
   }
 
-  .intro-story-wrapper {
-    isolation: isolate;
+  /* —— About page (MindX-style editorial) —— */
+
+  .about-hero {
+    background:
+      radial-gradient(circle at 50% 0%, oklch(0.95 0.03 304 / 0.7), transparent 42%),
+      oklch(0.99 0.004 285);
   }
 
-  .intro-story-rail {
-    bottom: 0;
-    left: 1.25rem;
+  .about-mission {
+    background: oklch(0.47 0.21 305);
+  }
+
+  .about-mission-glow {
+    background:
+      radial-gradient(circle at 12% 20%, oklch(0.83 0.16 86 / 0.18), transparent 28rem),
+      radial-gradient(circle at 88% 80%, oklch(0.62 0.18 310 / 0.35), transparent 32rem);
+    inset: 0;
+    pointer-events: none;
     position: absolute;
-    top: 0;
+  }
+
+  .about-values-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .about-values-item {
+    border-top: 1px solid oklch(0.9 0.02 292);
+    padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  }
+
+  .about-values-item:last-child {
+    border-bottom: 1px solid oklch(0.9 0.02 292);
+  }
+
+  @media (min-width: 48rem) {
+    .about-values-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0 2.5rem;
+    }
+
+    .about-values-item {
+      border-bottom: 1px solid oklch(0.9 0.02 292);
+      border-top: none;
+      padding-block: 0;
+      padding-top: 1.75rem;
+      position: relative;
+    }
+
+    .about-values-item::before {
+      background: oklch(0.47 0.21 305);
+      content: "";
+      height: 3px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 2.5rem;
+    }
+  }
+
+  .about-milestone-track {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: clamp(1.25rem, 4vw, 2rem);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about-milestone-track:focus-visible {
+    outline: 2px solid oklch(0.47 0.21 305 / 0.45);
+    outline-offset: 4px;
+  }
+
+  .about-milestone-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-milestone-rail {
+    display: flex;
+    gap: 1.5rem;
+    padding-inline: clamp(1.25rem, 4vw, max(2rem, calc((100vw - 88rem) / 2 + 2rem)));
+    width: max-content;
+  }
+
+  .about-milestone-card {
+    flex: 0 0 min(20.5rem, 78vw);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 48rem) {
+    .about-milestone-card {
+      flex-basis: 22rem;
+    }
+  }
+
+  .about-milestone-nav {
+    align-items: center;
+    background: white;
+    border: 1px solid oklch(0.88 0.025 286);
+    border-radius: 999px;
+    box-shadow: 0 4px 0 oklch(0.27 0.1 292 / 0.07);
+    color: oklch(0.28 0.12 303);
+    cursor: pointer;
+    display: inline-flex;
+    height: 2.75rem;
+    justify-content: center;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
     width: 2.75rem;
   }
 
-  .intro-story-rail-track {
-    background: oklch(0.88 0.02 292);
-    border-radius: 999px;
-    bottom: 0;
-    left: 50%;
-    position: absolute;
-    top: 0;
-    transform: translateX(-50%);
-    width: 3px;
+  .about-milestone-nav:hover {
+    background: oklch(0.97 0.01 304);
+    box-shadow: 0 6px 0 oklch(0.27 0.1 292 / 0.09);
+    transform: translateY(-1px);
   }
 
-  .intro-story-rail-fill {
-    background: oklch(0.55 0.2 310);
-    border-radius: 999px;
-    left: 50%;
-    position: absolute;
-    top: 0;
-    transform-origin: top center;
-    transform: translateX(-50%) scaleY(0);
-    width: 3px;
-    height: 100%;
+  .about-milestone-nav:focus-visible {
+    outline: 2px solid oklch(0.47 0.21 305 / 0.45);
+    outline-offset: 3px;
   }
 
-  .intro-story-node-slot {
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+  .about-team-founder {
+    display: grid;
+    gap: 1.5rem;
+    margin-inline: auto;
+    max-width: 22rem;
   }
 
-  .intro-story-runner {
-    background: oklch(0.55 0.2 310);
-    border-radius: 999px;
-    box-shadow: 0 0 0 6px oklch(0.55 0.2 310 / 0.16);
-    height: 0.6rem;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 0.6rem;
+  @media (min-width: 48rem) {
+    .about-team-founder {
+      align-items: center;
+      gap: 2.25rem;
+      grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+      margin-inline: 0;
+      max-width: 42rem;
+    }
   }
 
-  .intro-story-stop {
-    scroll-margin-top: 6rem;
+  .about-team-grid {
+    display: grid;
+    gap: 1.75rem 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .mentor-card {
-    perspective: 900px;
+  @media (min-width: 48rem) {
+    .about-team-grid {
+      gap: 2rem 1.5rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
-  .mentor-card > div {
-    border: 1px solid oklch(0.88 0.025 286);
-    box-shadow: 0 10px 0 oklch(0.27 0.1 292 / 0.07);
-    transition: box-shadow 0.3s ease;
-    will-change: transform;
+  @media (min-width: 64rem) {
+    .about-team-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
   }
 
-  .mentor-card:hover > div {
-    box-shadow: 0 14px 0 oklch(0.27 0.1 292 / 0.1);
+  .about-media-frame {
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .mentor-card-quote {
-    border-top: 1px solid oklch(0.9 0.02 292);
-    padding-top: 0.85rem;
+  @media (hover: hover) and (pointer: fine) {
+    .about-team-member:hover .about-media-frame,
+    .about-team-founder:hover .about-media-frame,
+    .about-milestone-card:hover .about-media-frame {
+      transform: translateY(-4px);
+    }
   }
 
   .stats-section {
@@ -1337,22 +1433,14 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .intro-story-rail-fill {
-      transform: translateX(-50%) scaleY(1) !important;
+    .about-media-frame {
+      transition: none;
     }
 
-    .intro-story-runner {
-      display: none !important;
-    }
-
-    .mentor-card > div {
-      transform: none !important;
-    }
-  }
-
-  @media (max-width: 47.99rem) {
-    .intro-story-rail {
-      display: none;
+    .about-team-member:hover .about-media-frame,
+    .about-team-founder:hover .about-media-frame,
+    .about-milestone-card:hover .about-media-frame {
+      transform: none;
     }
   }
 }
