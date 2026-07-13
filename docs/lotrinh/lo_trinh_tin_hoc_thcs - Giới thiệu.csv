@@ -1,0 +1,19 @@
+LỘ TRÌNH GIÁO TRÌNH TIN HỌC THCS,,
+Định hướng: Thi Tin học trẻ & Thi vào lớp 10 chuyên Tin  |  Ngôn ngữ: C++  |  Cấu trúc: 3 Lớp học theo Mục kiến thức,,
+,,
+,NỘI DUNG FILE,
+1,Phân chia lớp học,"3 lớp học (Lớp 1 - Lớp 2 - Lớp 3): tiêu chí đầu vào, mục tiêu đầu ra, sĩ số, thời lượng gợi ý."
+2,Lộ trình tổng quan,"Bức tranh lớn: 3 lớp tương ứng khối lớp THCS nào, mục tiêu, kỳ thi hướng tới."
+3,Lộ trình chi tiết theo Mục,"Nội dung chi tiết từng Mục kiến thức trong mỗi lớp, không chia cứng theo tuần — linh hoạt theo khả năng tiếp thu học sinh."
+4,Ngân hàng chuyên đề thuật toán,"Danh sách chuyên đề thuật toán/kỹ thuật cần cho Tin học trẻ và thi chuyên, phân theo mức độ và lớp áp dụng."
+5,Khung ôn thi Tin học trẻ,"Cấu trúc vòng thi, dạng bài thường gặp, lộ trình ôn theo giai đoạn."
+6,Khung ôn thi vào chuyên Tin,"Cấu trúc đề thi chuyên Tin phổ biến, chuyên đề trọng tâm, lộ trình nước rút."
+7,Tài liệu tham khảo,"Danh sách tài liệu/nguồn học kèm ghi chú cách dùng, bao gồm VNOI Roadmap."
+,,
+GHI CHÚ SƯ PHẠM CHUNG,,
+"•  Cấu trúc lộ trình chia theo 3 LỚP HỌC (Lớp 1 - Lớp 2 - Lớp 3), mỗi lớp gồm nhiều MỤC kiến thức thay vì chia cứng theo tuần, giúp giáo viên linh hoạt điều chỉnh tốc độ dạy theo khả năng tiếp thu thực tế của học sinh.",,
+"•  Nguyên tắc xuyên suốt: học ít lý thuyết – luyện nhiều bài – chữa lỗi kỹ. Sau mỗi Mục, nên cho học sinh làm ngay 5-10 bài tập thực hành trên máy để ghi nhớ cú pháp và rèn kỹ năng tự sửa lỗi.",,
+"•  Không nhảy cóc sang Lớp 3 (thuật toán nâng cao) khi nền tảng Lớp 1-2 (cú pháp C++, mảng, xâu, hàm, file I/O) chưa chắc — đây là nguyên nhân chính khiến học sinh THCS mất điểm vì lỗi kỹ thuật chứ không phải vì không hiểu thuật toán.",,
+"•  Lớp 3 là giai đoạn phân hoá rõ giữa mục tiêu Tin học trẻ (thiên tư duy thuật toán vừa phải) và mục tiêu thi Chuyên Tin/HSG (thiên giải thuật chuyên sâu, luyện đề theo cấu trúc thi thật).",,
+•  Nên cho học sinh Lớp 2 trở lên làm quen sớm với định dạng bài thi có file .INP/.OUT và luyện tập trên hệ thống Online Judge — đây là kỹ năng bắt buộc cho cả Tin học trẻ và thi Chuyên Tin.,,
+"•  Tài liệu tham khảo chính: VNOI Wiki/Roadmap (thuật toán thi đấu, phân loại độ khó ⭐1-⭐2 phù hợp THCS), Tài liệu BDHSG Tin THCS (Studocu), VietJack/Wikibooks (bài tập C++ có lời giải), đề thi Tin học trẻ các năm (VnDoc), 28Tech blog (lộ trình học C++).",,

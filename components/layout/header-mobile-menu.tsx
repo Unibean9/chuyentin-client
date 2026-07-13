@@ -13,8 +13,8 @@ import {
 
 const navItems = [
   { label: "Về chúng tôi", href: "/ve-chung-toi" },
-  { label: "Chương trình học", href: "#exercises" },
-  { label: "Lộ trình học", href: "#mentor" },
+  { label: "Chương trình học", href: "/#exercises" },
+  { label: "Lộ trình học", href: "/lo-trinh" },
 ] as const;
 
 export function HeaderMobileMenu() {
@@ -54,7 +54,7 @@ export function HeaderMobileMenu() {
         <DropdownMenuItem
           render={
             <Link
-              href="#danh-gia"
+              href="/#danh-gia"
               className="flex w-full items-center justify-between gap-2 rounded-md bg-primary px-3 py-2.5 text-sm font-black text-primary-foreground"
             />
           }

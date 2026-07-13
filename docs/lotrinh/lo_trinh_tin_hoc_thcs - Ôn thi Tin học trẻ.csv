@@ -1,0 +1,7 @@
+KHUNG ÔN THI TIN HỌC TRẺ (BẢNG THCS),,,
+"Tin học trẻ thiên về tư duy thuật toán vừa phải (VNOI Roadmap ⭐1) + kỹ năng lập trình chắc, đúng định dạng file thi",,,
+Giai đoạn ôn,Thời điểm,Nội dung trọng tâm,Sản phẩm/Kết quả cần đạt
+Ôn nền tảng,Sau khi hoàn thành Lớp 2,"Rà soát cú pháp C++, mảng, xâu, hàm, File I/O (.INP/.OUT) — đảm bảo không còn lỗi kỹ thuật (lỗi biên, lỗi kiểu dữ liệu, tràn số, sai định dạng file)",Bài test tổng hợp đạt >=80% số câu cơ bản; đọc/ghi file đúng định dạng 100%
+"Ôn theo chuyên đề (Lớp 3, Mục 1-4)",Trong quá trình học Lớp 3,"Luyện tập trung các chuyên đề hay ra trong đề Tin học trẻ: Prefix Sum, Two Pointers, sắp xếp/tìm kiếm nâng cao, đệ quy cơ bản, số học (nguyên tố, ƯCLN/BCNN, luỹ thừa nhị phân)",Giải đúng >=70% bài tập chuyên đề trong thời gian quy định
+Luyện đề thi các năm trước,Trước kỳ thi 2-3 tháng,"Làm đề thi Tin học trẻ các năm trước (tham khảo bộ đề trên VnDoc), bấm giờ như thi thật, thực hành Stress test để tự kiểm tra lời giải, chữa kỹ từng lỗi sai","Hoàn thành ít nhất 5-8 đề, có nhật ký lỗi sai cá nhân"
+Nước rút trước thi,2-3 tuần trước thi,"Ôn lại lỗi sai lặp lại nhiều nhất, luyện Fast I/O và tốc độ gõ code, luyện kỹ năng đọc đề nhanh & xác định dạng bài","Tâm lý vững, giải bài quen thuộc trong <2/3 thời gian cho phép"

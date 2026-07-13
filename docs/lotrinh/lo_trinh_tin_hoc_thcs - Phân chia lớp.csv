@@ -1,0 +1,15 @@
+PHÂN CHIA LỚP HỌC THEO TRÌNH ĐỘ (3 LỚP),,,,,
+"Xếp lớp theo NĂNG LỰC THỰC TẾ (qua bài test đầu vào), không chỉ theo khối lớp — học sinh có thể học nhanh hơn hoặc chậm hơn khung gợi ý",,,,,
+Tên lớp,Khối lớp phù hợp,Đối tượng đầu vào,Mục tiêu đầu ra,Số Mục kiến thức,Sĩ số / hình thức
+"Lớp 1: Làm quen C++
+(Nền tảng lập trình)","Lớp 6
+(hoặc bất kỳ khối nào mới bắt đầu)","Chưa từng học lập trình, mới làm quen máy tính/tư duy logic","Nắm vững cú pháp cơ bản, biết thiết lập môi trường lập trình, hình thành tư duy lập trình tuần tự",5 Mục: Môi trường & chương trình đầu tiên; Biến & kiểu dữ liệu; Toán tử; Rẽ nhánh; Vòng lặp,"15-25 học sinh/lớp, dạy đại trà"
+"Lớp 2: Lập trình cơ bản & Kỹ năng giải toán
+(Viết code chắc)",Lớp 6 cuối năm - Lớp 7,"Đã hoàn thành Lớp 1, làm chủ if/for/while và viết được chương trình đơn giản","Thành thạo mảng, xâu ký tự, hàm và đọc/ghi tệp tin để giải các bài toán độ phức tạp trung bình; làm quen định dạng đề thi thật (.INP/.OUT)",6 Mục: Hàm; File I/O; Mảng một chiều; Xâu ký tự; Số học cơ bản; Sắp xếp cơ bản,15-20 học sinh/lớp
+Lớp 3: Thuật toán & Luyện thi Chuyên/Tin học trẻ,Lớp 7 cuối năm - Lớp 9,"Đã hoàn thành Lớp 2, có định hướng thi Tin học trẻ/HSG/Chuyên Tin, qua bài test phân loại","Nắm vững kỹ thuật tối ưu hoá, tư duy thuật toán nâng cao, thành thạo các dạng bài thi đấu thực tế; sẵn sàng thi vào Chuyên Tin và Tin học trẻ",7 Mục: Độ phức tạp & kỹ thuật nền tảng; Sắp xếp/Tìm kiếm nâng cao; Đệ quy & Quay lui; Toán học & Lý thuyết số; Tham lam & DP; Đồ thị cơ bản; Kỹ năng thi đấu & Luyện đề,"8-15 học sinh/lớp, tách nhóm mũi nhọn khi cần, kèm sát 1-1 giai đoạn nước rút"
+,,,,,
+TIÊU CHÍ XẾP LỚP & LUÂN CHUYỂN,,,,,
+"•  Đầu mỗi lớp: tổ chức 1 bài test xếp lớp (60-90 phút, gồm trắc nghiệm cú pháp + 2-3 bài lập trình) để xếp đúng trình độ, không xếp cứng theo khối lớp.",,,,,
+•  Cuối mỗi Mục lớn (hoặc theo cụm 4-6 Mục): có bài kiểm tra đánh giá để quyết định học sinh đã sẵn sàng lên lớp tiếp theo hay cần củng cố thêm.,,,,,
+"•  Từ Lớp 3, nên tách thêm theo mục tiêu thi: nhóm 'Tin học trẻ' (thiên sản phẩm/thuật toán vừa phải, độ khó VNOI ⭐1) và nhóm 'Chuyên Tin/HSG' (thiên giải thuật chuyên sâu, độ khó VNOI ⭐1-⭐2) vì đề thi hai hướng khác nhau đáng kể.",,,,,
+"•  Lớp 3 nên có thêm các buổi luyện đề thi thử (mock contest) định kỳ để rèn tốc độ, kỹ năng viết trình chấm và tâm lý phòng thi.",,,,,
