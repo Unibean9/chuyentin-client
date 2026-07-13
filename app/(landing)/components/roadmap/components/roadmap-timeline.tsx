@@ -23,17 +23,33 @@ function RoadmapStageRow({ stage, index }: { stage: (typeof roadmapStages)[numbe
         {index + 1}
       </span>
 
-      <div className="pt-1">
-        <p className="text-xs font-black uppercase tracking-[0.06em] text-brand-primary">
-          {stage.shortName} · {stage.suggestedGrade}
-        </p>
-        <h3 className="mt-1.5 text-xl font-black leading-tight tracking-[-0.025em] text-brand-deep md:text-2xl">
-          {stage.title}
-        </h3>
-        <p className="mt-2.5 max-w-xl text-pretty font-semibold leading-7 text-muted-foreground">
-          {stage.goal}
-        </p>
-        <p className="mt-3 text-sm font-bold text-brand-deep/70">Đích đến: {stage.exam}</p>
+      <div className="grid gap-4 pt-1 xl:grid-cols-[minmax(0,1fr)_minmax(10rem,0.42fr)] xl:gap-6">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.06em] text-brand-primary">
+            {stage.shortName} · Trình độ {stage.level}
+          </p>
+          <h3 className="mt-1.5 text-xl font-black leading-tight tracking-[-0.025em] text-brand-deep md:text-2xl">
+            {stage.title}
+          </h3>
+          <p className="mt-2.5 max-w-xl text-pretty font-semibold leading-7 text-muted-foreground">
+            {stage.goal}
+          </p>
+          <p className="mt-3 text-sm font-bold text-brand-deep/70">Đích đến: {stage.exam}</p>
+        </div>
+
+        <ul
+          className="flex flex-wrap content-start gap-2 xl:pt-5"
+          aria-label={`Nội dung ${stage.shortName}`}
+        >
+          {stage.topics.map((topic) => (
+            <li
+              key={topic}
+              className="rounded-full bg-brand-primary/8 px-3 py-1.5 text-xs font-black text-brand-primary ring-1 ring-brand-primary/20"
+            >
+              {topic}
+            </li>
+          ))}
+        </ul>
       </div>
     </motion.li>
   );

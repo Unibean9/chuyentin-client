@@ -15,15 +15,14 @@ function WhyUs() {
             centered
             wide
             icon={<ShieldCheck className="size-8" />}
-            title="Luyện thi chuyên Tin & HSG Tin học"
+            title="Vì sao chọn Chuyên Tin?"
             copy={
               <>
                 <span className="lg:hidden">
-                  Chương trình đào tạo chuyên sâu, không mở rộng sang công nghệ đại chúng. Ba điểm khác biệt qua
-                  hình ảnh thực tế tại lớp.
+                  Chương trình ôn luyện chuyên sâu và thực chất. 6 điểm khác biệt cốt lõi qua các hoạt động thực tế tại lớp học.
                 </span>
                 <span className="hidden lg:inline">
-                  Chương trình đào tạo chuyên sâu thi chuyên Tin — không triển khai đào tạo công nghệ đại chúng.             
+                  Lộ trình học thuật toán C++ chuyên biệt, nghiêm túc và đồng hành sát sao cùng mentor chuyên môn cao.
                 </span>
               </>
             }

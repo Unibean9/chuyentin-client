@@ -1,18 +1,24 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowNavButton } from "@/components/landing/arrow-nav-button";
 import { MediaFrame } from "@/components/landing/media-frame";
 import { useSsrSafeReducedMotion } from "@/components/landing/use-ssr-safe-reduced-motion";
 import { testimonialSlots } from "./testimonial-data";
 
+const loopingTestimonialSlots = [...testimonialSlots, ...testimonialSlots, ...testimonialSlots];
+
 function TestimonialCard({
   slot,
   tone,
+  index,
+  isDuplicate,
   cardRef,
 }: {
   slot: (typeof testimonialSlots)[number];
   tone: "primary" | "accent";
+  index: number;
+  isDuplicate: boolean;
   cardRef: (node: HTMLElement | null) => void;
 }) {
   const isAccent = tone === "accent";
@@ -20,6 +26,10 @@ function TestimonialCard({
   return (
     <article
       ref={cardRef}
+      role={isDuplicate ? undefined : "group"}
+      aria-hidden={isDuplicate || undefined}
+      aria-roledescription={isDuplicate ? undefined : "slide"}
+      aria-label={isDuplicate ? undefined : `${index + 1} / ${testimonialSlots.length}`}
       className={`peek-carousel-card grid gap-6 rounded-2xl p-7 sm:grid-cols-[1fr_11rem] sm:items-center sm:gap-6 sm:p-9 ${
         isAccent ? "bg-brand-accent" : "bg-brand-primary"
       }`}
@@ -66,20 +76,84 @@ function TestimonialCard({
 export function TestimonialCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Array<HTMLElement | null>>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const loopResetTimeoutRef = useRef<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState(testimonialSlots.length);
+  const activeIndexRef = useRef(testimonialSlots.length);
   const reduceMotion = useSsrSafeReducedMotion();
+
+  const setTrackPosition = useCallback((index: number, behavior: ScrollBehavior) => {
+    const track = trackRef.current;
+    const card = cardRefs.current[index];
+    if (!track || !card) return;
+
+    const left = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
+    track.scrollTo({ left, behavior });
+  }, []);
 
   const scrollToIndex = useCallback(
     (index: number) => {
-      const clamped = Math.max(0, Math.min(index, testimonialSlots.length - 1));
-      cardRefs.current[clamped]?.scrollIntoView({
-        behavior: reduceMotion ? "auto" : "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-      setActiveIndex(clamped);
+      if (loopResetTimeoutRef.current !== null) {
+        window.clearTimeout(loopResetTimeoutRef.current);
+      }
+
+      setTrackPosition(index, reduceMotion ? "auto" : "smooth");
+      setActiveIndex(index);
+      activeIndexRef.current = index;
+
+      const firstMiddleIndex = testimonialSlots.length;
+      const firstLastIndex = testimonialSlots.length * 2;
+      const normalizedIndex =
+        index >= firstLastIndex
+          ? index - testimonialSlots.length
+          : index < firstMiddleIndex
+            ? index + testimonialSlots.length
+            : null;
+
+      if (normalizedIndex !== null) {
+        loopResetTimeoutRef.current = window.setTimeout(
+          () => {
+            setTrackPosition(normalizedIndex, "auto");
+            setActiveIndex(normalizedIndex);
+            activeIndexRef.current = normalizedIndex;
+            loopResetTimeoutRef.current = null;
+          },
+          reduceMotion ? 0 : 650,
+        );
+      }
     },
-    [reduceMotion],
+    [reduceMotion, setTrackPosition],
+  );
+
+  useLayoutEffect(() => {
+    const initialIndex = testimonialSlots.length;
+    const positionAtStart = () => setTrackPosition(initialIndex, "auto");
+    const keepCurrentCardCentered = () => setTrackPosition(activeIndexRef.current, "auto");
+    const animationFrameId = window.requestAnimationFrame(positionAtStart);
+
+    window.addEventListener("resize", keepCurrentCardCentered);
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", keepCurrentCardCentered);
+    };
+  }, [setTrackPosition]);
+
+  useEffect(() => {
+    if (testimonialSlots.length <= 1) return;
+
+    const timeoutId = window.setTimeout(() => {
+      scrollToIndex(activeIndex + 1);
+    }, 5_000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [activeIndex, scrollToIndex]);
+
+  useEffect(
+    () => () => {
+      if (loopResetTimeoutRef.current !== null) {
+        window.clearTimeout(loopResetTimeoutRef.current);
+      }
+    },
+    [],
   );
 
   return (
@@ -92,11 +166,15 @@ export function TestimonialCarousel() {
         aria-label="Trích dẫn phụ huynh và học sinh"
       >
         <div className="peek-carousel-rail py-2">
-          {testimonialSlots.map((slot, index) => (
+          {loopingTestimonialSlots.map((slot, index) => (
             <TestimonialCard
-              key={slot.id}
+              key={`${slot.id}-${Math.floor(index / testimonialSlots.length)}`}
               slot={slot}
               tone={index % 2 === 0 ? "primary" : "accent"}
+              index={index % testimonialSlots.length}
+              isDuplicate={
+                index < testimonialSlots.length || index >= testimonialSlots.length * 2
+              }
               cardRef={(node) => {
                 cardRefs.current[index] = node;
               }}
@@ -105,21 +183,19 @@ export function TestimonialCarousel() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 left-2 z-10 flex items-center md:left-4">
+      <div className="pointer-events-none absolute inset-y-0 left-2 z-10 flex items-center md:left-12 xl:left-20">
         <div className="pointer-events-auto">
           <ArrowNavButton
             direction="prev"
-            disabled={activeIndex === 0}
             onClick={() => scrollToIndex(activeIndex - 1)}
             label={{ prev: "Trích dẫn trước", next: "Trích dẫn sau" }}
           />
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-y-0 right-2 z-10 flex items-center md:right-4">
+      <div className="pointer-events-none absolute inset-y-0 right-2 z-10 flex items-center md:right-12 xl:right-20">
         <div className="pointer-events-auto">
           <ArrowNavButton
             direction="next"
-            disabled={activeIndex === testimonialSlots.length - 1}
             onClick={() => scrollToIndex(activeIndex + 1)}
             label={{ prev: "Trích dẫn trước", next: "Trích dẫn sau" }}
           />

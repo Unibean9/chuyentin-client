@@ -1514,20 +1514,15 @@
   .peek-carousel-track {
     -webkit-mask-image: linear-gradient(to right, black 92%, transparent);
     mask-image: linear-gradient(to right, black 92%, transparent);
-    overflow-x: auto;
+    overflow: hidden;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    touch-action: pan-y pinch-zoom;
     -webkit-overflow-scrolling: touch;
   }
 
   .peek-carousel-track:focus-visible {
     outline: 2px solid oklch(0.47 0.21 305 / 0.45);
     outline-offset: 4px;
-  }
-
-  .peek-carousel-track::-webkit-scrollbar {
-    display: none;
   }
 
   .peek-carousel-rail {
@@ -1540,7 +1535,7 @@
 
   .peek-carousel-card {
     flex: 0 0 min(88vw, 26rem);
-    scroll-snap-align: start;
+    min-width: 0;
   }
 
   @media (min-width: 48rem) {
@@ -1759,4 +1754,18 @@
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* 3D Card Flip utilities */
+.perspective-\[1600px\] {
+  perspective: 1600px;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
