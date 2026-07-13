@@ -1,21 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import {
-  BookOpenCheck,
-  BrainCircuit,
-  LineChart,
-  MessageCircle,
-  MonitorPlay,
-  Route,
-  SquareTerminal,
-  Users,
-} from "lucide-react";
-import FAQSection from "@/app/(landing)/components/FAQ/page";
-import FirstTest from "@/app/(landing)/components/first-test/page";
-import Hero from "@/app/(landing)/components/hero/page";
-import WhyUs from "@/app/(landing)/components/why-us/page";
-import { Reveal, SectionIcon, SectionIntro, ZigZag } from "@/components/landing/section-kit";
+import { BookOpenCheck, MessageCircle, MonitorPlay, SquareTerminal } from "lucide-react";
+import FAQSection from "@/app/(landing)/components/FAQ/view";
+import FirstTest from "@/app/(landing)/components/first-test/view";
+import MentorSection from "@/app/(landing)/components/mentor/view";
+import ProblemSection from "@/app/(landing)/components/problem/view";
+import RoadmapSection from "@/app/(landing)/components/roadmap/view";
+import StatsSection from "@/app/(landing)/components/stats/view";
+import TestimonialSection from "@/app/(landing)/components/testimonial/view";
+import Hero from "@/app/(landing)/components/hero/view";
+import WhyUs from "@/app/(landing)/components/why-us/view";
+import { Reveal, SectionIntro } from "@/components/landing/section-kit";
 import { Footer } from "@/components/layout/footer";
 import { ContactDock } from "@/components/layout/contact-dock";
 import { Header } from "@/components/layout/header";
@@ -56,24 +52,6 @@ const featureSteps = [
     icon: MessageCircle,
     title: "Mentor chữa đúng điểm nghẽn",
     copy: "Mỗi feedback biến thành bài sửa cụ thể để tuần sau con không lặp lại cùng một lỗi.",
-  },
-];
-
-const mentorReasons = [
-  {
-    icon: BrainCircuit,
-    title: "Thấy phần con chưa tự thấy",
-    copy: "Bài qua test mẫu vẫn có thể sai ý tưởng. Mentor đọc cách con nghĩ và chỉ ra lỗ hổng trước mùa thi.",
-  },
-  {
-    icon: Route,
-    title: "Luyện đúng lộ trình thi chuyên",
-    copy: "Không nhảy bài theo cảm hứng. Track đi từ nền C++, mảng, xâu đến DP, đồ thị và đề tổng hợp.",
-  },
-  {
-    icon: LineChart,
-    title: "Phụ huynh thấy tiến bộ thật",
-    copy: "Báo cáo nói rõ con làm bài nào, sửa lỗi gì, phần nào còn yếu và tuần tới cần tập trung vào đâu.",
   },
 ];
 
@@ -131,20 +109,6 @@ function DashboardMock() {
   );
 }
 
-function MentorMock() {
-  return (
-    <div className="mentor-mock relative aspect-[3/2] overflow-hidden rounded-2xl bg-white">
-      <Image
-        src="/monhoc.png"
-        alt="Giao diện môn học Chuyên Tin với bài luyện, lộ trình và ghi chú mentor"
-        sizes="(min-width: 1440px) 88rem, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2.5rem)"
-        fill
-        className="object-cover object-center"
-      />
-    </div>
-  );
-}
-
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
@@ -152,9 +116,13 @@ export default function HomePage() {
 
       <Hero />
 
+      <ProblemSection />
+
       <FirstTest />
 
       <WhyUs />
+
+      <RoadmapSection />
 
       <div className="track-exercise-band border-y border-[oklch(0.9_0.026_292)]">
         <section id="exercises" className="px-5 pb-14 pt-16 md:px-8 md:pb-18 md:pt-20">
@@ -204,83 +172,13 @@ export default function HomePage() {
         </section>
       </div>
 
-      <section id="mentor" className="relative px-5 py-16 md:px-8 md:py-20">
-        <div className="ornament ornament-diamond left-[10%] top-[11%] hidden md:block" />
-        <div className="ornament ornament-bars left-[9%] top-[39%] hidden md:block" />
-        <div className="ornament ornament-square right-[20%] top-[14%] hidden md:block" />
-        <div className="ornament ornament-dots right-[18%] top-[34%] hidden md:block" />
-        <div className="ornament ornament-triangle right-[7%] top-[27%] hidden md:block" />
-        <div className="mx-auto grid max-w-[88rem] items-center gap-12 lg:grid-cols-[0.82fr_1fr]">
-          <Reveal>
-            <div className="flex min-h-[20rem] items-center justify-center lg:justify-center">
-              <Image
-                src="/course.png"
-                alt="Hai học sinh Chuyên Tin đang học cùng laptop và ghi chú lộ trình ôn thi"
-                width={500}
-                height={500}
-                className="h-auto w-full max-w-[22rem] object-contain md:max-w-[25.5rem]"
-              />
-            </div>
-          </Reveal>
+      <StatsSection />
 
-          <Reveal delay={0.08}>
-            <div className="mentor-lead-copy relative max-w-3xl">
-              <SectionIcon>
-                <Users className="size-8" />
-              </SectionIcon>
-              <h2 className="mt-5 max-w-2xl text-balance text-[clamp(2.2rem,3.4vw,3.35rem)] font-black leading-[1.08] tracking-[-0.03em] text-brand-deep">
-                Đào sâu kiến thức với{" "}
-                <span className="mentor-underlined">mentor thật.</span>
-              </h2>
-              <ZigZag className="mt-6" />
-              <p className="mt-7 max-w-2xl text-pretty text-base leading-8 text-muted-foreground md:text-lg">
-                Con không chỉ cần thêm bài. Con cần người đọc cách nghĩ, chỉ ra lỗ hổng
-                và giúp biến một lời giải đúng thành một lời giải chắc cho phòng thi.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-
-        <div className="mx-auto mt-12 max-w-[88rem]">
-          <Reveal>
-            <MentorMock />
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="parents" className="px-5 pb-16 pt-8 md:px-8 md:pb-20 md:pt-10">
-        <div className="mx-auto max-w-[88rem]">
-          <Reveal>
-            <SectionIntro
-              centered
-              title="Vì sao cần mentor và báo cáo rõ ràng?"
-              copy="Phụ huynh không cần đọc code vẫn nên biết con đang tiến bộ ở đâu, còn hổng gì và tuần tới phải luyện phần nào."
-            />
-          </Reveal>
-
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {mentorReasons.map((item, index) => {
-              const Icon = item.icon;
-
-              return (
-                <Reveal key={item.title} delay={index * 0.05}>
-                  <article className="feature-column">
-                    <Icon className="size-12 text-brand-primary" />
-                    <h3 className="mt-5 text-2xl font-black leading-tight tracking-[-0.03em] text-brand-deep">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-pretty font-semibold leading-7 text-muted-foreground">
-                      {item.copy}
-                    </p>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <MentorSection />
 
       <FAQSection />
+
+      <TestimonialSection />
 
       <Footer />
       <ContactDock />

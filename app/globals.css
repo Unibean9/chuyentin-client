@@ -1511,43 +1511,45 @@
     }
   }
 
-  .about-milestone-track {
+  .peek-carousel-track {
+    -webkit-mask-image: linear-gradient(to right, black 92%, transparent);
+    mask-image: linear-gradient(to right, black 92%, transparent);
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    scroll-padding-inline: clamp(1.25rem, 4vw, 2rem);
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
 
-  .about-milestone-track:focus-visible {
+  .peek-carousel-track:focus-visible {
     outline: 2px solid oklch(0.47 0.21 305 / 0.45);
     outline-offset: 4px;
   }
 
-  .about-milestone-track::-webkit-scrollbar {
+  .peek-carousel-track::-webkit-scrollbar {
     display: none;
   }
 
-  .about-milestone-rail {
+  .peek-carousel-rail {
     display: flex;
-    gap: 1.5rem;
-    padding-inline: clamp(1.25rem, 4vw, max(2rem, calc((100vw - 88rem) / 2 + 2rem)));
+    gap: 1.25rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2rem);
     width: max-content;
   }
 
-  .about-milestone-card {
-    flex: 0 0 min(20.5rem, 78vw);
+  .peek-carousel-card {
+    flex: 0 0 min(88vw, 26rem);
     scroll-snap-align: start;
   }
 
   @media (min-width: 48rem) {
-    .about-milestone-card {
-      flex-basis: 22rem;
+    .peek-carousel-card {
+      flex-basis: min(47vw, 36rem);
     }
   }
 
-  .about-milestone-nav {
+  .peek-carousel-nav {
     align-items: center;
     background: white;
     border: 1px solid oklch(0.88 0.025 286);
@@ -1565,13 +1567,13 @@
     width: 2.75rem;
   }
 
-  .about-milestone-nav:hover {
+  .peek-carousel-nav:hover {
     background: oklch(0.97 0.01 304);
     box-shadow: 0 6px 0 oklch(0.27 0.1 292 / 0.09);
     transform: translateY(-1px);
   }
 
-  .about-milestone-nav:focus-visible {
+  .peek-carousel-nav:focus-visible {
     outline: 2px solid oklch(0.47 0.21 305 / 0.45);
     outline-offset: 3px;
   }
@@ -1619,7 +1621,7 @@
   @media (hover: hover) and (pointer: fine) {
     .about-team-member:hover .about-media-frame,
     .about-team-founder:hover .about-media-frame,
-    .about-milestone-card:hover .about-media-frame {
+    .peek-carousel-card:hover .about-media-frame {
       transform: translateY(-4px);
     }
   }
@@ -1637,8 +1639,8 @@
     display: flex;
     margin-inline: auto;
     max-width: 82rem;
-    min-height: clamp(17rem, 42vw, 21.5rem);
-    padding-block: clamp(2rem, 4.5vw, 3rem);
+    min-height: clamp(15rem, 38vw, 18.5rem);
+    padding-block: clamp(1.75rem, 4vw, 2.5rem);
     padding-inline: clamp(1.25rem, 4vw, 3rem);
     position: relative;
     width: 100%;
@@ -1738,7 +1740,7 @@
 
     .about-team-member:hover .about-media-frame,
     .about-team-founder:hover .about-media-frame,
-    .about-milestone-card:hover .about-media-frame {
+    .peek-carousel-card:hover .about-media-frame {
       transform: none;
     }
   }

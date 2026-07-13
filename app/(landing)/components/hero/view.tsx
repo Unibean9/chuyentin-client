@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroArrowButton } from "./components/hero-arrows";
+import { ArrowNavButton } from "@/components/landing/arrow-nav-button";
 import { HeroAutoplayProgress } from "./components/hero-autoplay-progress";
 import { HeroDots } from "./components/hero-dots";
 import { heroSlides } from "./components/hero-data";
@@ -74,10 +74,10 @@ function Hero() {
           animate="visible"
         >
           <div className="pointer-events-auto">
-            <HeroArrowButton direction="prev" onClick={goPrev} />
+            <ArrowNavButton direction="prev" onClick={goPrev} />
           </div>
           <div className="pointer-events-auto">
-            <HeroArrowButton direction="next" onClick={goNext} />
+            <ArrowNavButton direction="next" onClick={goNext} />
           </div>
         </motion.div>
 
@@ -88,9 +88,9 @@ function Hero() {
           animate="visible"
         >
           <div className="flex items-center gap-3 md:hidden">
-            <HeroArrowButton direction="prev" onClick={goPrev} size="sm" />
+            <ArrowNavButton direction="prev" onClick={goPrev} size="sm" />
             <HeroDots slides={heroSlides} activeIndex={activeIndex} onSelect={goToSlide} />
-            <HeroArrowButton direction="next" onClick={goNext} size="sm" />
+            <ArrowNavButton direction="next" onClick={goNext} size="sm" />
           </div>
           <div className="hidden md:block">
             <HeroDots slides={heroSlides} activeIndex={activeIndex} onSelect={goToSlide} />

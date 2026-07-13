@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { useSsrSafeReducedMotion } from "@/components/landing/use-ssr-safe-reduced-motion";
+import { useSsrSafeReducedMotion } from "./use-ssr-safe-reduced-motion";
 
 const easeOutExpo = [0.19, 1, 0.22, 1] as const;
 
@@ -15,11 +15,13 @@ type MediaFrameProps = {
   /** Tailwind aspect class, e.g. aspect-video, aspect-4/5 */
   aspectClassName?: string;
   className?: string;
+  /** Passed to next/image; override when the caller knows its rendered width. */
+  sizes?: string;
 };
 
 /**
- * Photo slot for the about page. Ships the exact frame a real image will
- * drop into — never a finished-looking empty panel.
+ * Photo slot shared across landing sections. Ships the exact frame a real
+ * image will drop into — never a finished-looking empty panel.
  */
 export function MediaFrame({
   label,
@@ -28,6 +30,7 @@ export function MediaFrame({
   alt,
   aspectClassName = "aspect-video",
   className = "",
+  sizes = "(min-width: 768px) 50vw, 100vw",
 }: MediaFrameProps) {
   const reduceMotion = useSsrSafeReducedMotion();
 
@@ -43,7 +46,7 @@ export function MediaFrame({
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.9, ease: easeOutExpo }}
         >
-          <Image src={photo} alt={alt ?? label} fill className="object-cover" />
+          <Image src={photo} alt={alt ?? label} fill sizes={sizes} className="object-cover" />
         </motion.div>
       ) : (
         <>

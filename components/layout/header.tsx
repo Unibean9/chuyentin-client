@@ -4,9 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { HeaderMobileMenu } from "./header-mobile-menu";
 
 const navItems = [
-  { label: "Về chúng tôi", href: "/ve-chung-toi" },
+  { label: "Vì sao chọn Chuyên Tin", href: "/#vi-sao-chuyen-tin" },
+  { label: "Lộ trình học", href: "/#lo-trinh" },
   { label: "Chương trình học", href: "/#exercises" },
-  { label: "Lộ trình học", href: "/lo-trinh" },
+  { label: "Đội ngũ", href: "/#doi-ngu" },
 ] as const;
 
 export function LogoMark() {
