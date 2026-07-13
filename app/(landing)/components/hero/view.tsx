@@ -50,7 +50,7 @@ function Hero() {
       onBlur={() => setIsPaused(false)}
       aria-label="Hero slideshow"
     >
-      <div className="relative aspect-video w-full md:aspect-auto md:h-[calc(100dvh-4.85rem)] md:min-h-144">
+      <div className="relative aspect-video w-full">
         {heroSlides.map((slide, index) => (
           <HeroSlideBackground
             key={slide.id}

@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { useSsrSafeReducedMotion } from "@/components/landing/use-ssr-safe-reduced-motion";
+import { ScrollToTopButton } from "./scroll-to-top-button";
 import { contactDockLinks } from "./contact-dock-data";
 
 function MessengerIcon() {
@@ -129,7 +130,7 @@ export function ContactDock() {
 
   return (
     <motion.aside
-      className="contact-dock fixed right-0 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-50"
+      className="contact-dock fixed right-0 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-50 flex w-[3.5rem] flex-col items-center"
       initial={reduceMotion ? false : { x: 24, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{
@@ -137,18 +138,18 @@ export function ContactDock() {
         delay: reduceMotion ? 0 : 0.3,
         ease: [0.16, 1, 0.3, 1],
       }}
-      aria-label="Liên hệ nhanh"
+      aria-label="Tiện ích nhanh"
     >
       <div className="contact-dock-panel relative w-[3.5rem]">
         <svg
           className="pointer-events-none absolute inset-0 h-full w-full text-brand-deep drop-shadow-[-8px_12px_28px_oklch(0.2_0.08_300/0.32)]"
-          viewBox="0 0 56 188"
+          viewBox="0 0 56 200"
           preserveAspectRatio="none"
           aria-hidden
         >
           <path
             fill="currentColor"
-            d="M0 28 C0 28 16 24 18 0 H56 V188 H18 C16 164 0 160 0 136 V28 Z"
+            d="M0 28 C0 28 16 24 18 0 H56 V200 H18 C16 176 0 172 0 148 V28 Z"
           />
         </svg>
 
@@ -164,6 +165,7 @@ export function ContactDock() {
           <PhoneLink href={contactDockLinks.phoneHref} label="Gọi tư vấn" />
         </div>
       </div>
+      <ScrollToTopButton />
     </motion.aside>
   );
 }
