@@ -5,42 +5,7 @@ import { motion } from "framer-motion";
 import { useSsrSafeReducedMotion } from "@/components/landing/use-ssr-safe-reduced-motion";
 import { ScrollToTopButton } from "./scroll-to-top-button";
 import { contactDockLinks } from "./contact-dock-data";
-
-function MessengerIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="size-7" aria-hidden>
-      <path
-        fill="currentColor"
-        d="M16 2C8.268 2 2 7.544 2 14.316c0 3.352 1.672 6.332 4.288 8.284-.136 1.76-.496 5.992-.6 7.152-.112.96.408.944.856.696.456-.296 5.336-3.888 6.168-4.456 1.048.288 2.152.44 3.288.44 7.732 0 14-5.544 14-12.316S23.732 2 16 2Zm1.384 12.024-2.72-2.904-5.32 2.904 5.856-6.224 2.792 2.904 5.248-2.904-5.856 6.224Z"
-      />
-    </svg>
-  );
-}
-
-function ZaloIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="size-7" aria-hidden>
-      <path
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinejoin="round"
-        d="M9 7h14a3.5 3.5 0 0 1 3.5 3.5v7A3.5 3.5 0 0 1 23 21h-5.2L14 24.5V21H9A3.5 3.5 0 0 1 5.5 17.5v-7A3.5 3.5 0 0 1 9 7Z"
-      />
-      <text
-        x="16"
-        y="16.5"
-        textAnchor="middle"
-        fill="currentColor"
-        fontSize="6.5"
-        fontWeight="700"
-        fontFamily="Arial, Helvetica, sans-serif"
-      >
-        Zalo
-      </text>
-    </svg>
-  );
-}
+import { ZaloIcon, MessengerIcon } from "@/components/icons";
 
 function PhoneIcon() {
   return (
@@ -155,11 +120,11 @@ export function ContactDock() {
 
         <div className="relative z-10 flex flex-col items-center gap-3.5 py-5 pl-3.5 pr-2.5">
           <DockLink href={contactDockLinks.messengerHref} label="Nhắn tin qua Messenger">
-            <MessengerIcon />
+            <MessengerIcon className="size-7" />
           </DockLink>
 
           <DockLink href={contactDockLinks.zaloHref} label="Nhắn tin qua Zalo">
-            <ZaloIcon />
+            <ZaloIcon className="size-7" />
           </DockLink>
 
           <PhoneLink href={contactDockLinks.phoneHref} label="Gọi tư vấn" />

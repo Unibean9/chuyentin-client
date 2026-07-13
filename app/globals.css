@@ -1755,3 +1755,17 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* 3D Card Flip utilities */
+.perspective-\[1600px\] {
+  perspective: 1600px;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

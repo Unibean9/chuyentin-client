@@ -12,60 +12,66 @@ export type WhyUsMobileStory = {
 
 export const whyUsMobileStories = {
   photoA: {
-    title: "Một chương trình, một mục tiêu thi",
+    title: "Chương trình chuyên biệt, chọn lọc học viên",
     intro:
-      "Chuyên Tin triển khai lộ trình thi chuyên Tin và luyện HSG Tin học — không mở rộng sang đào tạo công nghệ tổng quát.",
+      "Chương trình chỉ tập trung ôn thi chuyên Tin và HSG Tin học. Học sinh được đánh giá năng lực tư duy thực tế và tuyển chọn kỹ lưỡng đầu vào.",
     points: [
-      "Bắt đầu từ đánh giá năng lực đầu vào",
-      "Dành cho học sinh THCS đã xác định định hướng thi",
+      "Một chương trình, một mục tiêu ôn luyện chuyên biệt",
+      "Đánh giá năng lực tư duy thực tế trước khi xếp lớp",
+      "Tuyển chọn những học viên phù hợp và có quyết tâm học thật",
     ],
   },
   photoB: {
-    title: "Mentor chuyên môn, phản hồi chi tiết",
+    title: "Mentor hỗ trợ 1:1 & Cam kết thực tế",
     intro:
-      "Mỗi bài nộp được mentor đọc và góp ý cụ thể — học viên nắm rõ điểm yếu và hướng cải thiện.",
+      "Không chỉ chấm bài tự động, mentor đồng hành sửa từng lỗi tư duy thuật toán. Lộ trình được cá nhân hóa theo tiến độ làm bài thực tế.",
     points: [
-      "Lộ trình điều chỉnh theo kết quả thực hành",
-      "Không cam kết kết quả tuyệt đối cho mọi học viên",
+      "Mentor chuyên môn đọc và chữa lỗi chi tiết từng dòng code",
+      "Lộ trình học điều chỉnh linh hoạt theo tiến độ thực tế",
+      "Nói không với các cam kết đỗ 100% phi thực tế để lôi kéo",
     ],
   },
   photoC: {
-    title: "Môi trường học tập tập trung",
+    title: "Báo cáo tiến độ trung thực bằng dữ liệu",
     intro:
-      "Không gian lớp học quy mô nhỏ, lộ trình minh bạch — phụ huynh theo dõi được tiến độ trước khi ghi danh.",
-    points: ["Đánh giá trung thực nếu học viên cần củng cố nền tảng trước khi vào lộ trình chính"],
+      "Phụ huynh dễ dàng theo dõi tiến độ học tập và hiệu quả làm bài của con hàng tuần dựa trên dữ liệu báo cáo trực quan, rõ ràng.",
+    points: [
+      "Minh bạch và trung thực về kết quả làm bài của con",
+      "Báo cáo tiến độ và mức độ hoàn thành bài tập cập nhật theo tuần",
+      "Giúp phụ huynh nhìn thấy sự tiến bộ qua các con số cụ thể",
+    ],
   },
 } satisfies Record<string, WhyUsMobileStory>;
 
 export const whyUsItems: WhyUsItem[] = [
   {
     id: "mot-viec-duy-nhat",
-    title: "Một chương trình, một mục tiêu thi",
-    body: "Chuyên Tin tập trung vào lộ trình thi chuyên Tin và luyện HSG Tin học — không triển khai đào tạo công nghệ tổng quát.",
+    title: "Một chương trình, một mục tiêu duy nhất",
+    body: "Chuyên Tin chỉ tập trung vào lộ trình ôn thi chuyên Tin lớp 10 và luyện HSG Tin học THCS. Không mở rộng sang đào tạo công nghệ tổng quát hay lập trình đại trà.",
   },
   {
     id: "bat-dau-tu-test-that",
     title: "Đánh giá năng lực trước khi xếp lớp",
-    body: "Mọi lộ trình học bắt đầu từ bài kiểm tra đầu vào — căn cứ năng lực thực tế, không xếp lớp theo khối hay độ tuổi.",
+    body: "Mọi lộ trình học đều bắt đầu bằng bài test đầu vào thực tế trên hệ thống. Xếp lớp dựa trên năng lực tư duy, không xếp theo độ tuổi hay khối lớp.",
   },
   {
     id: "khong-nhan-moi-hoc-sinh",
     title: "Tuyển chọn học viên phù hợp",
-    body: "Chương trình dành cho học sinh THCS lớp 8-9 đã xác định hướng thi chuyên Tin hoặc luyện HSG. Bài test đầu vào giúp xác nhận mức độ phù hợp.",
+    body: "Chương trình chỉ nhận những học sinh thực sự phù hợp và có quyết tâm. Chuyên Tin sẵn sàng khuyên học sinh củng cố lại nền tảng toán học hoặc tư duy trước khi tham gia.",
   },
   {
     id: "khong-hua-tuyet-doi",
-    title: "Cam kết theo tiến độ, không hứa tuyệt đối",
-    body: "Lộ trình được điều chỉnh liên tục theo kết quả bài làm thực tế — không áp dụng một kịch bản chung cho mọi học viên.",
+    title: "Cam kết theo tiến độ thực tế",
+    body: "Lộ trình học được điều chỉnh cá nhân hóa theo tiến độ làm bài thực tế của học sinh. Thương hiệu không đưa ra các khẩu hiệu cam kết đỗ phi thực tế để lôi kéo.",
   },
   {
     id: "mentor-that",
-    title: "Mentor chuyên môn, phản hồi chi tiết",
-    body: "Mỗi bài nộp được mentor có chuyên môn đọc và phản hồi — không giới hạn ở kết quả đúng/sai từ hệ thống chấm tự động.",
+    title: "Mentor phản hồi chi tiết 1:1",
+    body: "Mentor có chuyên môn trực tiếp đọc và chữa lỗi tư duy thuật toán ẩn sau những dòng code của học sinh, không phụ thuộc hoàn toàn vào hệ thống chấm tự động.",
   },
   {
-    id: "san-sang-noi-chua-san-sang",
-    title: "Đánh giá trung thực về sẵn sàng",
-    body: "Khi bài kiểm tra cho thấy học viên cần củng cố nền tảng, Chuyên Tin tư vấn thẳng thắng thay vì tiếp nhận rồi điều chỉnh sau.",
+    id: "bao-cao-trung-thuc",
+    title: "Báo cáo tiến độ bằng dữ liệu",
+    body: "Cung cấp cho phụ huynh bảng báo cáo học tập tuần trực quan để thấy rõ con đang học những gì và mức độ hoàn thành bài tập ra sao dựa trên dữ liệu thực tế.",
   },
 ];

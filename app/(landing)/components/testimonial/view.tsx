@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/landing/section-kit";
+import { Reveal, SectionIntro } from "@/components/landing/section-kit";
 import { TestimonialCarousel } from "./components/testimonial-carousel";
 
 function TestimonialSection() {
@@ -6,15 +6,11 @@ function TestimonialSection() {
     <section id="cam-nhan" className="section-soft-band py-16 md:py-20">
       <div className="mx-auto max-w-352 px-5 md:px-8">
         <Reveal>
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-8">
-            <h2 className="text-balance text-[clamp(1.9rem,3.4vw,2.9rem)] font-black leading-[1.08] tracking-[-0.03em] text-brand-deep">
-              Phụ huynh và học sinh nói gì
-            </h2>
-            <p className="max-w-md text-pretty leading-7 text-muted-foreground md:text-right">
-              Chia sẻ về hành trình ôn thi chuyên Tin cùng con — góc nhìn từ phụ huynh và học
-              sinh.
-            </p>
-          </div>
+          <SectionIntro
+            centered
+            title="Phụ huynh và học sinh nói gì"
+            copy="Chia sẻ về hành trình ôn thi chuyên Tin cùng con — góc nhìn từ phụ huynh và học sinh."
+          />
         </Reveal>
       </div>
 

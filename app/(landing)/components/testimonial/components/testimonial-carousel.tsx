@@ -183,7 +183,7 @@ export function TestimonialCarousel() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 left-2 z-10 flex items-center md:left-4">
+      <div className="pointer-events-none absolute inset-y-0 left-2 z-10 flex items-center md:left-12 xl:left-20">
         <div className="pointer-events-auto">
           <ArrowNavButton
             direction="prev"
@@ -192,7 +192,7 @@ export function TestimonialCarousel() {
           />
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-y-0 right-2 z-10 flex items-center md:right-4">
+      <div className="pointer-events-none absolute inset-y-0 right-2 z-10 flex items-center md:right-12 xl:right-20">
         <div className="pointer-events-auto">
           <ArrowNavButton
             direction="next"
