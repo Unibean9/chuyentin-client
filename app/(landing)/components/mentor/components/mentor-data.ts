@@ -1,6 +1,7 @@
 export type TeamMember = {
   id: string;
   name: string;
+  initials: string;
   role: string;
   roleDetail: string;
   achievements: Array<{
@@ -14,6 +15,7 @@ export type TeamMember = {
 export const founder: TeamMember = {
   id: "khanh-phuong",
   name: "Lâm Hữu Khánh Phương",
+  initials: "KP",
   role: "Nhà sáng lập & CEO",
   roleDetail:
     "Xây dựng lộ trình học và đứng sau cách Chuyên Tin làm việc với phụ huynh mỗi tuần.",
@@ -30,6 +32,7 @@ export const featuredMentors: TeamMember[] = [
   {
     id: "phuong-hoa",
     name: "Lê Vũ Phương Hòa",
+    initials: "PH",
     role: "Mentor",
     roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
     achievementNote: "Nội dung minh hoạ",
@@ -42,6 +45,7 @@ export const featuredMentors: TeamMember[] = [
   {
     id: "phu-thinh",
     name: "Trần Phú Thịnh",
+    initials: "PT",
     role: "Mentor",
     roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
     achievementNote: "Nội dung minh hoạ",
@@ -54,6 +58,7 @@ export const featuredMentors: TeamMember[] = [
   {
     id: "mentor-03",
     name: "Mentor Chuyên Tin 03",
+    initials: "M3",
     role: "Mentor",
     roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
     achievementNote: "Nội dung minh hoạ",
@@ -65,6 +70,7 @@ export const featuredMentors: TeamMember[] = [
   {
     id: "mentor-04",
     name: "Mentor Chuyên Tin 04",
+    initials: "M4",
     role: "Mentor",
     roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
     achievementNote: "Nội dung minh hoạ",
@@ -76,6 +82,7 @@ export const featuredMentors: TeamMember[] = [
   {
     id: "mentor-05",
     name: "Mentor Chuyên Tin 05",
+    initials: "M5",
     role: "Mentor",
     roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
     achievementNote: "Nội dung minh hoạ",
@@ -87,6 +94,7 @@ export const featuredMentors: TeamMember[] = [
   {
     id: "mentor-06",
     name: "Mentor Chuyên Tin 06",
+    initials: "M6",
     role: "Mentor",
     roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
     achievementNote: "Nội dung minh hoạ",

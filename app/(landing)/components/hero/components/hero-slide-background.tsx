@@ -42,7 +42,7 @@ export function HeroSlideBackground({
           fill
           priority={priority}
           sizes="100vw"
-          className="object-cover object-[75%_center]"
+          className="object-cover object-[75%_top]"
         />
       </div>
     </motion.div>
