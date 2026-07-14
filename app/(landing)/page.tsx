@@ -10,6 +10,7 @@ import TestimonialSection from "@/app/(landing)/components/testimonial/view";
 import Hero from "@/app/(landing)/components/hero/view";
 import WhyUs from "@/app/(landing)/components/why-us/view";
 import HowItWorks from "@/app/(landing)/components/how-it-works/view";
+import ActivitiesSection from "@/app/(landing)/components/activities/view";
 // import ProductDemo from "@/app/(landing)/components/product-demo/view";
 import { Footer } from "@/components/layout/footer";
 import { ContactDock } from "@/components/layout/contact-dock";
@@ -31,6 +32,8 @@ export default function HomePage() {
       <RoadmapSection />
 
       <StatsSection />
+
+      <ActivitiesSection />
 
       <MentorSection />
 
