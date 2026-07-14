@@ -17,7 +17,7 @@ import { Header } from "@/components/layout/header";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
       <Header />
 
       <Hero />

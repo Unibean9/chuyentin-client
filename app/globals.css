@@ -1623,6 +1623,7 @@
 
   .stats-section {
     position: relative;
+    overflow-x: clip;
   }
 
   .stats-band {
