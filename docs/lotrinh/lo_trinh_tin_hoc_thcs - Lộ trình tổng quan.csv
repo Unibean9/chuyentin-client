@@ -1,0 +1,15 @@
+LỘ TRÌNH TỔNG QUAN (LỚP 1 → LỚP 2 → LỚP 3),,,,,
+"Thời lượng mỗi lớp linh hoạt theo tốc độ tiếp thu — khối lớp THCS bên dưới chỉ là gợi ý tham khảo, không bắt buộc",,,,,
+Lớp học,Khối lớp gợi ý,Mục tiêu chính,Kiến thức/kỹ năng chính,Đầu ra khi hoàn thành,Kỳ thi hướng tới
+"Lớp 1
+Làm quen C++",Lớp 6,"Nắm vững cú pháp cơ bản, thiết lập môi trường, hình thành tư duy lập trình tuần tự","Cài đặt môi trường (Dev C++/Code::Blocks); cấu trúc chương trình C++; biến, kiểu dữ liệu (kể cả long long); toán tử; if/else/switch-case; vòng lặp for/while/do-while","Viết được chương trình C++ hoàn chỉnh cho bài toán đơn giản: tính toán, kiểm tra điều kiện, lặp in kết quả","Làm quen sân chơi Tin học trẻ (thi thử nội bộ, chưa cần thi chính thức)"
+"Lớp 2
+Lập trình cơ bản & Kỹ năng giải toán",Lớp 6 cuối - Lớp 7,"Viết code chắc: thành thạo hàm, mảng, xâu, đọc/ghi file","Hàm & truyền tham số, biến toàn cục/cục bộ; File I/O (fstream, freopen) theo định dạng .INP/.OUT; mảng một chiều; xử lý xâu ký tự & chuẩn hoá xâu; số học cơ bản (nguyên tố, ƯCLN/BCNN, Fibonacci, số chính phương); sắp xếp bằng sort()","Giải chắc các bài xử lý mảng/xâu/số học cơ bản đúng định dạng đề thi thật; code sạch, ít lỗi biên, ít lỗi tràn số",Thi Tin học trẻ bảng THCS (chính thức); test phân loại vào Lớp 3
+"Lớp 3
+Thuật toán & Luyện thi Chuyên/Tin học trẻ",Lớp 7 cuối - Lớp 9,"Tối ưu hoá thuật toán, tư duy nâng cao, luyện đề sát cấu trúc thi thật","Độ phức tạp thuật toán, Prefix Sum, Two Pointers, Bitwise; Tìm kiếm nhị phân & Binary Search on Answer; Đệ quy & Quay lui (N quân hậu, hoán vị/tổ hợp); Toán học nâng cao (luỹ thừa nhị phân, sàng nguyên tố, modulo, tổ hợp); Tham lam & Quy hoạch động (Knapsack, LIS, Palindrome); Đồ thị cơ bản (BFS/DFS); Stress test, Fast I/O, luyện đề",Giải thành thạo đề thi mẫu trong thời gian quy định; sẵn sàng thi vào lớp 10 Chuyên Tin và các kỳ thi Tin học trẻ/HSG cấp cao hơn,Thi Tin học trẻ (cấp Tỉnh/Thành phố); thi HSG; thi vào lớp 10 Chuyên Tin
+,,,,,
+LƯU Ý KHI TRIỂN KHAI,,,,,
+•  Không bắt buộc mọi học sinh học đúng theo khối lớp gợi ý — học sinh bắt đầu muộn (lớp 7-8) vẫn có thể đi nhanh qua Lớp 1-2 nếu có nền tư duy toán tốt.,,,,,
+"•  Ranh giới giữa các lớp mang tính tương đối, nên đánh giá bằng bài test/Mục kiến thức đã làm chủ, không chỉ theo tuổi/khối lớp.",,,,,
+"•  Trong Lớp 3, nên tách nội dung ôn tập rõ rệt hơn theo mục tiêu Tin học trẻ và Chuyên Tin ở giai đoạn nước rút — xem 2 sheet 'Ôn thi Tin học trẻ' và 'Ôn thi vào chuyên Tin'.",,,,,
+•  VNOI Roadmap phân loại độ khó chuyên đề theo sao (⭐1-⭐2 phù hợp trình độ thi đấu THCS) — dùng làm thước đo khi chọn bài tập cho Lớp 3.,,,,,

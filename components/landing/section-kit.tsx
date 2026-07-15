@@ -30,10 +30,14 @@ export function Reveal({
   );
 }
 
-export function SectionIcon({ children }: { children: ReactNode }) {
+export function SectionIcon({ children, dense = false }: { children: ReactNode; dense?: boolean }) {
   return (
-    <div className="mx-auto grid size-20 place-items-center">
-      <div className="mini-section-hex grid size-16 place-items-center text-brand-deep">{children}</div>
+    <div className={`mx-auto grid place-items-center ${dense ? "size-14" : "size-20"}`}>
+      <div
+        className={`mini-section-hex grid place-items-center text-brand-deep ${dense ? "size-12" : "size-16"}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -48,6 +52,7 @@ export function SectionIntro({
   copy,
   centered = false,
   compact = false,
+  dense = false,
   wide = false,
 }: {
   icon?: ReactNode;
@@ -55,6 +60,7 @@ export function SectionIntro({
   copy?: ReactNode;
   centered?: boolean;
   compact?: boolean;
+  dense?: boolean;
   wide?: boolean;
 }) {
   return (
@@ -67,23 +73,39 @@ export function SectionIntro({
             : "max-w-3xl"
       }
     >
-      {icon ? <SectionIcon>{icon}</SectionIcon> : null}
+      {icon ? <SectionIcon dense={dense}>{icon}</SectionIcon> : null}
       <h2
-        className={`font-black tracking-[-0.035em] text-brand-deep ${
+        className={`text-[clamp(2rem,3.4vw,3.25rem)] font-black tracking-[-0.035em] text-brand-deep ${
           wide ? "text-pretty leading-[1.08]" : "text-balance leading-[1.03]"
         } ${
-          compact
-            ? "mt-3 text-[clamp(2.45rem,4.35vw,3.95rem)] leading-[1.02]"
-            : "mt-4 text-[clamp(2.25rem,5vw,4.35rem)]"
+          dense
+            ? "mt-2 leading-[1.04]"
+            : compact
+              ? "mt-3 leading-[1.02]"
+              : "mt-4"
         }`}
       >
         {title}
       </h2>
-      <ZigZag className={centered ? `mx-auto ${compact ? "mt-4" : "mt-5"}` : compact ? "mt-4" : "mt-5"} />
+      <ZigZag
+        className={
+          centered
+            ? `mx-auto ${dense ? "mt-3" : compact ? "mt-4" : "mt-5"}`
+            : dense
+              ? "mt-3"
+              : compact
+                ? "mt-4"
+                : "mt-5"
+        }
+      />
       {copy ? (
         <p
-          className={`text-pretty text-base text-muted-foreground md:text-lg ${
-            compact ? "mt-4 leading-7 md:leading-8" : "mt-5 leading-8"
+          className={`text-pretty text-muted-foreground ${
+            dense
+              ? "mt-3 text-sm leading-6 md:text-base md:leading-7"
+              : compact
+                ? "mt-4 text-base leading-7 md:text-lg md:leading-8"
+                : "mt-5 text-base leading-8 md:text-lg"
           }`}
         >
           {copy}

@@ -5,7 +5,17 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/gioi-thieu",
-        destination: "/ve-chung-toi",
+        destination: "/#doi-ngu",
+        permanent: true,
+      },
+      {
+        source: "/ve-chung-toi",
+        destination: "/#doi-ngu",
+        permanent: true,
+      },
+      {
+        source: "/lo-trinh",
+        destination: "/#lo-trinh",
         permanent: true,
       },
     ];

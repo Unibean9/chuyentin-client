@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { MessengerIcon, ZaloIcon, YoutubeIcon } from "@/components/icons";
+import { contactDockLinks } from "@/components/layout/contact-dock-data";
 
 const footerGroups = [
   {
@@ -74,15 +76,31 @@ export function Footer() {
           </div>
 
           <div className="mt-12 flex justify-center gap-4">
-            {["fb", "zl", "yt"].map((item) => (
-              <a
-                key={item}
-                href="#tu-van"
-                className="grid size-12 place-items-center rounded-full bg-white/14 text-sm font-black uppercase text-white transition-colors hover:bg-white/22"
-              >
-                {item}
-              </a>
-            ))}
+            <a
+              href={contactDockLinks.messengerHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grid size-12 place-items-center rounded-full bg-white/14 text-white transition-colors hover:bg-white/22"
+              aria-label="Messenger Chuyên Tin"
+            >
+              <MessengerIcon className="size-6" />
+            </a>
+            <a
+              href={contactDockLinks.zaloHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grid size-12 place-items-center rounded-full bg-white/14 text-white transition-colors hover:bg-white/22"
+              aria-label="Zalo tư vấn"
+            >
+              <ZaloIcon className="size-6" />
+            </a>
+            <a
+              href="#tu-van"
+              className="grid size-12 place-items-center rounded-full bg-white/14 text-white transition-colors hover:bg-white/22"
+              aria-label="Youtube Chuyên Tin"
+            >
+              <YoutubeIcon className="size-6" />
+            </a>
           </div>
 
           <div className="mt-12 grid gap-5 border-t border-white/14 pt-12 text-sm font-semibold text-white/66 md:grid-cols-[1fr_auto] md:items-center">
