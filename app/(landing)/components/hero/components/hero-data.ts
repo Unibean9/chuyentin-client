@@ -11,19 +11,19 @@ export type HeroSlide = {
 export const heroSlides: HeroSlide[] = [
   {
     id: "tin-hoc",
-    image: "/hero/1.png",
+    image: "/hero/1.webp",
     imageAlt: "Nhóm học sinh Chuyên Tin tự tin với ba lô và laptop trước giờ học",
     hue: 305,
   },
   {
     id: "lo-trinh",
-    image: "/hero/2.png",
+    image: "/hero/2.webp",
     imageAlt: "Học sinh chỉ vào sơ đồ lộ trình học từng bước trên bảng trắng",
     hue: 265,
   },
   {
     id: "mentor",
-    image: "/hero/3.png",
+    image: "/hero/3.webp",
     imageAlt: "Mentor ngồi cùng học sinh chữa lỗi trực tiếp trên laptop",
     hue: 292,
   },

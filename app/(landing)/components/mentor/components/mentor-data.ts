@@ -12,95 +12,94 @@ export type TeamMember = {
   photo?: string;
 };
 
-export const founder: TeamMember = {
-  id: "khanh-phuong",
-  name: "Lâm Hữu Khánh Phương",
-  initials: "KP",
-  role: "Nhà sáng lập & CEO",
-  roleDetail:
-    "Xây dựng lộ trình học và đứng sau cách Chuyên Tin làm việc với phụ huynh mỗi tuần.",
-  achievementNote: "Nội dung minh hoạ",
-  achievements: [
-    { label: "Học vấn", value: "Thạc sĩ Khoa học máy tính" },
-    { label: "Giảng dạy", value: "Giảng viên và mentor chuyên Tin" },
-    { label: "Chuyên môn", value: "C++, cấu trúc dữ liệu và thuật toán" },
-    { label: "Đồng hành", value: "Xây dựng lộ trình, theo sát tiến độ từng tuần" },
-  ],
-};
-
-export const featuredMentors: TeamMember[] = [
+/** Đội ngũ hiển thị trên landing — copy cân độ dài để card không nhảy chiều cao. */
+export const mentors: TeamMember[] = [
   {
-    id: "phuong-hoa",
-    name: "Lê Vũ Phương Hòa",
-    initials: "PH",
-    role: "Mentor",
-    roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
+    id: "khanh-phuong",
+    name: "Khánh Phương",
+    initials: "KP",
+    role: "Nhà sáng lập & CEO",
+    roleDetail:
+      "Xây dựng lộ trình học và đứng sau cách Chuyên Tin làm việc với phụ huynh mỗi tuần — đồng hành học sinh từ nền tảng thuật toán đến đề thi chuyên Tin.",
     achievementNote: "Nội dung minh hoạ",
     achievements: [
-      { label: "Học vấn", value: "Khoa học máy tính" },
-      { label: "Thành tích", value: "Giải HSG Tin học cấp tỉnh" },
-      { label: "Kinh nghiệm", value: "Mentor C++ và thuật toán cơ bản" },
+      { label: "Học vấn", value: "Thạc sĩ Khoa học máy tính" },
+      { label: "Giảng dạy", value: "Giảng viên mentor chuyên Tin" },
+      { label: "Chuyên môn", value: "C++ · cấu trúc dữ liệu · thuật toán" },
+    ],
+  },
+  {
+    id: "phuong-hoa",
+    name: "Phương Hòa",
+    initials: "PH",
+    role: "Mentor chuyên Tin",
+    roleDetail:
+      "Mentor luyện thi chuyên Tin và HSG Tin học — tập trung chữa tư duy giải bài, giúp học sinh nhận lỗi nền tảng trước khi bước vào luyện đề bấm giờ.",
+    achievementNote: "Nội dung minh hoạ",
+    achievements: [
+      { label: "Học vấn", value: "Cử nhân Khoa học máy tính" },
+      { label: "Giảng dạy", value: "Mentor C++ thuật toán cơ bản" },
+      { label: "Chuyên môn", value: "Nền tảng · tư duy giải bài · luyện đề" },
     ],
   },
   {
     id: "phu-thinh",
-    name: "Trần Phú Thịnh",
+    name: "Phú Thịnh",
     initials: "PT",
-    role: "Mentor",
-    roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
+    role: "Mentor chuyên Tin",
+    roleDetail:
+      "Mentor luyện thi chuyên Tin và HSG Tin học — đồng hành cấu trúc dữ liệu cơ bản, mảng và xâu, cùng kỹ năng đọc đề chắc trước khi thi chuyên.",
     achievementNote: "Nội dung minh hoạ",
     achievements: [
-      { label: "Học vấn", value: "Công nghệ thông tin" },
-      { label: "Kỳ thi", value: "Từng tham gia HSG Tin học" },
-      { label: "Chuyên môn", value: "Mảng, xâu và kỹ năng giải toán" },
+      { label: "Học vấn", value: "Cử nhân Công nghệ thông tin" },
+      { label: "Giảng dạy", value: "Mentor cấu trúc dữ liệu cơ bản" },
+      { label: "Chuyên môn", value: "Mảng · xâu · kỹ năng đọc đề" },
     ],
   },
   {
-    id: "mentor-03",
-    name: "Mentor Chuyên Tin 03",
-    initials: "M3",
-    role: "Mentor",
-    roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
+    id: "tuan-vu",
+    name: "Tuấn Vũ",
+    initials: "TV",
+    role: "Mentor chuyên Tin",
+    roleDetail:
+      "Mentor luyện thi chuyên Tin và HSG Tin học — chuyên sâu quy hoạch động và đồ thị, hướng dẫn học sinh dựng mô hình bài trước khi bắt tay viết code.",
     achievementNote: "Nội dung minh hoạ",
     achievements: [
-      { label: "Học vấn", value: "Khoa học máy tính" },
-      { label: "Chuyên môn", value: "Quy hoạch động và đồ thị" },
+      { label: "Học vấn", value: "Cử nhân Khoa học máy tính" },
+      { label: "Giảng dạy", value: "Mentor luyện đề chuyên theo tuần" },
+      { label: "Chuyên môn", value: "Quy hoạch động · đồ thị · mô hình" },
     ],
   },
   {
-    id: "mentor-04",
-    name: "Mentor Chuyên Tin 04",
-    initials: "M4",
-    role: "Mentor",
-    roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
+    id: "thanh-dat",
+    name: "Thành Đạt",
+    initials: "TD",
+    role: "Mentor chuyên Tin",
+    roleDetail:
+      "Mentor luyện thi chuyên Tin và HSG Tin học — đồng hành luyện đề bấm giờ, giữ thói quen kiểm tra biên và tối ưu lời giải trước từng kỳ thi quan trọng.",
     achievementNote: "Nội dung minh hoạ",
     achievements: [
-      { label: "Thành tích", value: "Học sinh giỏi Tin học" },
-      { label: "Kinh nghiệm", value: "Luyện đề thi chuyên Tin" },
+      { label: "Học vấn", value: "Cử nhân Khoa học máy tính" },
+      { label: "Giảng dạy", value: "Mentor luyện đề thi chuyên Tin" },
+      { label: "Chuyên môn", value: "C++ · cấu trúc dữ liệu · tối ưu" },
     ],
   },
   {
-    id: "mentor-05",
-    name: "Mentor Chuyên Tin 05",
-    initials: "M5",
-    role: "Mentor",
-    roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
+    id: "quoc-an",
+    name: "Quốc An",
+    initials: "QA",
+    role: "Mentor chuyên Tin",
+    roleDetail:
+      "Mentor luyện thi chuyên Tin và HSG Tin học — chữa bài chi tiết từng tuần, giúp phụ huynh và học sinh thấy rõ điểm mạnh điểm yếu trước ngày thi.",
     achievementNote: "Nội dung minh hoạ",
     achievements: [
-      { label: "Chuyên môn", value: "C++ và cấu trúc dữ liệu" },
-      { label: "Kỳ thi", value: "Tin học trẻ và HSG Tin học" },
-    ],
-  },
-  {
-    id: "mentor-06",
-    name: "Mentor Chuyên Tin 06",
-    initials: "M6",
-    role: "Mentor",
-    roleDetail: "Mentor luyện thi chuyên Tin & HSG Tin học.",
-    achievementNote: "Nội dung minh hoạ",
-    achievements: [
-      { label: "Kinh nghiệm", value: "Mentor chữa bài theo tuần" },
-      { label: "Chuyên môn", value: "Thuật toán và luyện đề bấm giờ" },
+      { label: "Học vấn", value: "Cử nhân Khoa học máy tính" },
+      { label: "Giảng dạy", value: "Mentor chữa bài chi tiết theo tuần" },
+      { label: "Chuyên môn", value: "Thuật toán · luyện đề · phản hồi" },
     ],
   },
 ];
+
+/** @deprecated Dùng `mentors` — giữ alias để tránh break import cũ. */
+export const founder = mentors[0]!;
+export const featuredMentors = mentors.slice(1);

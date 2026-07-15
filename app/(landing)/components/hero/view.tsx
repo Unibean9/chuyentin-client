@@ -43,14 +43,21 @@ function Hero() {
 
   return (
     <section
-      className="relative isolate w-full overflow-hidden border-b border-[oklch(0.9_0.018_285)]"
+      className="relative isolate w-full overflow-hidden border-b border-border bg-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
-      aria-label="Hero slideshow"
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={(event) => {
+        const next = event.relatedTarget;
+        if (next instanceof Node && event.currentTarget.contains(next)) return;
+        setIsPaused(false);
+      }}
+      aria-roledescription="carousel"
+      aria-label="Hình ảnh Chuyên Tin"
     >
-      <div className="relative h-[min(56.25vw,calc(100svh-4.5625rem))] w-full">
+      <h1 className="sr-only">Chuyên Tin — luyện thi chuyên Tin lớp 9 lên 10</h1>
+
+      <div className="relative aspect-video w-full max-h-[calc(100svh-8.5rem)]">
         {heroSlides.map((slide, index) => (
           <HeroSlideBackground
             key={slide.id}
@@ -68,7 +75,7 @@ function Hero() {
         />
 
         <motion.div
-          className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 hidden items-center justify-between px-5 md:flex md:px-8"
+          className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 hidden items-center justify-between px-3 md:flex md:px-5"
           variants={heroControlsIntroVariants(Boolean(reduceMotion))}
           initial="hidden"
           animate="visible"
@@ -82,12 +89,12 @@ function Hero() {
         </motion.div>
 
         <motion.div
-          className="absolute inset-x-0 bottom-4 z-10 flex items-center justify-center px-4 md:bottom-6"
+          className="absolute inset-x-0 bottom-3 z-10 flex items-center justify-center px-4 md:bottom-4"
           variants={heroControlsIntroVariants(Boolean(reduceMotion))}
           initial="hidden"
           animate="visible"
         >
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-1 md:hidden">
             <ArrowNavButton direction="prev" onClick={goPrev} size="sm" />
             <HeroDots slides={heroSlides} activeIndex={activeIndex} onSelect={goToSlide} />
             <ArrowNavButton direction="next" onClick={goNext} size="sm" />

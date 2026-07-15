@@ -116,7 +116,7 @@
 .roadmap-stage-flow { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 4rem; }
 .roadmap-stage-flow::before { position: absolute; top: 2.35rem; right: 15%; left: 15%; height: 2px; content: ""; background: var(--roadmap-blue); }
 .roadmap-stage-flow article { position: relative; padding: 0 clamp(1.25rem, 3vw, 3rem); text-align: center; }
-.roadmap-stage-flow article + article { border-left: 1px solid var(--roadmap-line); }
+.roadmap-stage-flow article + article { box-shadow: inset 1px 0 0 var(--roadmap-line); }
 .roadmap-stage-number { position: absolute; top: 1.1rem; left: calc(50% + 2.2rem); color: var(--roadmap-blue); font-size: .68rem; font-weight: 900; }
 .roadmap-stage-icon { position: relative; display: grid; width: 4.75rem; aspect-ratio: 1; margin-inline: auto; place-items: center; border: 2px solid var(--roadmap-blue); border-radius: 50%; background: white; color: var(--roadmap-blue); }
 .roadmap-stage-icon svg { width: 1.75rem; }
@@ -133,10 +133,10 @@
 .roadmap-section-heading h2 { max-width: 20ch; margin-top: .9rem; }
 .roadmap-syllabus { overflow: hidden; border: 1px solid oklch(0.82 0.035 259); border-radius: .75rem; background: white; }
 .roadmap-tabs { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--roadmap-line); }
-.roadmap-tab { min-height: 5.25rem; border-bottom: 3px solid transparent; padding: 1rem 1.25rem; text-align: left; color: oklch(0.46 0.04 259); transition: background .2s ease, color .2s ease; }
-.roadmap-tab + .roadmap-tab { border-left: 1px solid var(--roadmap-line); }
+.roadmap-tab { min-height: 5.25rem; box-shadow: inset 0 -3px 0 transparent; padding: 1rem 1.25rem; text-align: left; color: oklch(0.46 0.04 259); transition: background .2s ease, color .2s ease, box-shadow .2s ease; }
+.roadmap-tab + .roadmap-tab { box-shadow: inset 1px 0 0 var(--roadmap-line); }
 .roadmap-tab:hover { background: var(--roadmap-soft); }
-.roadmap-tab[aria-selected="true"] { border-bottom-color: var(--roadmap-blue); background: oklch(0.96 0.025 259); color: var(--roadmap-blue); }
+.roadmap-tab[aria-selected="true"] { box-shadow: inset 0 -3px 0 var(--roadmap-blue); background: oklch(0.96 0.025 259); color: var(--roadmap-blue); }
 .roadmap-tab span { display: block; font-size: .72rem; font-weight: 900; }
 .roadmap-tab strong { display: block; margin-top: .2rem; color: var(--roadmap-deep); font-size: .88rem; }
 .roadmap-tab-panel { padding: clamp(1.25rem, 4vw, 3rem); }
@@ -145,7 +145,7 @@
 .roadmap-stage-summary h3 { margin-top: .5rem; color: var(--roadmap-deep); font-size: clamp(1.5rem, 2.5vw, 2.25rem); font-weight: 800; letter-spacing: -.025em; }
 .roadmap-stage-summary > div > p:last-child { max-width: 58ch; margin-top: .75rem; color: oklch(0.46 0.04 259); line-height: 1.7; }
 .roadmap-stage-summary dl { display: grid; gap: 1.25rem; }
-.roadmap-stage-summary dl div { padding-left: 1.25rem; border-left: 1px solid var(--roadmap-line); }
+.roadmap-stage-summary dl div { padding-left: 1.25rem; box-shadow: inset 1px 0 0 var(--roadmap-line); }
 .roadmap-stage-summary dt { display: flex; align-items: center; gap: .5rem; color: var(--roadmap-blue); font-size: .76rem; font-weight: 900; }
 .roadmap-stage-summary dt svg { width: 1rem; }
 .roadmap-stage-summary dd { margin-top: .35rem; color: oklch(0.43 0.04 259); font-size: .82rem; line-height: 1.6; }
@@ -242,7 +242,7 @@
   .roadmap-tabs { grid-template-columns: 1fr; }
   .roadmap-tab { min-height: auto; }
   .roadmap-tab + .roadmap-tab { border-left: 0; border-top: 1px solid var(--roadmap-line); }
-  .roadmap-tab[aria-selected="true"] { border-bottom-color: transparent; border-left: 3px solid var(--roadmap-blue); }
+  .roadmap-tab[aria-selected="true"] { box-shadow: inset 0 -3px 0 var(--roadmap-blue); }
   .roadmap-module-list summary { grid-template-columns: 1.6rem 1fr; padding-block: .5rem; }
   .roadmap-summary-action { display: none; }
   .roadmap-module-body { grid-template-columns: 1fr; gap: .75rem; padding-left: 2.6rem; }
@@ -313,10 +313,13 @@
 .journey-destinations { background: var(--journey-ink); color: white; }
 .journey-heading-light > p { color: oklch(0.8 0.14 62); }
 .journey-heading-light h2 { color: white; }
-.journey-branch { position: relative; width: min(26rem, 70%); height: 4.5rem; margin: 2.5rem auto 0; overflow: hidden; }
-.journey-branch::before, .journey-branch::after { position: absolute; bottom: -1px; width: 50%; height: 100%; content: ""; border-top: 2px solid oklch(0.74 0.12 210); }
-.journey-branch::before { right: 50%; border-right: 2px solid oklch(0.74 0.12 210); border-radius: 0 2rem 0 0; }
-.journey-branch::after { left: 50%; border-left: 2px solid oklch(0.74 0.12 210); border-radius: 2rem 0 0 0; }
+.journey-branch { position: relative; width: min(26rem, 70%); height: 4.5rem; margin: 2.5rem auto 0; overflow: hidden; background:
+    linear-gradient(oklch(0.74 0.12 210), oklch(0.74 0.12 210)) center bottom / 2px 55% no-repeat,
+    radial-gradient(circle at 50% 45%, transparent 0 1.35rem, oklch(0.74 0.12 210) 1.35rem 1.5rem, transparent 1.52rem);
+}
+.journey-branch::before, .journey-branch::after { position: absolute; top: 42%; width: 48%; height: 2px; content: ""; background: oklch(0.74 0.12 210); }
+.journey-branch::before { right: 52%; transform: rotate(-28deg); transform-origin: right center; }
+.journey-branch::after { left: 52%; transform: rotate(28deg); transform-origin: left center; }
 .journey-destination-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 .journey-destination-grid article { min-height: 23rem; border-radius: .75rem; background: white; padding: clamp(1.5rem, 4vw, 3rem); color: var(--journey-ink); }
 .journey-destination-grid article:first-child { box-shadow: inset 0 4px 0 var(--journey-orange); }
@@ -482,165 +485,10 @@
 }
 
 @layer utilities {
-  .hero-field {
-    background-color: oklch(0.99 0.004 285);
-    background-image:
-      linear-gradient(30deg, oklch(0.9 0.015 285 / 0.44) 12%, transparent 12.5%, transparent 87%, oklch(0.9 0.015 285 / 0.44) 87.5%, oklch(0.9 0.015 285 / 0.44)),
-      linear-gradient(150deg, oklch(0.9 0.015 285 / 0.44) 12%, transparent 12.5%, transparent 87%, oklch(0.9 0.015 285 / 0.44) 87.5%, oklch(0.9 0.015 285 / 0.44)),
-      linear-gradient(30deg, oklch(0.9 0.015 285 / 0.44) 12%, transparent 12.5%, transparent 87%, oklch(0.9 0.015 285 / 0.44) 87.5%, oklch(0.9 0.015 285 / 0.44)),
-      linear-gradient(150deg, oklch(0.9 0.015 285 / 0.44) 12%, transparent 12.5%, transparent 87%, oklch(0.9 0.015 285 / 0.44) 87.5%, oklch(0.9 0.015 285 / 0.44)),
-      linear-gradient(60deg, oklch(0.94 0.012 285 / 0.42) 25%, transparent 25.5%, transparent 75%, oklch(0.94 0.012 285 / 0.42) 75%, oklch(0.94 0.012 285 / 0.42)),
-      linear-gradient(60deg, oklch(0.94 0.012 285 / 0.42) 25%, transparent 25.5%, transparent 75%, oklch(0.94 0.012 285 / 0.42) 75%, oklch(0.94 0.012 285 / 0.42)),
-      linear-gradient(180deg, oklch(0.997 0.002 285), oklch(0.964 0.012 285));
-    background-position:
-      0 0,
-      0 0,
-      42px 70px,
-      42px 70px,
-      0 0,
-      42px 70px,
-      0 0;
-    background-size:
-      84px 140px,
-      84px 140px,
-      84px 140px,
-      84px 140px,
-      84px 140px,
-      84px 140px,
-      auto;
-  }
-
-  .practice-grid {
-    background-image:
-      linear-gradient(to right, oklch(0.9 0.02 302 / 0.62) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.9 0.02 302 / 0.62) 1px, transparent 1px);
-    background-size: 30px 30px;
-  }
-
-  .track-exercise-band {
-    background:
-      radial-gradient(circle at 52% -8%, oklch(0.94 0.04 300 / 0.62), transparent 34rem),
-      radial-gradient(circle at 10% 58%, oklch(0.95 0.035 286 / 0.54), transparent 30rem),
-      linear-gradient(180deg, oklch(0.988 0.008 296), oklch(0.972 0.018 292) 52%, oklch(0.985 0.009 296));
-  }
-
-  .product-shell {
-    filter: drop-shadow(0 8px 0 oklch(0.47 0.21 305 / 0.14));
-  }
-
-  .hero-highlight {
-    display: inline-block;
-    position: relative;
-    z-index: 0;
-  }
-
-  .hero-highlight::before {
-    background: oklch(0.86 0.17 87);
-    content: "";
-    inset: 0.08em -0.08em 0.04em -0.12em;
-    position: absolute;
-    transform: rotate(-4deg);
-    z-index: -1;
-  }
-
-  .hero-visual-float {
-    transform: translateZ(0);
-  }
-
   .hero-slide-placeholder {
     background:
       radial-gradient(circle at 82% 12%, oklch(0.42 0.09 var(--slide-hue, 305) / 0.55), transparent 34rem),
       linear-gradient(160deg, oklch(0.34 0.08 var(--slide-hue, 305)), oklch(0.15 0.06 var(--slide-hue, 305)) 72%);
-  }
-
-  .hero-scrim {
-    background: linear-gradient(
-      100deg,
-      oklch(0.12 0.04 300 / 0.82) 0%,
-      oklch(0.12 0.04 300 / 0.6) 38%,
-      oklch(0.12 0.04 300 / 0.28) 62%,
-      transparent 85%
-    );
-  }
-
-  @media (max-width: 767px) {
-    .hero-scrim {
-      background: linear-gradient(
-        180deg,
-        oklch(0.12 0.04 300 / 0.72) 0%,
-        oklch(0.12 0.04 300 / 0.28) 38%,
-        oklch(0.12 0.04 300 / 0.22) 62%,
-        oklch(0.12 0.04 300 / 0.68) 100%
-      );
-    }
-
-    .hero-mobile-image-bg {
-      background: oklch(0.14 0.05 var(--slide-hue, 305));
-    }
-
-    .hero-mobile-scrim {
-      background: linear-gradient(
-        90deg,
-        oklch(0.1 0.05 300 / 0.5) 0%,
-        oklch(0.1 0.04 300 / 0.22) 38%,
-        oklch(0.1 0.04 300 / 0.06) 52%,
-        transparent 62%
-      );
-    }
-  }
-
-  .hero-ambient-sweep {
-    background: linear-gradient(
-      115deg,
-      transparent 38%,
-      oklch(0.83 0.16 86 / 0.07) 48%,
-      oklch(0.47 0.21 305 / 0.1) 52%,
-      transparent 62%
-    );
-    animation: hero-ambient-sweep 9s ease-in-out infinite;
-  }
-
-  .hero-ambient-dots {
-    background-image: radial-gradient(oklch(1 0 0 / 0.55) 1px, transparent 1px);
-    background-size: 14px 14px;
-    mask-image: radial-gradient(circle at center, black 35%, transparent 72%);
-  }
-
-  .hero-ambient-glyph {
-    animation: hero-ambient-drift 16s ease-in-out infinite;
-  }
-
-  @keyframes hero-ambient-sweep {
-    0%,
-    100% {
-      opacity: 0.35;
-      transform: translateX(-8%);
-    }
-
-    50% {
-      opacity: 0.85;
-      transform: translateX(8%);
-    }
-  }
-
-  @keyframes hero-ambient-drift {
-    0%,
-    100% {
-      opacity: 0.28;
-      transform: translate3d(0, 0, 0) rotate(0deg);
-    }
-
-    50% {
-      opacity: 0.55;
-      transform: translate3d(10px, -12px, 0) rotate(4deg);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-ambient-sweep,
-    .hero-ambient-glyph {
-      animation: none;
-    }
   }
 
   .image-slot {
