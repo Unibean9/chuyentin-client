@@ -57,7 +57,7 @@ function Hero() {
     >
       <h1 className="sr-only">Chuyên Tin — luyện thi chuyên Tin lớp 9 lên 10</h1>
 
-      <div className="relative aspect-video w-full max-h-[calc(100svh-8.5rem)]">
+      <div className="relative aspect-video w-full overflow-hidden">
         {heroSlides.map((slide, index) => (
           <HeroSlideBackground
             key={slide.id}

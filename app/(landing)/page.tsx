@@ -1,7 +1,6 @@
 "use client";
 
 import FAQSection from "@/app/(landing)/components/FAQ/view";
-import FirstTest from "@/app/(landing)/components/first-test/view";
 import MentorSection from "@/app/(landing)/components/mentor/view";
 import ProblemSection from "@/app/(landing)/components/problem/view";
 import RoadmapSection from "@/app/(landing)/components/roadmap/view";
@@ -42,8 +41,6 @@ export default function HomePage() {
       <TestimonialSection />
 
       <FAQSection />
-
-      <FirstTest />
 
       <Footer />
       <ContactDock />

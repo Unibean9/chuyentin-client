@@ -34,7 +34,7 @@ export function HeroSlideBackground({
       }}
       aria-hidden={!isActive}
     >
-      <div className="hero-slide-placeholder absolute inset-0" />
+      <div className="hero-slide-placeholder absolute inset-0" style={{ background: slide.backdrop }} />
       <div className="absolute inset-0">
         <Image
           src={slide.image}
@@ -42,7 +42,7 @@ export function HeroSlideBackground({
           fill
           priority={priority}
           sizes="100vw"
-          className="object-cover object-top"
+          className="object-cover object-center"
         />
       </div>
     </motion.div>
