@@ -8,13 +8,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { HeaderMobileMenu } from "./header-mobile-menu";
 import { contactDockLinks } from "./contact-dock-data";
-
-const navItems = [
-  { label: "Vì sao chọn Chuyên Tin", href: "/#vi-sao-chuyen-tin", sectionId: "vi-sao-chuyen-tin" },
-  { label: "Lộ trình học", href: "/#lo-trinh", sectionId: "lo-trinh" },
-  { label: "Chương trình học", href: "/#exercises", sectionId: "exercises" },
-  { label: "Đội ngũ", href: "/#doi-ngu", sectionId: "doi-ngu" },
-] as const;
+import { headerNavItems } from "./header-nav";
 
 export function LogoMark() {
   return (
@@ -42,7 +36,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const sections = navItems
+    const sections = headerNavItems
       .map((item) => document.getElementById(item.sectionId))
       .filter((el): el is HTMLElement => el !== null);
 
@@ -87,7 +81,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 text-sm font-black text-muted-foreground md:flex">
-          {navItems.map((item) => {
+          {headerNavItems.map((item) => {
             const isActive = item.sectionId === activeSection;
 
             return (

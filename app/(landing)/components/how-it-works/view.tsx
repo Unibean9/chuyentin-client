@@ -1,24 +1,24 @@
 import Image from "next/image";
-import { HelpCircle, MessageCircle, MonitorPlay, SquareTerminal } from "lucide-react";
+import { Brain, ChartColumnIncreasing, Users } from "lucide-react";
 import { Reveal, SectionIntro } from "@/components/landing/section-kit";
 
 const featureSteps = [
   {
-    icon: SquareTerminal,
-    title: "Code trong không gian quen thuộc",
-    copy: "Đề, code, test case, gợi ý và lần nộp nằm cùng một chỗ để con tập trung vào tư duy.",
+    icon: Brain,
+    title: "Học tư duy – Không học thuộc",
+    copy: "Ứng dụng Computational Thinking - Tư duy tính toán giúp học sinh phân tích bài toán, xây dựng thuật toán và phát triển tư duy giải quyết vấn đề từ gốc.",
     image: "/trust/method1.png",
   },
   {
-    icon: MonitorPlay,
-    title: "Có editor và phân tích bài làm",
-    copy: "Không chỉ báo đúng sai. Hệ thống tách lỗi đọc đề, thuật toán, cài đặt và test biên.",
+    icon: Users,
+    title: "Mentor đồng hành – Tiến bộ từng ngày",
+    copy: "Đội ngũ mentor theo sát quá trình học, định hướng phương pháp, giải đáp thắc mắc và hỗ trợ từng học sinh theo đúng năng lực.",
     image: "/trust/method2.png",
   },
   {
-    icon: MessageCircle,
-    title: "Mentor chữa đúng điểm nghẽn",
-    copy: "Mỗi feedback biến thành bài sửa cụ thể để tuần sau con không lặp lại cùng một lỗi.",
+    icon: ChartColumnIncreasing,
+    title: "Thi thử – Phân tích – Bứt phá",
+    copy: "Thi thử sát đề kết hợp AI phân tích kết quả, nhận diện điểm mạnh – điểm yếu và cá nhân hóa lộ trình ôn luyện hiệu quả.",
     image: "/trust/method3.png",
   },
 ];
@@ -30,7 +30,6 @@ function HowItWorks() {
         <Reveal>
           <SectionIntro
             centered
-            icon={<HelpCircle className="size-8" />}
             title="Phương pháp luyện thi tại Chuyên Tin"
             copy="Quy trình khép kín giúp con làm quen không gian thi thật, sửa sai tức thì và tiến bộ mỗi ngày."
           />

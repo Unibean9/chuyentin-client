@@ -2,7 +2,7 @@
 
 import FAQSection from "@/app/(landing)/components/FAQ/view";
 import MentorSection from "@/app/(landing)/components/mentor/view";
-import ProblemSection from "@/app/(landing)/components/problem/view";
+import AboutSection from "@/app/(landing)/components/about/view";
 import RoadmapSection from "@/app/(landing)/components/roadmap/view";
 import StatsSection from "@/app/(landing)/components/stats/view";
 import TestimonialSection from "@/app/(landing)/components/testimonial/view";
@@ -22,8 +22,6 @@ export default function HomePage() {
 
       <Hero />
 
-      <ProblemSection />
-
       <WhyUs />
 
       <HowItWorks />
@@ -33,6 +31,8 @@ export default function HomePage() {
       <StatsSection />
 
       <ActivitiesSection />
+      
+      <AboutSection />
 
       <MentorSection />
 

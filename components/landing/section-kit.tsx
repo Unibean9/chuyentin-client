@@ -30,9 +30,17 @@ export function Reveal({
   );
 }
 
-export function SectionIcon({ children, dense = false }: { children: ReactNode; dense?: boolean }) {
+export function SectionIcon({
+  children,
+  dense = false,
+  centered = true,
+}: {
+  children: ReactNode;
+  dense?: boolean;
+  centered?: boolean;
+}) {
   return (
-    <div className={`mx-auto grid place-items-center ${dense ? "size-14" : "size-20"}`}>
+    <div className={`grid place-items-center ${centered ? "mx-auto" : ""} ${dense ? "size-14" : "size-20"}`}>
       <div
         className={`mini-section-hex grid place-items-center text-brand-deep ${dense ? "size-12" : "size-16"}`}
       >
@@ -73,31 +81,30 @@ export function SectionIntro({
             : "max-w-3xl"
       }
     >
-      {icon ? <SectionIcon dense={dense}>{icon}</SectionIcon> : null}
+      {icon ? (
+        <SectionIcon dense={dense} centered={centered}>
+          {icon}
+        </SectionIcon>
+      ) : null}
       <h2
         className={`text-[clamp(2rem,3.4vw,3.25rem)] font-black tracking-[-0.035em] text-brand-deep ${
           wide ? "text-pretty leading-[1.08]" : "text-balance leading-[1.03]"
         } ${
-          dense
-            ? "mt-2 leading-[1.04]"
-            : compact
-              ? "mt-3 leading-[1.02]"
-              : "mt-4"
+          icon
+            ? dense
+              ? "mt-2 leading-[1.04]"
+              : compact
+                ? "mt-3 leading-[1.02]"
+                : "mt-4"
+            : dense
+              ? "leading-[1.04]"
+              : compact
+                ? "leading-[1.02]"
+                : ""
         }`}
       >
         {title}
       </h2>
-      <ZigZag
-        className={
-          centered
-            ? `mx-auto ${dense ? "mt-3" : compact ? "mt-4" : "mt-5"}`
-            : dense
-              ? "mt-3"
-              : compact
-                ? "mt-4"
-                : "mt-5"
-        }
-      />
       {copy ? (
         <p
           className={`text-pretty text-muted-foreground ${

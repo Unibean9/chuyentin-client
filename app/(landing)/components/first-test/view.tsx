@@ -1,4 +1,4 @@
-import { ArrowRight, PencilLine } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal, SectionIntro } from "@/components/landing/section-kit";
 import { contactDockLinks } from "@/components/layout/contact-dock-data";
 import { assessmentSteps } from "./components/first-test-data";
@@ -10,7 +10,6 @@ function FirstTest() {
         <Reveal>
           <SectionIntro
             centered
-            icon={<PencilLine className="size-8" />}
             title="Liên hệ nhận tư vấn miễn phí"
             copy="Làm bài test cùng hệ thống, chữa trực tiếp cùng Mentor Chuyên Tin — biết ngay con đang ở đâu trước khi bắt đầu."
           />

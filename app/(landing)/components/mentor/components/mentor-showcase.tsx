@@ -107,7 +107,7 @@ function SelectorButton({
       tabIndex={isSelected ? 0 : -1}
       onClick={onSelect}
       onKeyDown={onKeyDown}
-      className="group flex w-full flex-col items-center gap-2 py-0.5 text-center"
+      className="group flex w-[4.75rem] shrink-0 flex-col items-center gap-2 py-0.5 text-center md:w-full"
     >
       <span className="relative">
         {/* Ring cố định tại chỗ — sáng lên, không di chuyển layoutId */}
@@ -120,14 +120,14 @@ function SelectorButton({
         <MentorAvatar
           member={member}
           dimmed={!isSelected}
-          sizes="(min-width: 768px) 140px, 108px"
-          className={`size-[5.5rem] transition-transform duration-500 ease-out motion-reduce:duration-150 md:size-[7.25rem] ${
+          sizes="(min-width: 768px) 140px, 72px"
+          className={`size-16 transition-transform duration-500 ease-out motion-reduce:duration-150 md:size-[7.25rem] ${
             isSelected ? "scale-105" : "scale-100 group-hover:scale-[1.02]"
           }`}
         />
       </span>
       <span
-        className={`line-clamp-2 min-h-8 max-w-[8rem] px-0.5 text-xs leading-snug transition-colors duration-500 ease-out md:min-h-9 md:max-w-none md:text-sm ${
+        className={`line-clamp-2 min-h-8 max-w-[4.75rem] px-0.5 text-[0.7rem] leading-snug transition-colors duration-500 ease-out md:min-h-9 md:max-w-none md:text-sm ${
           isSelected
             ? "font-semibold text-white"
             : "font-medium text-white/75 group-hover:text-white"
@@ -230,7 +230,7 @@ export function MentorShowcase({ members }: MentorShowcaseProps) {
         <motion.div
           role="tablist"
           aria-label="Chọn mentor để xem hồ sơ"
-          className="flex min-w-0 flex-1 justify-between gap-1 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex min-w-0 flex-1 gap-3 overflow-x-auto scroll-px-1 py-1 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:justify-between md:gap-1 md:snap-none"
           variants={{
             hidden: {},
             visible: {
@@ -243,7 +243,7 @@ export function MentorShowcase({ members }: MentorShowcaseProps) {
           {members.map((member, index) => (
             <motion.div
               key={member.id}
-              className="min-w-0 flex-1"
+              className="shrink-0 snap-center md:min-w-0 md:flex-1"
               variants={listItemEnter}
             >
               <SelectorButton
