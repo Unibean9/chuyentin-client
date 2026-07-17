@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { headerNavItems } from "./header-nav";
 import { contactDockLinks } from "./contact-dock-data";
+import { handleSectionNavClick } from "./scroll-to-section";
 
 export function HeaderMobileMenu() {
   return (
@@ -35,8 +35,9 @@ export function HeaderMobileMenu() {
           <DropdownMenuItem
             key={item.label}
             render={
-              <Link
+              <a
                 href={item.href}
+                onClick={(event) => handleSectionNavClick(event, item.href)}
                 className="flex w-full rounded-md px-3 py-2.5 text-sm font-black text-brand-deep"
               />
             }
