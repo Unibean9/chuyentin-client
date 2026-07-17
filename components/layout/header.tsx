@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { HeaderMobileMenu } from "./header-mobile-menu";
 import { contactDockLinks } from "./contact-dock-data";
 import { headerNavItems } from "./header-nav";
+import { handleSectionNavClick } from "./scroll-to-section";
 
 export function LogoMark() {
   return (
@@ -88,6 +89,7 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(event) => handleSectionNavClick(event, item.href)}
                 className={cn(
                   "relative rounded-full px-3.5 py-2 transition-colors",
                   isActive ? "text-brand-primary" : "hover:text-brand-primary",

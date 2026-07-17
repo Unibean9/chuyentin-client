@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useSsrSafeReducedMotion } from "@/components/landing/use-ssr-safe-reduced-motion";
+import { handleSectionNavClick } from "@/components/layout/scroll-to-section";
 import { roadmapImage, roadmapPathPoints, roadmapStages } from "./roadmap-data";
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
@@ -255,6 +256,7 @@ export function RoadmapJourney() {
       <div className="mt-10 flex justify-center lg:mt-12">
         <a
           href="#tu-van"
+          onClick={(event) => handleSectionNavClick(event, "#tu-van")}
           className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border-2 border-brand-deep px-6 text-sm font-black text-brand-deep transition-transform hover:-translate-y-0.5"
         >
           Xem lộ trình chi tiết

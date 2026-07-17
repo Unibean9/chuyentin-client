@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import type { MouseEvent } from "react";
 import { contactDockLinks } from "@/components/layout/contact-dock-data";
+import { handleSectionNavClick } from "@/components/layout/scroll-to-section";
 
 const footerGroups = [
   {
@@ -78,7 +82,10 @@ export function Footer() {
                         href={link.href}
                         {...("external" in link && link.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
+                          : {
+                              onClick: (event: MouseEvent<HTMLAnchorElement>) =>
+                                handleSectionNavClick(event, link.href),
+                            })}
                         className="transition-colors hover:text-white"
                       >
                         {link.label}
