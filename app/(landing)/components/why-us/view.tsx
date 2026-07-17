@@ -1,4 +1,3 @@
-import { ShieldCheck } from "lucide-react";
 import { Reveal, SectionIntro } from "@/components/landing/section-kit";
 import { WhyUsCard } from "./components/why-us-card";
 import { whyUsItems, whyUsMobileStories } from "./components/why-us-data";
@@ -14,7 +13,6 @@ function WhyUs() {
           <SectionIntro
             centered
             wide
-            icon={<ShieldCheck className="size-8" />}
             title="Vì sao chọn Chuyên Tin?"
             copy={
               <>

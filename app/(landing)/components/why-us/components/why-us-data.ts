@@ -45,33 +45,33 @@ export const whyUsMobileStories = {
 
 export const whyUsItems: WhyUsItem[] = [
   {
-    id: "mot-viec-duy-nhat",
-    title: "Một chương trình, một mục tiêu duy nhất",
-    body: "Chuyên Tin chỉ tập trung vào lộ trình ôn thi chuyên Tin lớp 10 và luyện HSG Tin học THCS. Không mở rộng sang đào tạo công nghệ tổng quát hay lập trình đại trà.",
+    id: "lo-trinh-bam-sat-de-thi",
+    title: "Lộ trình bám sát đề thi Chuyên",
+    body: "Học đúng trọng tâm, ôn đúng cấu trúc, tối ưu cơ hội đỗ Chuyên Tin.",
   },
   {
-    id: "bat-dau-tu-test-that",
-    title: "Đánh giá năng lực trước khi xếp lớp",
-    body: "Mọi lộ trình học đều bắt đầu bằng bài test đầu vào thực tế trên hệ thống. Xếp lớp dựa trên năng lực tư duy, không xếp theo độ tuổi hay khối lớp.",
+    id: "giang-vien-giau-kinh-nghiem",
+    title: "Giảng viên giàu kinh nghiệm",
+    body: "Đội ngũ chuyên môn cao, đồng hành giúp học sinh tiến bộ từng buổi học.",
   },
   {
-    id: "khong-nhan-moi-hoc-sinh",
-    title: "Tuyển chọn học viên phù hợp",
-    body: "Chương trình chỉ nhận những học sinh thực sự phù hợp và có quyết tâm. Chuyên Tin sẵn sàng khuyên học sinh củng cố lại nền tảng toán học hoặc tư duy trước khi tham gia.",
+    id: "ca-nhan-hoa-lo-trinh",
+    title: "Cá nhân hóa lộ trình học",
+    body: "Đánh giá năng lực, phân nhóm phù hợp và theo sát từng học sinh.",
   },
   {
-    id: "khong-hua-tuyet-doi",
-    title: "Cam kết theo tiến độ thực tế",
-    body: "Lộ trình học được điều chỉnh cá nhân hóa theo tiến độ làm bài thực tế của học sinh. Thương hiệu không đưa ra các khẩu hiệu cam kết đỗ phi thực tế để lôi kéo.",
+    id: "phat-trien-tu-duy-thuat-toan",
+    title: "Phát triển tư duy thuật toán",
+    body: "Rèn luyện tư duy logic và kỹ năng giải quyết bài toán thay vì học thuộc.",
   },
   {
-    id: "mentor-that",
-    title: "Mentor phản hồi chi tiết 1:1",
-    body: "Mentor có chuyên môn trực tiếp đọc và chữa lỗi tư duy thuật toán ẩn sau những dòng code của học sinh, không phụ thuộc hoàn toàn vào hệ thống chấm tự động.",
+    id: "luyen-de-thi-thu",
+    title: "Luyện đề và thi thử thường xuyên",
+    body: "Làm quen áp lực phòng thi với hệ thống đề chất lượng và chữa bài chi tiết.",
   },
   {
-    id: "bao-cao-trung-thuc",
-    title: "Báo cáo tiến độ bằng dữ liệu",
-    body: "Cung cấp cho phụ huynh bảng báo cáo học tập tuần trực quan để thấy rõ con đang học những gì và mức độ hoàn thành bài tập ra sao dựa trên dữ liệu thực tế.",
+    id: "dong-hanh-den-ngay-thi",
+    title: "Đồng hành đến ngày thi",
+    body: "Theo dõi tiến độ, hỗ trợ ngoài giờ và sát cánh cùng học sinh trên hành trình chinh phục Chuyên Tin.",
   },
 ];

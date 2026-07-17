@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { MonitorPlay } from "lucide-react";
 import { Reveal, SectionIntro } from "@/components/landing/section-kit";
 
 function DashboardMock() {
@@ -24,7 +23,6 @@ function ProductDemo() {
         <Reveal>
           <SectionIntro
             centered
-            icon={<MonitorPlay className="size-8" />}
             title="Không gian luyện tập thực tế"
             copy="Giao diện trực quan tích hợp sẵn đề bài, editor soạn thảo C++, kết quả chấm bài tự động và bảng xếp hạng tuần giúp học sinh hào hứng làm bài."
           />

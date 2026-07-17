@@ -10,13 +10,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-const navItems = [
-  { label: "Vì sao chọn Chuyên Tin", href: "/#vi-sao-chuyen-tin" },
-  { label: "Lộ trình học", href: "/#lo-trinh" },
-  { label: "Chương trình học", href: "/#exercises" },
-  { label: "Đội ngũ", href: "/#doi-ngu" },
-] as const;
+import { headerNavItems } from "./header-nav";
+import { contactDockLinks } from "./contact-dock-data";
 
 export function HeaderMobileMenu() {
   return (
@@ -36,7 +31,7 @@ export function HeaderMobileMenu() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" sideOffset={8} className="w-56 p-2 md:hidden">
-        {navItems.map((item) => (
+        {headerNavItems.map((item) => (
           <DropdownMenuItem
             key={item.label}
             render={
@@ -54,8 +49,10 @@ export function HeaderMobileMenu() {
 
         <DropdownMenuItem
           render={
-            <Link
-              href="/#danh-gia"
+            <a
+              href={contactDockLinks.zaloHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex w-full items-center justify-between gap-2 rounded-md bg-primary px-3 py-2.5 text-sm font-black text-primary-foreground"
             />
           }

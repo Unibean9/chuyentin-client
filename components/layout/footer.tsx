@@ -1,40 +1,50 @@
 import Image from "next/image";
-import { MessengerIcon, ZaloIcon, YoutubeIcon } from "@/components/icons";
 import { contactDockLinks } from "@/components/layout/contact-dock-data";
 
 const footerGroups = [
   {
-    title: "Khóa học",
-    links: ["Ôn chuyên Tin 9 lên 10", "HSG Tin THCS", "C++ nền tảng", "Thi thử theo trường"],
+    title: "Khám phá",
+    links: [
+      { label: "Về Chuyên Tin", href: "/#ve-chung-toi" },
+      { label: "Vì sao chọn Chuyên Tin", href: "/#vi-sao-chuyen-tin" },
+      { label: "Phương pháp luyện thi", href: "/#cach-hoat-dong" },
+      { label: "Lộ trình học", href: "/#lo-trinh" },
+    ],
   },
   {
-    title: "Phụ huynh",
-    links: ["Theo dõi tiến độ", "Báo cáo tuần", "Đánh giá đầu vào", "Cam kết học thật"],
-  },
-  {
-    title: "Tài nguyên",
-    links: ["Bài luyện mẫu", "Lộ trình C++", "Đề đọc thử", "Câu hỏi thường gặp"],
+    title: "Học tập",
+    links: [
+      { label: "Hoạt động ngoại khóa", href: "/#hoat-dong" },
+      { label: "Đội ngũ mentor", href: "/#doi-ngu" },
+      { label: "Kết quả học tập", href: "/#ket-qua" },
+      { label: "Cảm nhận học viên", href: "/#cam-nhan" },
+    ],
   },
   {
     title: "Hỗ trợ",
-    links: ["Lịch học", "Chính sách học bù", "Quy định lớp mentor"],
+    links: [
+      { label: "Câu hỏi thường gặp", href: "/#hoi-dap" },
+      { label: "Tư vấn lộ trình", href: "/#tu-van" },
+      { label: "Đánh giá đầu vào", href: contactDockLinks.zaloHref, external: true },
+    ],
   },
   {
     title: "Liên hệ",
-    links: ["tuvan@chuyentin.vn", "Facebook Chuyên Tin", "Zalo tư vấn", "Cộng đồng học sinh"],
+    links: [
+      { label: "0366 811 428", href: contactDockLinks.phoneHref },
+      { label: "tuvan@chuyentin.vn", href: contactDockLinks.emailHref },
+      { label: "Zalo tư vấn", href: contactDockLinks.zaloHref, external: true },
+      { label: "Facebook Chuyên Tin", href: contactDockLinks.messengerHref, external: true },
+    ],
   },
-];
-
-function ZigZag({ className = "" }: { className?: string }) {
-  return <span className={`zigzag-mark block text-brand-deep ${className}`} aria-hidden="true" />;
-}
+] as const;
 
 export function Footer() {
   return (
     <footer id="tu-van" className="footer-panel text-white">
       <section className="border-t-8 border-[oklch(0.58_0.22_292)] px-5 py-10 md:px-8 md:py-12">
         <div className="mx-auto max-w-[88rem]">
-          <a href="#" className="flex items-center gap-3" aria-label="Chuyên Tin">
+          <a href="/" className="flex items-center gap-3" aria-label="Chuyên Tin — về trang chủ">
             <Image
               src="/logo-white.png"
               alt=""
@@ -44,29 +54,34 @@ export function Footer() {
             />
             <span className="font-display text-xl font-black">Chuyên Tin</span>
           </a>
-          <h2 className="mt-6 max-w-2xl text-[clamp(1.65rem,3.4vw,2.75rem)] font-black leading-[1.12] tracking-[-0.035em]">
-            <span className="block md:whitespace-nowrap">Code practice và mentorship</span>
-            <span className="block md:whitespace-nowrap">cho học sinh thi chuyên Tin.</span>
-          </h2>
-          <p className="mt-3 max-w-2xl text-pretty text-base font-semibold leading-7 text-white/76 md:text-lg md:leading-8">
-            Học theo track, luyện bằng bài thật, sửa lỗi theo tuần và để phụ huynh nhìn thấy tiến
-            độ bằng dữ liệu dễ hiểu.
-          </p>
+          <div className="mt-6 w-full md:w-fit md:max-w-full">
+            <h2 className="text-balance text-[clamp(1.55rem,7vw,2.75rem)] font-black leading-[1.15] tracking-[-0.035em] md:whitespace-nowrap md:text-[clamp(1.65rem,3.4vw,2.75rem)] md:leading-[1.12]">
+              Khởi đầu từ tư duy, thành công bằng năng lực.
+            </h2>
+            <p className="mt-4 w-full max-w-prose text-pretty text-[0.95rem] font-semibold leading-7 text-white/76 md:mt-3 md:w-[calc(100%+5rem)] md:max-w-none md:text-lg md:leading-8">
+              ChuyenTin giúp học sinh xây dựng nền tảng tư duy tính toán, làm chủ thuật toán và lập trình với lộ trình học bài bản, mentor đồng hành và AI cá nhân hóa. Không chỉ chinh phục kỳ thi Chuyên Tin, mà còn tạo nền tảng vững chắc cho hành trình học tập lâu dài.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="border-t border-white/14 px-5 py-12 md:px-8">
         <div className="mx-auto max-w-[88rem]">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {footerGroups.map((group) => (
               <div key={group.title}>
                 <h3 className="font-display text-lg font-black">{group.title}</h3>
-                <ZigZag className="mt-4 text-[oklch(0.74_0.16_166)]" />
                 <ul className="mt-5 space-y-3 text-sm font-bold text-white/68">
                   {group.links.map((link) => (
-                    <li key={link}>
-                      <a href="#tu-van" className="transition-colors hover:text-white">
-                        {link}
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        {...("external" in link && link.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                        className="transition-colors hover:text-white"
+                      >
+                        {link.label}
                       </a>
                     </li>
                   ))}
@@ -75,38 +90,10 @@ export function Footer() {
             ))}
           </div>
 
-          <div className="mt-12 flex justify-center gap-4">
-            <a
-              href={contactDockLinks.messengerHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid size-12 place-items-center rounded-full bg-white/14 text-white transition-colors hover:bg-white/22"
-              aria-label="Messenger Chuyên Tin"
-            >
-              <MessengerIcon className="size-6" />
-            </a>
-            <a
-              href={contactDockLinks.zaloHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid size-12 place-items-center rounded-full bg-white/14 text-white transition-colors hover:bg-white/22"
-              aria-label="Zalo tư vấn"
-            >
-              <ZaloIcon className="size-6" />
-            </a>
-            <a
-              href="#tu-van"
-              className="grid size-12 place-items-center rounded-full bg-white/14 text-white transition-colors hover:bg-white/22"
-              aria-label="Youtube Chuyên Tin"
-            >
-              <YoutubeIcon className="size-6" />
-            </a>
-          </div>
-
           <div className="mt-12 grid gap-5 border-t border-white/14 pt-12 text-sm font-semibold text-white/66 md:grid-cols-[1fr_auto] md:items-center">
-            <p>
-              Chuyên Tin là nền tảng ôn luyện và mentor cho học sinh THCS định hướng chuyên Tin.
-              Tư vấn lộ trình dựa trên bài làm thật, không cam kết kết quả tuyệt đối.
+            <p className="text-pretty">
+              Chuyên Tin đồng hành cùng học sinh THCS xây nền tư duy tính toán và ôn thi chuyên Tin —
+              minh bạch tiến độ, không cam kết kết quả tuyệt đối.
             </p>
             <p className="font-black text-white">© 2026 Chuyên Tin</p>
           </div>
